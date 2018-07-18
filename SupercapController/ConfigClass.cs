@@ -31,5 +31,20 @@ namespace SupercapController
         public const int MEASURE_INFO_BASE = 512;
         public const int MEASURE_INFO_LEN = 34;
         public const int HEADER_LENGTH = 14;
+
+
+
+        /// <summary>
+        /// Updates current working addres for sending commands
+        /// </summary>
+        /// <param name="id"></param>
+        public static void UpdateWorkingDeviceAddress(int id)
+        {
+
+            deviceAddr = (byte)id;
+            deviceGainCH0 = DeviceGainStorageSerializableClass.lastInstance.dev[id - 1].gainCH0;
+            deviceGainCH1 = DeviceGainStorageSerializableClass.lastInstance.dev[id - 1].gainCH1;
+        }
+
     }
 }

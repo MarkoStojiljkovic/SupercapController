@@ -11,7 +11,6 @@ namespace SupercapController
     class MeasurementHeaderClass
     {
         public int headerAddress;
-        public bool ready;
 
         public int dataAddress;
         public int[] timestamp;
@@ -25,9 +24,7 @@ namespace SupercapController
         {
             headerAddress = head;
             dataAddress = headerAddress + 14; // Header is 14 bytes, data is placed just after header
-            ready = false;
         }
-
     }
 }
 

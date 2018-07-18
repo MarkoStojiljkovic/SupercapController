@@ -49,6 +49,7 @@
             this.buttonDataDownloadGetMeasures = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelDebugCompositeInstructions = new System.Windows.Forms.Panel();
+            this.checkBoxDebugUseDefGain = new System.Windows.Forms.CheckBox();
             this.labelDebugBytesUsed = new System.Windows.Forms.Label();
             this.buttonDebugExecute = new System.Windows.Forms.Button();
             this.buttonDebugResetInstructions = new System.Windows.Forms.Button();
@@ -57,6 +58,12 @@
             this.buttonDebugCompositeFinishDisch100A = new System.Windows.Forms.Button();
             this.buttonDebugCompositeFinishDisch10A = new System.Windows.Forms.Button();
             this.panelDebugInstructionList = new System.Windows.Forms.Panel();
+            this.comboBoxDebugDisableCritHigh = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.buttonDebugDiasbleCriticalHigh = new System.Windows.Forms.Button();
+            this.comboBoxDebugDisableCritLow = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.buttonDebugDiasbleCriticalLow = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxDebugSetCriticalHighGain = new System.Windows.Forms.TextBox();
@@ -127,6 +134,7 @@
             this.buttonDebugDataRecTask = new System.Windows.Forms.Button();
             this.textBoxDebugInstructionPool = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewCap1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -288,7 +296,8 @@
             // 
             // buttonDataDownloadAddrSelect
             // 
-            this.buttonDataDownloadAddrSelect.Location = new System.Drawing.Point(366, 39);
+            this.buttonDataDownloadAddrSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDataDownloadAddrSelect.Location = new System.Drawing.Point(418, 39);
             this.buttonDataDownloadAddrSelect.Name = "buttonDataDownloadAddrSelect";
             this.buttonDataDownloadAddrSelect.Size = new System.Drawing.Size(100, 23);
             this.buttonDataDownloadAddrSelect.TabIndex = 9;
@@ -298,7 +307,8 @@
             // 
             // textBoxDataDownloadAddrSelect
             // 
-            this.textBoxDataDownloadAddrSelect.Location = new System.Drawing.Point(366, 14);
+            this.textBoxDataDownloadAddrSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDataDownloadAddrSelect.Location = new System.Drawing.Point(418, 14);
             this.textBoxDataDownloadAddrSelect.MaxLength = 3;
             this.textBoxDataDownloadAddrSelect.Name = "textBoxDataDownloadAddrSelect";
             this.textBoxDataDownloadAddrSelect.Size = new System.Drawing.Size(100, 20);
@@ -393,6 +403,7 @@
             this.panelDebugCompositeInstructions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDebugCompositeInstructions.AutoScroll = true;
+            this.panelDebugCompositeInstructions.Controls.Add(this.checkBoxDebugUseDefGain);
             this.panelDebugCompositeInstructions.Controls.Add(this.labelDebugBytesUsed);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugExecute);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugResetInstructions);
@@ -405,10 +416,22 @@
             this.panelDebugCompositeInstructions.Size = new System.Drawing.Size(164, 454);
             this.panelDebugCompositeInstructions.TabIndex = 9;
             // 
+            // checkBoxDebugUseDefGain
+            // 
+            this.checkBoxDebugUseDefGain.AutoSize = true;
+            this.checkBoxDebugUseDefGain.Checked = true;
+            this.checkBoxDebugUseDefGain.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDebugUseDefGain.Location = new System.Drawing.Point(16, 120);
+            this.checkBoxDebugUseDefGain.Name = "checkBoxDebugUseDefGain";
+            this.checkBoxDebugUseDefGain.Size = new System.Drawing.Size(140, 17);
+            this.checkBoxDebugUseDefGain.TabIndex = 140;
+            this.checkBoxDebugUseDefGain.Text = "Use Gain From Conf File";
+            this.checkBoxDebugUseDefGain.UseVisualStyleBackColor = true;
+            // 
             // labelDebugBytesUsed
             // 
             this.labelDebugBytesUsed.AutoSize = true;
-            this.labelDebugBytesUsed.Location = new System.Drawing.Point(14, 124);
+            this.labelDebugBytesUsed.Location = new System.Drawing.Point(13, 151);
             this.labelDebugBytesUsed.Name = "labelDebugBytesUsed";
             this.labelDebugBytesUsed.Size = new System.Drawing.Size(76, 13);
             this.labelDebugBytesUsed.TabIndex = 139;
@@ -478,6 +501,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDebugInstructionList.AutoScroll = true;
+            this.panelDebugInstructionList.Controls.Add(this.comboBoxDebugDisableCritHigh);
+            this.panelDebugInstructionList.Controls.Add(this.label24);
+            this.panelDebugInstructionList.Controls.Add(this.buttonDebugDiasbleCriticalHigh);
+            this.panelDebugInstructionList.Controls.Add(this.comboBoxDebugDisableCritLow);
+            this.panelDebugInstructionList.Controls.Add(this.label23);
+            this.panelDebugInstructionList.Controls.Add(this.buttonDebugDiasbleCriticalLow);
             this.panelDebugInstructionList.Controls.Add(this.label22);
             this.panelDebugInstructionList.Controls.Add(this.label21);
             this.panelDebugInstructionList.Controls.Add(this.textBoxDebugSetCriticalHighGain);
@@ -551,10 +580,70 @@
             this.panelDebugInstructionList.Size = new System.Drawing.Size(484, 452);
             this.panelDebugInstructionList.TabIndex = 6;
             // 
+            // comboBoxDebugDisableCritHigh
+            // 
+            this.comboBoxDebugDisableCritHigh.FormattingEnabled = true;
+            this.comboBoxDebugDisableCritHigh.Items.AddRange(new object[] {
+            "CH0",
+            "CH1"});
+            this.comboBoxDebugDisableCritHigh.Location = new System.Drawing.Point(121, 457);
+            this.comboBoxDebugDisableCritHigh.Name = "comboBoxDebugDisableCritHigh";
+            this.comboBoxDebugDisableCritHigh.Size = new System.Drawing.Size(73, 21);
+            this.comboBoxDebugDisableCritHigh.TabIndex = 150;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(118, 442);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(50, 13);
+            this.label24.TabIndex = 149;
+            this.label24.Text = "Ch Mode";
+            // 
+            // buttonDebugDiasbleCriticalHigh
+            // 
+            this.buttonDebugDiasbleCriticalHigh.Location = new System.Drawing.Point(4, 457);
+            this.buttonDebugDiasbleCriticalHigh.Name = "buttonDebugDiasbleCriticalHigh";
+            this.buttonDebugDiasbleCriticalHigh.Size = new System.Drawing.Size(112, 23);
+            this.buttonDebugDiasbleCriticalHigh.TabIndex = 148;
+            this.buttonDebugDiasbleCriticalHigh.Text = "Disable Critical High";
+            this.buttonDebugDiasbleCriticalHigh.UseVisualStyleBackColor = true;
+            this.buttonDebugDiasbleCriticalHigh.Click += new System.EventHandler(this.buttonDebugDiasbleCriticalHigh_Click);
+            // 
+            // comboBoxDebugDisableCritLow
+            // 
+            this.comboBoxDebugDisableCritLow.FormattingEnabled = true;
+            this.comboBoxDebugDisableCritLow.Items.AddRange(new object[] {
+            "CH0",
+            "CH1"});
+            this.comboBoxDebugDisableCritLow.Location = new System.Drawing.Point(121, 356);
+            this.comboBoxDebugDisableCritLow.Name = "comboBoxDebugDisableCritLow";
+            this.comboBoxDebugDisableCritLow.Size = new System.Drawing.Size(73, 21);
+            this.comboBoxDebugDisableCritLow.TabIndex = 147;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(118, 341);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(50, 13);
+            this.label23.TabIndex = 146;
+            this.label23.Text = "Ch Mode";
+            // 
+            // buttonDebugDiasbleCriticalLow
+            // 
+            this.buttonDebugDiasbleCriticalLow.Location = new System.Drawing.Point(4, 356);
+            this.buttonDebugDiasbleCriticalLow.Name = "buttonDebugDiasbleCriticalLow";
+            this.buttonDebugDiasbleCriticalLow.Size = new System.Drawing.Size(112, 23);
+            this.buttonDebugDiasbleCriticalLow.TabIndex = 145;
+            this.buttonDebugDiasbleCriticalLow.Text = "Disable Critical Low";
+            this.buttonDebugDiasbleCriticalLow.UseVisualStyleBackColor = true;
+            this.buttonDebugDiasbleCriticalLow.Click += new System.EventHandler(this.buttonDebugDiasbleCriticalLow_Click);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(308, 340);
+            this.label22.Location = new System.Drawing.Point(309, 391);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(29, 13);
             this.label22.TabIndex = 143;
@@ -571,14 +660,14 @@
             // 
             // textBoxDebugSetCriticalHighGain
             // 
-            this.textBoxDebugSetCriticalHighGain.Location = new System.Drawing.Point(305, 357);
+            this.textBoxDebugSetCriticalHighGain.Location = new System.Drawing.Point(306, 408);
             this.textBoxDebugSetCriticalHighGain.Name = "textBoxDebugSetCriticalHighGain";
             this.textBoxDebugSetCriticalHighGain.Size = new System.Drawing.Size(75, 20);
             this.textBoxDebugSetCriticalHighGain.TabIndex = 141;
             // 
             // textBoxDebugSetCriticalLowGain
             // 
-            this.textBoxDebugSetCriticalLowGain.Location = new System.Drawing.Point(305, 307);
+            this.textBoxDebugSetCriticalLowGain.Location = new System.Drawing.Point(306, 307);
             this.textBoxDebugSetCriticalLowGain.Name = "textBoxDebugSetCriticalLowGain";
             this.textBoxDebugSetCriticalLowGain.Size = new System.Drawing.Size(75, 20);
             this.textBoxDebugSetCriticalLowGain.TabIndex = 140;
@@ -619,7 +708,7 @@
             // 
             // buttonDebugResOff
             // 
-            this.buttonDebugResOff.Location = new System.Drawing.Point(3, 990);
+            this.buttonDebugResOff.Location = new System.Drawing.Point(4, 1081);
             this.buttonDebugResOff.Name = "buttonDebugResOff";
             this.buttonDebugResOff.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugResOff.TabIndex = 135;
@@ -629,7 +718,7 @@
             // 
             // buttonDebugResOn
             // 
-            this.buttonDebugResOn.Location = new System.Drawing.Point(4, 961);
+            this.buttonDebugResOn.Location = new System.Drawing.Point(5, 1052);
             this.buttonDebugResOn.Name = "buttonDebugResOn";
             this.buttonDebugResOn.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugResOn.TabIndex = 134;
@@ -639,7 +728,7 @@
             // 
             // buttonDebugFanoxOff
             // 
-            this.buttonDebugFanoxOff.Location = new System.Drawing.Point(4, 920);
+            this.buttonDebugFanoxOff.Location = new System.Drawing.Point(5, 1011);
             this.buttonDebugFanoxOff.Name = "buttonDebugFanoxOff";
             this.buttonDebugFanoxOff.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugFanoxOff.TabIndex = 133;
@@ -649,7 +738,7 @@
             // 
             // buttonDebugFanoxOn
             // 
-            this.buttonDebugFanoxOn.Location = new System.Drawing.Point(4, 891);
+            this.buttonDebugFanoxOn.Location = new System.Drawing.Point(5, 982);
             this.buttonDebugFanoxOn.Name = "buttonDebugFanoxOn";
             this.buttonDebugFanoxOn.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugFanoxOn.TabIndex = 132;
@@ -659,7 +748,7 @@
             // 
             // buttonDebugDischarger10AOffS2
             // 
-            this.buttonDebugDischarger10AOffS2.Location = new System.Drawing.Point(4, 845);
+            this.buttonDebugDischarger10AOffS2.Location = new System.Drawing.Point(4, 944);
             this.buttonDebugDischarger10AOffS2.Name = "buttonDebugDischarger10AOffS2";
             this.buttonDebugDischarger10AOffS2.Size = new System.Drawing.Size(124, 23);
             this.buttonDebugDischarger10AOffS2.TabIndex = 131;
@@ -669,7 +758,7 @@
             // 
             // buttonDebugDischarger10AOffS1
             // 
-            this.buttonDebugDischarger10AOffS1.Location = new System.Drawing.Point(4, 807);
+            this.buttonDebugDischarger10AOffS1.Location = new System.Drawing.Point(4, 906);
             this.buttonDebugDischarger10AOffS1.Name = "buttonDebugDischarger10AOffS1";
             this.buttonDebugDischarger10AOffS1.Size = new System.Drawing.Size(124, 23);
             this.buttonDebugDischarger10AOffS1.TabIndex = 130;
@@ -679,7 +768,7 @@
             // 
             // buttonDebugDischarger10AOn
             // 
-            this.buttonDebugDischarger10AOn.Location = new System.Drawing.Point(4, 768);
+            this.buttonDebugDischarger10AOn.Location = new System.Drawing.Point(4, 867);
             this.buttonDebugDischarger10AOn.Name = "buttonDebugDischarger10AOn";
             this.buttonDebugDischarger10AOn.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugDischarger10AOn.TabIndex = 129;
@@ -689,7 +778,7 @@
             // 
             // buttonDebugDischarger100AOffS2
             // 
-            this.buttonDebugDischarger100AOffS2.Location = new System.Drawing.Point(4, 721);
+            this.buttonDebugDischarger100AOffS2.Location = new System.Drawing.Point(4, 818);
             this.buttonDebugDischarger100AOffS2.Name = "buttonDebugDischarger100AOffS2";
             this.buttonDebugDischarger100AOffS2.Size = new System.Drawing.Size(124, 23);
             this.buttonDebugDischarger100AOffS2.TabIndex = 128;
@@ -699,7 +788,7 @@
             // 
             // buttonDebugDischarger100AOffS1
             // 
-            this.buttonDebugDischarger100AOffS1.Location = new System.Drawing.Point(4, 683);
+            this.buttonDebugDischarger100AOffS1.Location = new System.Drawing.Point(4, 778);
             this.buttonDebugDischarger100AOffS1.Name = "buttonDebugDischarger100AOffS1";
             this.buttonDebugDischarger100AOffS1.Size = new System.Drawing.Size(124, 23);
             this.buttonDebugDischarger100AOffS1.TabIndex = 127;
@@ -709,7 +798,7 @@
             // 
             // buttonDebugDischarger100AOn
             // 
-            this.buttonDebugDischarger100AOn.Location = new System.Drawing.Point(4, 644);
+            this.buttonDebugDischarger100AOn.Location = new System.Drawing.Point(4, 739);
             this.buttonDebugDischarger100AOn.Name = "buttonDebugDischarger100AOn";
             this.buttonDebugDischarger100AOn.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugDischarger100AOn.TabIndex = 126;
@@ -719,7 +808,7 @@
             // 
             // buttonDebugChargerOff
             // 
-            this.buttonDebugChargerOff.Location = new System.Drawing.Point(4, 606);
+            this.buttonDebugChargerOff.Location = new System.Drawing.Point(4, 701);
             this.buttonDebugChargerOff.Name = "buttonDebugChargerOff";
             this.buttonDebugChargerOff.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugChargerOff.TabIndex = 125;
@@ -729,7 +818,7 @@
             // 
             // buttonDebugChargerOn
             // 
-            this.buttonDebugChargerOn.Location = new System.Drawing.Point(4, 567);
+            this.buttonDebugChargerOn.Location = new System.Drawing.Point(4, 662);
             this.buttonDebugChargerOn.Name = "buttonDebugChargerOn";
             this.buttonDebugChargerOn.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugChargerOn.TabIndex = 124;
@@ -739,14 +828,14 @@
             // 
             // textBoxDebugPinSetLow
             // 
-            this.textBoxDebugPinSetLow.Location = new System.Drawing.Point(121, 526);
+            this.textBoxDebugPinSetLow.Location = new System.Drawing.Point(121, 633);
             this.textBoxDebugPinSetLow.Name = "textBoxDebugPinSetLow";
             this.textBoxDebugPinSetLow.Size = new System.Drawing.Size(65, 20);
             this.textBoxDebugPinSetLow.TabIndex = 123;
             // 
             // buttonDebugPinSetLow
             // 
-            this.buttonDebugPinSetLow.Location = new System.Drawing.Point(3, 526);
+            this.buttonDebugPinSetLow.Location = new System.Drawing.Point(3, 633);
             this.buttonDebugPinSetLow.Name = "buttonDebugPinSetLow";
             this.buttonDebugPinSetLow.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugPinSetLow.TabIndex = 122;
@@ -756,14 +845,14 @@
             // 
             // textBoxDebugPinSetHigh
             // 
-            this.textBoxDebugPinSetHigh.Location = new System.Drawing.Point(121, 486);
+            this.textBoxDebugPinSetHigh.Location = new System.Drawing.Point(121, 593);
             this.textBoxDebugPinSetHigh.Name = "textBoxDebugPinSetHigh";
             this.textBoxDebugPinSetHigh.Size = new System.Drawing.Size(65, 20);
             this.textBoxDebugPinSetHigh.TabIndex = 121;
             // 
             // buttonDebugPinSetHigh
             // 
-            this.buttonDebugPinSetHigh.Location = new System.Drawing.Point(3, 486);
+            this.buttonDebugPinSetHigh.Location = new System.Drawing.Point(3, 593);
             this.buttonDebugPinSetHigh.Name = "buttonDebugPinSetHigh";
             this.buttonDebugPinSetHigh.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugPinSetHigh.TabIndex = 120;
@@ -878,7 +967,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(121, 430);
+            this.label11.Location = new System.Drawing.Point(121, 537);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(66, 13);
             this.label11.TabIndex = 106;
@@ -886,14 +975,14 @@
             // 
             // textBoxDebugLedOff
             // 
-            this.textBoxDebugLedOff.Location = new System.Drawing.Point(121, 446);
+            this.textBoxDebugLedOff.Location = new System.Drawing.Point(121, 553);
             this.textBoxDebugLedOff.Name = "textBoxDebugLedOff";
             this.textBoxDebugLedOff.Size = new System.Drawing.Size(65, 20);
             this.textBoxDebugLedOff.TabIndex = 105;
             // 
             // buttonDebugLedOff
             // 
-            this.buttonDebugLedOff.Location = new System.Drawing.Point(4, 444);
+            this.buttonDebugLedOff.Location = new System.Drawing.Point(4, 551);
             this.buttonDebugLedOff.Name = "buttonDebugLedOff";
             this.buttonDebugLedOff.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugLedOff.TabIndex = 104;
@@ -904,7 +993,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(121, 381);
+            this.label10.Location = new System.Drawing.Point(121, 488);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 13);
             this.label10.TabIndex = 103;
@@ -912,14 +1001,14 @@
             // 
             // textBoxDebugLedOn
             // 
-            this.textBoxDebugLedOn.Location = new System.Drawing.Point(121, 397);
+            this.textBoxDebugLedOn.Location = new System.Drawing.Point(121, 504);
             this.textBoxDebugLedOn.Name = "textBoxDebugLedOn";
             this.textBoxDebugLedOn.Size = new System.Drawing.Size(65, 20);
             this.textBoxDebugLedOn.TabIndex = 102;
             // 
             // buttonDebugLedOn
             // 
-            this.buttonDebugLedOn.Location = new System.Drawing.Point(4, 395);
+            this.buttonDebugLedOn.Location = new System.Drawing.Point(4, 502);
             this.buttonDebugLedOn.Name = "buttonDebugLedOn";
             this.buttonDebugLedOn.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugLedOn.TabIndex = 101;
@@ -933,7 +1022,7 @@
             this.comboBoxDebugSetCritHigh.Items.AddRange(new object[] {
             "CH0",
             "CH1"});
-            this.comboBoxDebugSetCritHigh.Location = new System.Drawing.Point(227, 355);
+            this.comboBoxDebugSetCritHigh.Location = new System.Drawing.Point(228, 406);
             this.comboBoxDebugSetCritHigh.Name = "comboBoxDebugSetCritHigh";
             this.comboBoxDebugSetCritHigh.Size = new System.Drawing.Size(73, 21);
             this.comboBoxDebugSetCritHigh.TabIndex = 100;
@@ -941,7 +1030,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(224, 340);
+            this.label8.Location = new System.Drawing.Point(225, 391);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 99;
@@ -950,7 +1039,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(121, 340);
+            this.label9.Location = new System.Drawing.Point(122, 391);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 13);
             this.label9.TabIndex = 98;
@@ -958,14 +1047,14 @@
             // 
             // textBoxDebugSetCriticalHigh
             // 
-            this.textBoxDebugSetCriticalHigh.Location = new System.Drawing.Point(121, 356);
+            this.textBoxDebugSetCriticalHigh.Location = new System.Drawing.Point(122, 407);
             this.textBoxDebugSetCriticalHigh.Name = "textBoxDebugSetCriticalHigh";
             this.textBoxDebugSetCriticalHigh.Size = new System.Drawing.Size(100, 20);
             this.textBoxDebugSetCriticalHigh.TabIndex = 97;
             // 
             // buttonDebugSetCriticalHigh
             // 
-            this.buttonDebugSetCriticalHigh.Location = new System.Drawing.Point(3, 354);
+            this.buttonDebugSetCriticalHigh.Location = new System.Drawing.Point(4, 405);
             this.buttonDebugSetCriticalHigh.Name = "buttonDebugSetCriticalHigh";
             this.buttonDebugSetCriticalHigh.Size = new System.Drawing.Size(112, 23);
             this.buttonDebugSetCriticalHigh.TabIndex = 96;
@@ -1181,6 +1270,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.dataGridViewCap1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -1189,6 +1279,15 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Cap1";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(70, 311);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewCap1
             // 
@@ -1757,6 +1856,14 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn10;
+        private System.Windows.Forms.CheckBox checkBoxDebugUseDefGain;
+        private System.Windows.Forms.Button buttonDebugDiasbleCriticalLow;
+        private System.Windows.Forms.ComboBox comboBoxDebugDisableCritHigh;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button buttonDebugDiasbleCriticalHigh;
+        private System.Windows.Forms.ComboBox comboBoxDebugDisableCritLow;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button1;
     }
 }
 

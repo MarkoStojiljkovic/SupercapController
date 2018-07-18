@@ -108,28 +108,59 @@ namespace SupercapController
         private void buttonDebugWaitForValueRising_Click(object sender, EventArgs e)
         {
             byte ch;
-            UInt16 latency;
+            UInt16 latency = 0;
             float value, gain;
 
-            try
-            {
-                ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugWaitForValueRising);
-                latency = Convert.ToUInt16(textBoxDebugWaitForValueRisingLatency.Text);
-                //string corectedValue = textBoxWaitForValueRisingValue.Text.Replace('.', ',');
-                //string correctedGain = textBoxWaitForValueRisingGain.Text.Replace('.', ',');
-                string corectedValue = textBoxDebugWaitForValueRisingValue.Text;
-                string correctedGain = textBoxDebugWaitForValueRisingGain.Text;
-                value = float.Parse(corectedValue);
-                gain = float.Parse(correctedGain);
-                value = value / gain;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Insert valid values!");
-                return;
-            }
+            
 
 
+            if (checkBoxDebugUseDefGain.Checked)
+            {
+                // Use gain that is inferred from configuration file
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugWaitForValueRising);
+                    //latency = Convert.ToUInt16(textBoxDebugWaitForValueRisingLatency.Text);
+                    string corectedValue = textBoxDebugWaitForValueRisingValue.Text;
+                    string correctedGain = textBoxDebugWaitForValueRisingGain.Text;
+                    value = float.Parse(corectedValue);
+                    if (ch == 0)
+                    {
+                        gain = ConfigClass.deviceGainCH0;
+                    }
+                    else
+                    {
+                        gain = ConfigClass.deviceGainCH1;
+                    }
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
+            }
+            else
+            {
+                // Use gain that is parsed from textbox
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugWaitForValueRising);
+                    //latency = Convert.ToUInt16(textBoxDebugWaitForValueRisingLatency.Text);
+                    string corectedValue = textBoxDebugWaitForValueRisingValue.Text;
+                    string correctedGain = textBoxDebugWaitForValueRisingGain.Text;
+                    value = float.Parse(corectedValue);
+                    gain = float.Parse(correctedGain);
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
+            }
+
+            
             com.AppendWaitForValueRising(ch, latency, value);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + comboBoxDebugWaitForValueRising.Text + ", " + latency +
                 ", " + value.ToString() + ")\r\n";
@@ -140,28 +171,53 @@ namespace SupercapController
         private void buttonDebugWaitForValueFalling_Click(object sender, EventArgs e)
         {
             byte ch;
-            UInt16 latency;
+            UInt16 latency = 0;
             float value, gain;
-
-            try
+            
+            if (checkBoxDebugUseDefGain.Checked)
             {
-                ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugWaitForValueFalling);
-                latency = Convert.ToUInt16(textBoxDebugWaitForValueFallingLatency.Text);
-                //string corectedValue = textBoxWaitForValueFallingValue.Text.Replace('.', ',');
-                //string correctedGain = textBoxWaitForValueFallingGain.Text.Replace('.', ',');
-                string corectedValue = textBoxDebugWaitForValueFallingValue.Text;
-                string correctedGain = textBoxDebugWaitForValueFallingGain.Text;
-                value = float.Parse(corectedValue);
-                gain = float.Parse(correctedGain);
-                value = value / gain;
+                // Use gain that is inferred from configuration file
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugWaitForValueFalling);
+                    string corectedValue = textBoxDebugWaitForValueFallingValue.Text;
+                    string correctedGain = textBoxDebugWaitForValueFallingGain.Text;
+                    value = float.Parse(corectedValue);
+                    if (ch == 0)
+                    {
+                        gain = ConfigClass.deviceGainCH0;
+                    }
+                    else
+                    {
+                        gain = ConfigClass.deviceGainCH1;
+                    }
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Insert valid values!");
-                return;
+                // Use gain that is parsed from textbox
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugWaitForValueFalling);
+                    string corectedValue = textBoxDebugWaitForValueFallingValue.Text;
+                    string correctedGain = textBoxDebugWaitForValueFallingGain.Text;
+                    value = float.Parse(corectedValue);
+                    gain = float.Parse(correctedGain);
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
             }
-
-
+            
             com.AppendWaitForValueFalling(ch, latency, value);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + comboBoxDebugWaitForValueFalling.Text + ", " + latency +
                 ", " + value.ToString() + ")\r\n";
@@ -172,19 +228,46 @@ namespace SupercapController
         private void buttonDebugSetCriticalLow_Click(object sender, EventArgs e)
         {
             byte ch;
-            float value;
+            float value, gain;
 
-            try
+            if (checkBoxDebugUseDefGain.Checked)
             {
-                ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugSetCritLow);
-                value = float.Parse(textBoxDebugSetCriticalLow.Text);
-                float gain = float.Parse(textBoxDebugSetCriticalLowGain.Text);
-                value = value / gain;
+                // Use gain that is inferred from configuration file
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugSetCritLow);
+                    value = float.Parse(textBoxDebugSetCriticalLow.Text);
+                    if (ch == 0)
+                    {
+                        gain = ConfigClass.deviceGainCH0;
+                    }
+                    else
+                    {
+                        gain = ConfigClass.deviceGainCH1;
+                    }
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Insert valid values!");
-                return;
+                // Use gain that is parsed from textbox
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugSetCritLow);
+                    value = float.Parse(textBoxDebugSetCriticalLow.Text);
+                    gain = float.Parse(textBoxDebugSetCriticalLowGain.Text);
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
             }
 
 
@@ -193,28 +276,90 @@ namespace SupercapController
             FormCustomConsole.WriteLine("SetCriticalLow(" + value + ", " + comboBoxDebugSetCritLow.Text + ")");
         }
 
-        private void buttonDebugSetCriticalHigh_Click(object sender, EventArgs e)
+        private void buttonDebugDiasbleCriticalLow_Click(object sender, EventArgs e)
         {
             byte ch;
-            float value;
-
             try
             {
-                ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugSetCritHigh);
-                value = float.Parse(textBoxDebugSetCriticalHigh.Text);
-                float gain = float.Parse(textBoxDebugSetCriticalHighGain.Text);
-                value = value / gain;
+                ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugDisableCritLow);
             }
             catch (Exception)
             {
                 MessageBox.Show("Insert valid values!");
                 return;
             }
+            UInt16 temp = 0x8000;
+            com.AppendSetCriticalLow(temp, ch);
+            textBoxDebugInstructionPool.Text += "DisableCriticalLow(" + comboBoxDebugDisableCritLow.Text + ")\r\n";
+            FormCustomConsole.WriteLine("DisableCriticalLow()\r\n");
+        }
 
+        private void buttonDebugSetCriticalHigh_Click(object sender, EventArgs e)
+        {
+            byte ch;
+            float value, gain;
 
+            if (checkBoxDebugUseDefGain.Checked)
+            {
+                // Use gain that is inferred from configuration file
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugSetCritHigh);
+                    value = float.Parse(textBoxDebugSetCriticalHigh.Text);
+                    if (ch == 0)
+                    {
+                        gain = ConfigClass.deviceGainCH0;
+                    }
+                    else
+                    {
+                        gain = ConfigClass.deviceGainCH1;
+                    }
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
+            }
+            else
+            {
+                // Use gain that is parsed from textbox
+                try
+                {
+                    ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugSetCritHigh);
+                    value = float.Parse(textBoxDebugSetCriticalHigh.Text);
+                    gain = float.Parse(textBoxDebugSetCriticalHighGain.Text);
+                    value = value / gain;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Insert valid values!");
+                    return;
+                }
+            }
+            
             com.AppendSetCriticalHigh(value, ch);
             textBoxDebugInstructionPool.Text += "SetCriticalHigh(" + value + ", " + comboBoxDebugSetCritHigh.Text + ")\r\n";
             FormCustomConsole.WriteLine("SetCriticalHigh(" + value + ", " + comboBoxDebugSetCritHigh.Text + ")");
+        }
+
+        private void buttonDebugDiasbleCriticalHigh_Click(object sender, EventArgs e)
+        {
+            byte ch;
+            try
+            {
+                ch = InputValidatorHelperClass.GetChModeFromComboBox(comboBoxDebugDisableCritHigh);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Insert valid values!");
+                return;
+            }
+            UInt16 temp = 0x8000;
+            com.AppendSetCriticalHigh(temp, ch);
+            textBoxDebugInstructionPool.Text += "DisableCriticalHigh(" + comboBoxDebugDisableCritHigh.Text + ")\r\n";
+            FormCustomConsole.WriteLine("DisableCriticalHigh()\r\n");
         }
 
         private void buttonDebugLedOn_Click(object sender, EventArgs e)

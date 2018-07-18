@@ -22,7 +22,6 @@ namespace SupercapController
         List<MeasurementHeaderClass> headers = new List<MeasurementHeaderClass>();
         int currentHeader = 0;
 
-
         delegate void ProcessUARTData(byte[] data); // Declare type for fucntion pointer
         ProcessUARTData processFunction = Dummy; // Default processing method
 
@@ -34,12 +33,13 @@ namespace SupercapController
             serial.ReadTimeout = 500; // 500ms
             serial.WriteTimeout = 500; // 500ms
             serial.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived); // Subscribe to fucking handler
-            SetThreadCultureInfo();
+
+            SetThreadCultureInfo(); // Select CultureInfo for this thread
 
             StartupConfigClass.Init();
-            UpdateWorkingDeviceAddress(0x31); // Select addr 0x31 as default
-            // Select CultureInfo for this thread
-            
+            ConfigClass.UpdateWorkingDeviceAddress(0x31); // Select addr 0x31 as default
+            this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
+
             #region Data Download
             // Initialize all controlls from DataDownload tab
             comboBoxDataDownloadSerial.Items.AddRange(SerialPort.GetPortNames());
@@ -54,7 +54,6 @@ namespace SupercapController
             
             PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
             PopulateCapDataGrid(ConfigClass.DevPoolCap2, dataGridViewCap2);
-            
         }
 
         private void PopulateCapDataGrid(DevicePoolSerializableClass devPool, DataGridView datagrid )
@@ -72,6 +71,13 @@ namespace SupercapController
             }
         }
 
+        /// <summary>
+        /// Correct datagrid based on conifiguration file (disable or skip some cells)
+        /// </summary>
+        /// <param name="rowIndex"></param>
+        /// <param name="colIndex"></param>
+        /// <param name="tup"></param>
+        /// <param name="datagrid"></param>
         private void CorrectDevicePoolGrid(int rowIndex,int colIndex, Tuple<bool, bool, int> tup, DataGridView datagrid)
         {
             // Adjust column index
@@ -233,7 +239,6 @@ namespace SupercapController
             headers[currentHeader].numOfPoints = decoder.Get2BytesAsInt();
             headers[currentHeader].operatingMode = decoder.Get1ByteAsInt();
             headers[currentHeader].channel = decoder.Get1ByteAsInt();
-            headers[currentHeader].ready = true;
 
             PopulateDataGridWithHeader(headers[currentHeader], currentHeader);
             uartReceiver.Reset();
@@ -317,34 +322,6 @@ namespace SupercapController
                 FormCustomConsole.WriteLine("Channel not recognized");
             }
         }
-
-#warning CODE FOR EXTRACTING SELECTED CHECKBOXES
-        private void CHANGE_ME()
-        {
-            List<int> list = new List<int>();
-            int rowIndex = 0;
-            int colIndex = 0;
-
-            foreach (DataGridViewRow item in dataGridViewCap1.Rows)
-            {
-                colIndex = 0;
-                foreach (DataGridViewCell item2 in item.Cells)
-                {
-                    if (item2 is DataGridViewCheckBoxCell)
-                    {
-                        if (item2.Value != null && item2.Value is bool)
-                        {
-                            if ((bool)item2.Value)
-                            {
-                                list.Add((int)dataGridViewCap1.Rows[rowIndex].Cells[colIndex - 1].Value);
-                            }
-                        }
-                    }
-                    colIndex++;
-                }
-                rowIndex++;
-            }
-        }
-
+        
     }
 }

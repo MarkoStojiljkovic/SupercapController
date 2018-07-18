@@ -66,7 +66,7 @@ namespace SupercapController
             FormCustomConsole cc = new FormCustomConsole();
             cc.Show();
         }
-
+        
         private void buttonDataDownloadAddrSelect_Click(object sender, EventArgs e)
         {
             // Addresses are ranging from 1 to 116
@@ -75,7 +75,8 @@ namespace SupercapController
             {
                 addr = Convert.ToInt32(textBoxDataDownloadAddrSelect.Text);
                 if (addr < 1 || addr > 116) throw new Exception();
-                UpdateWorkingDeviceAddress(addr);
+                ConfigClass.UpdateWorkingDeviceAddress(addr);
+                this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
             }
             catch (Exception)
             {
@@ -114,18 +115,5 @@ namespace SupercapController
             }
         }
 
-        /// <summary>
-        /// Updates current working addres for sending commands and form text property
-        /// </summary>
-        /// <param name="id"></param>
-        private void UpdateWorkingDeviceAddress(int id)
-        {
-            
-            ConfigClass.deviceAddr = (byte)id;
-            ConfigClass.deviceGainCH0 = DeviceGainStorageSerializableClass.lastInstance.dev[id - 1].gainCH0;
-            ConfigClass.deviceGainCH1 = DeviceGainStorageSerializableClass.lastInstance.dev[id - 1].gainCH1;
-            
-            this.Text = "Charger Controller   DEV_ADDR=" + id.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
-        }
     }
 }

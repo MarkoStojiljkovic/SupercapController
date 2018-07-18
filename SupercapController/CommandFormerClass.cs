@@ -91,7 +91,7 @@ namespace SupercapController
             // targt value is given in mV
             if (targetValue < 0)
             {
-                targetValue = 0 + delta;
+                targetValue = 0;
             }
 
             if (targetValue > 3300)
@@ -135,7 +135,7 @@ namespace SupercapController
             // targt value is given in mV
             if (targetValue < 0)
             {
-                targetValue = 0 + delta;
+                targetValue = 0;
             }
 
             if (targetValue > 3300)
@@ -161,15 +161,16 @@ namespace SupercapController
         }
         public void AppendSetCriticalLow(float targetValue, byte channel)
         {
+#warning IMPROVE THIS
             // targt value is given in mV
-            //if (targetValue < 0)
-            //{
-            //    targetValue = 0 + delta;
-            //}
 
             if (targetValue > 3300)
             {
                 targetValue = 3300 - delta;
+            }
+            else if (targetValue < 0)
+            {
+                targetValue = 0;
             }
             
             // Now convert to uint16
@@ -188,17 +189,18 @@ namespace SupercapController
             bl.AddRange(CustomConvertorClass.ConvertIntTo2Bytes(targetValue));
             bl.Add(channel);
         }
+
         public void AppendSetCriticalHigh(float targetValue, byte channel)
         {
             // targt value is given in mV
-            //if (targetValue < 0)
-            //{
-            //    targetValue = 0 + delta;
-            //}
 
             if (targetValue > 3300)
             {
                 targetValue = 3300 - delta;
+            }
+            else if (targetValue < 0)
+            {
+                targetValue = 0;
             }
             
             // Now convert to uint16
