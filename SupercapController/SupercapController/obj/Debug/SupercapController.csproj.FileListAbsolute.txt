@@ -1,0 +1,12 @@
+C:\workspace\ChargerController\SupercapController\SupercapController\bin\Debug\SupercapController.exe.config
+C:\workspace\ChargerController\SupercapController\SupercapController\bin\Debug\SupercapController.exe
+C:\workspace\ChargerController\SupercapController\SupercapController\bin\Debug\SupercapController.pdb
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.csprojResolveAssemblyReference.cache
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\DebugTools.FormCustomConsole.resources
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.FormMain.resources
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.FormMeasurementDualChannelPresenter.resources
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.FormMeasurementSingleChannelPresenter.resources
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.Properties.Resources.resources
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.csproj.GenerateResource.Cache
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.exe
+C:\workspace\ChargerController\SupercapController\SupercapController\obj\Debug\SupercapController.pdb

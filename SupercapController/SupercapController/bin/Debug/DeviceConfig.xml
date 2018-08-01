@@ -243,23 +243,23 @@
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>49</devAddr>
-      <gainCH0>1</gainCH0>
-      <gainCH1>1.3296</gainCH1>
+      <gainCH0>2</gainCH0>
+      <gainCH1>1.334</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>50</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1.33716</gainCH1>
+      <gainCH1>1</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>51</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1.33086</gainCH1>
+      <gainCH1>1</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>52</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1.33163</gainCH1>
+      <gainCH1>1</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>53</devAddr>

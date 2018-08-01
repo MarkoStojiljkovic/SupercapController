@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A12F49DE-762D-4378-B692-F77CD316BDAE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupercapController</RootNamespace>
+    <AssemblyName>SupercapController</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ByteArrayDecoderClass.cs" />
+    <Compile Include="CapSequencer.cs" />
+    <Compile Include="ChecksumClass.cs" />
+    <Compile Include="CommandFormerClass.cs" />
+    <Compile Include="ConfigClass.cs" />
+    <Compile Include="ConfigGainSerializable.cs" />
+    <Compile Include="CustomConvertorClass.cs" />
+    <Compile Include="DevicePoolSerializableClass.cs" />
+    <Compile Include="FormCustomConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomConsole.designer.cs">
+      <DependentUpon>FormCustomConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.DataDownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Debug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMeasurementDualChannelPresenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMeasurementDualChannelPresenter.Designer.cs">
+      <DependentUpon>FormMeasurementDualChannelPresenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMeasurementSingleChannelPresenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMeasurementSingleChannelPresenter.Designer.cs">
+      <DependentUpon>FormMeasurementSingleChannelPresenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputValidatorHelperClass.cs" />
+    <Compile Include="MeasurementHeaderClass.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveMeasurementsToCSVClass.cs" />
+    <Compile Include="StartupConfigClass.cs" />
+    <Compile Include="SupercapHelperClass.cs" />
+    <Compile Include="Ticker.cs" />
+    <Compile Include="Timer.cs" />
+    <Compile Include="UARTDataReceiverClass.cs" />
+    <Compile Include="UARTHelperClass.cs" />
+    <EmbeddedResource Include="FormCustomConsole.resx">
+      <DependentUpon>FormCustomConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMeasurementDualChannelPresenter.resx">
+      <DependentUpon>FormMeasurementDualChannelPresenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMeasurementSingleChannelPresenter.resx">
+      <DependentUpon>FormMeasurementSingleChannelPresenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

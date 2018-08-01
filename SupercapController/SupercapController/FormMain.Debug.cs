@@ -269,8 +269,7 @@ namespace SupercapController
                     return;
                 }
             }
-
-
+            
             com.AppendSetCriticalLow(value, ch);
             textBoxDebugInstructionPool.Text += "SetCriticalLow(" + value + ", " + comboBoxDebugSetCritLow.Text + ")\r\n";
             FormCustomConsole.WriteLine("SetCriticalLow(" + value + ", " + comboBoxDebugSetCritLow.Text + ")");
@@ -338,7 +337,6 @@ namespace SupercapController
                     return;
                 }
             }
-            
             com.AppendSetCriticalHigh(value, ch);
             textBoxDebugInstructionPool.Text += "SetCriticalHigh(" + value + ", " + comboBoxDebugSetCritHigh.Text + ")\r\n";
             FormCustomConsole.WriteLine("SetCriticalHigh(" + value + ", " + comboBoxDebugSetCritHigh.Text + ")");
@@ -451,17 +449,17 @@ namespace SupercapController
         private void buttonDebugFastChargerOn_Click(object sender, EventArgs e)
         {
             com.FastChargeOn();
-            textBoxDebugInstructionPool.Text += "FastChargerOn\r\n";
+            textBoxDebugInstructionPool.Text += "Fast Charger On\r\n";
             FormCustomConsole.WriteLine("FastChargerOn");
         }
 
         private void buttonDebugFastChargerOff_Click(object sender, EventArgs e)
         {
             com.FastChargeOff();
-            textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
+            textBoxDebugInstructionPool.Text += "Fast Charger Off\r\n";
             FormCustomConsole.WriteLine("FastChargerOff");
         }
-        
+
         private void buttonDebugDischarger100AOn_Click(object sender, EventArgs e)
         {
             com.AppendDischarger100AOn();
@@ -582,34 +580,6 @@ namespace SupercapController
             com.AppendDischarger100AOffS2();
             textBoxDebugInstructionPool.Text += "Discharger100AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger100AOff S2");
-        }
-
-        private void buttonMiksa_Click(object sender, EventArgs e)
-        {
-            buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
-            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
-        }
-
-        private void buttonTestRunDown10A_Click(object sender, EventArgs e)
-        {
-            buttonDebugDischarger10AOn_Click(this, EventArgs.Empty);
-            buttonDebugWaitForValueFalling_Click(this, EventArgs.Empty);
-            buttonDebugCompositeFinishDisch10A_Click(this, EventArgs.Empty);
-        }
-
-        private void buttonTestRunDown100A_Click(object sender, EventArgs e)
-        {
-            buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
-            buttonDebugWaitForValueFalling_Click(this, EventArgs.Empty);
-            buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
-        }
-
-        private void buttonTestRunUp_Click(object sender, EventArgs e)
-        {
-            buttonDebugChargerOn_Click(this, EventArgs.Empty);
-            buttonDebugWaitForValueRising_Click(this, EventArgs.Empty);
-            buttonDebugFastChargerOff_Click(this, EventArgs.Empty);
         }
     }
 }

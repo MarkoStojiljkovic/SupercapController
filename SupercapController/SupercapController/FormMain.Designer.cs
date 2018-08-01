@@ -49,7 +49,6 @@
             this.buttonDataDownloadGetMeasures = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelDebugCompositeInstructions = new System.Windows.Forms.Panel();
-            this.buttonMiksa = new System.Windows.Forms.Button();
             this.checkBoxDebugUseDefGain = new System.Windows.Forms.CheckBox();
             this.labelDebugBytesUsed = new System.Windows.Forms.Label();
             this.buttonDebugExecute = new System.Windows.Forms.Button();
@@ -59,8 +58,6 @@
             this.buttonDebugCompositeFinishDisch100A = new System.Windows.Forms.Button();
             this.buttonDebugCompositeFinishDisch10A = new System.Windows.Forms.Button();
             this.panelDebugInstructionList = new System.Windows.Forms.Panel();
-            this.buttonDebugFastChargerOff = new System.Windows.Forms.Button();
-            this.buttonDebugFastChargerOn = new System.Windows.Forms.Button();
             this.comboBoxDebugDisableCritHigh = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.buttonDebugDiasbleCriticalHigh = new System.Windows.Forms.Button();
@@ -183,9 +180,8 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.buttonTestRunDown10A = new System.Windows.Forms.Button();
-            this.buttonTestRunDown100A = new System.Windows.Forms.Button();
-            this.buttonTestRunUp = new System.Windows.Forms.Button();
+            this.buttonDebugFastChargerOff = new System.Windows.Forms.Button();
+            this.buttonDebugFastChargerOn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -216,7 +212,7 @@
             this.ChannelCol,
             this.GetDataCol});
             this.dataGridViewDataDownloadMesHeaders.Location = new System.Drawing.Point(33, 90);
-            this.dataGridViewDataDownloadMesHeaders.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewDataDownloadMesHeaders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewDataDownloadMesHeaders.Name = "dataGridViewDataDownloadMesHeaders";
             this.dataGridViewDataDownloadMesHeaders.ReadOnly = true;
             this.dataGridViewDataDownloadMesHeaders.RowHeadersVisible = false;
@@ -276,7 +272,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(16, 15);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1275, 603);
@@ -295,9 +291,9 @@
             this.tabPage1.Controls.Add(this.buttonDataDownloadGetMeasures);
             this.tabPage1.Controls.Add(this.dataGridViewDataDownloadMesHeaders);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Size = new System.Drawing.Size(1267, 574);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Download";
@@ -307,7 +303,7 @@
             // 
             this.buttonDataDownloadAddrSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDataDownloadAddrSelect.Location = new System.Drawing.Point(557, 48);
-            this.buttonDataDownloadAddrSelect.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDataDownloadAddrSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDataDownloadAddrSelect.Name = "buttonDataDownloadAddrSelect";
             this.buttonDataDownloadAddrSelect.Size = new System.Drawing.Size(133, 28);
             this.buttonDataDownloadAddrSelect.TabIndex = 9;
@@ -319,7 +315,7 @@
             // 
             this.textBoxDataDownloadAddrSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDataDownloadAddrSelect.Location = new System.Drawing.Point(557, 17);
-            this.textBoxDataDownloadAddrSelect.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDataDownloadAddrSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDataDownloadAddrSelect.MaxLength = 3;
             this.textBoxDataDownloadAddrSelect.Name = "textBoxDataDownloadAddrSelect";
             this.textBoxDataDownloadAddrSelect.Size = new System.Drawing.Size(132, 22);
@@ -328,7 +324,7 @@
             // buttonDataDownloadConsole
             // 
             this.buttonDataDownloadConsole.Location = new System.Drawing.Point(33, 9);
-            this.buttonDataDownloadConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDataDownloadConsole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDataDownloadConsole.Name = "buttonDataDownloadConsole";
             this.buttonDataDownloadConsole.Size = new System.Drawing.Size(100, 28);
             this.buttonDataDownloadConsole.TabIndex = 7;
@@ -351,7 +347,7 @@
             // 
             this.buttonDataDownloadSerialDisconnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDataDownloadSerialDisconnect.Location = new System.Drawing.Point(876, 54);
-            this.buttonDataDownloadSerialDisconnect.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDataDownloadSerialDisconnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDataDownloadSerialDisconnect.Name = "buttonDataDownloadSerialDisconnect";
             this.buttonDataDownloadSerialDisconnect.Size = new System.Drawing.Size(100, 28);
             this.buttonDataDownloadSerialDisconnect.TabIndex = 5;
@@ -363,7 +359,7 @@
             // 
             this.buttonDataDownloadSerialConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDataDownloadSerialConnect.Location = new System.Drawing.Point(876, 17);
-            this.buttonDataDownloadSerialConnect.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDataDownloadSerialConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDataDownloadSerialConnect.Name = "buttonDataDownloadSerialConnect";
             this.buttonDataDownloadSerialConnect.Size = new System.Drawing.Size(100, 28);
             this.buttonDataDownloadSerialConnect.TabIndex = 4;
@@ -376,7 +372,7 @@
             this.comboBoxDataDownloadSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxDataDownloadSerial.FormattingEnabled = true;
             this.comboBoxDataDownloadSerial.Location = new System.Drawing.Point(705, 17);
-            this.comboBoxDataDownloadSerial.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDataDownloadSerial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDataDownloadSerial.Name = "comboBoxDataDownloadSerial";
             this.comboBoxDataDownloadSerial.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDataDownloadSerial.TabIndex = 3;
@@ -384,7 +380,7 @@
             // buttonDataDownloadErase
             // 
             this.buttonDataDownloadErase.Location = new System.Drawing.Point(143, 48);
-            this.buttonDataDownloadErase.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDataDownloadErase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDataDownloadErase.Name = "buttonDataDownloadErase";
             this.buttonDataDownloadErase.Size = new System.Drawing.Size(100, 28);
             this.buttonDataDownloadErase.TabIndex = 2;
@@ -395,7 +391,7 @@
             // buttonDataDownloadGetMeasures
             // 
             this.buttonDataDownloadGetMeasures.Location = new System.Drawing.Point(33, 48);
-            this.buttonDataDownloadGetMeasures.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDataDownloadGetMeasures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDataDownloadGetMeasures.Name = "buttonDataDownloadGetMeasures";
             this.buttonDataDownloadGetMeasures.Size = new System.Drawing.Size(100, 28);
             this.buttonDataDownloadGetMeasures.TabIndex = 1;
@@ -409,9 +405,9 @@
             this.tabPage2.Controls.Add(this.panelDebugInstructionList);
             this.tabPage2.Controls.Add(this.textBoxDebugInstructionPool);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Size = new System.Drawing.Size(1267, 574);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debug";
@@ -422,10 +418,6 @@
             this.panelDebugCompositeInstructions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDebugCompositeInstructions.AutoScroll = true;
-            this.panelDebugCompositeInstructions.Controls.Add(this.buttonTestRunUp);
-            this.panelDebugCompositeInstructions.Controls.Add(this.buttonTestRunDown100A);
-            this.panelDebugCompositeInstructions.Controls.Add(this.buttonTestRunDown10A);
-            this.panelDebugCompositeInstructions.Controls.Add(this.buttonMiksa);
             this.panelDebugCompositeInstructions.Controls.Add(this.checkBoxDebugUseDefGain);
             this.panelDebugCompositeInstructions.Controls.Add(this.labelDebugBytesUsed);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugExecute);
@@ -435,20 +427,10 @@
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugCompositeFinishDisch100A);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugCompositeFinishDisch10A);
             this.panelDebugCompositeInstructions.Location = new System.Drawing.Point(1037, 7);
-            this.panelDebugCompositeInstructions.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDebugCompositeInstructions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelDebugCompositeInstructions.Name = "panelDebugCompositeInstructions";
             this.panelDebugCompositeInstructions.Size = new System.Drawing.Size(219, 559);
             this.panelDebugCompositeInstructions.TabIndex = 9;
-            // 
-            // buttonMiksa
-            // 
-            this.buttonMiksa.Location = new System.Drawing.Point(21, 228);
-            this.buttonMiksa.Name = "buttonMiksa";
-            this.buttonMiksa.Size = new System.Drawing.Size(75, 23);
-            this.buttonMiksa.TabIndex = 141;
-            this.buttonMiksa.Text = "Miksa test";
-            this.buttonMiksa.UseVisualStyleBackColor = true;
-            this.buttonMiksa.Click += new System.EventHandler(this.buttonMiksa_Click);
             // 
             // checkBoxDebugUseDefGain
             // 
@@ -456,7 +438,7 @@
             this.checkBoxDebugUseDefGain.Checked = true;
             this.checkBoxDebugUseDefGain.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDebugUseDefGain.Location = new System.Drawing.Point(21, 148);
-            this.checkBoxDebugUseDefGain.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxDebugUseDefGain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxDebugUseDefGain.Name = "checkBoxDebugUseDefGain";
             this.checkBoxDebugUseDefGain.Size = new System.Drawing.Size(184, 21);
             this.checkBoxDebugUseDefGain.TabIndex = 140;
@@ -477,7 +459,7 @@
             // 
             this.buttonDebugExecute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDebugExecute.Location = new System.Drawing.Point(19, 515);
-            this.buttonDebugExecute.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugExecute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugExecute.Name = "buttonDebugExecute";
             this.buttonDebugExecute.Size = new System.Drawing.Size(100, 28);
             this.buttonDebugExecute.TabIndex = 138;
@@ -489,7 +471,7 @@
             // 
             this.buttonDebugResetInstructions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDebugResetInstructions.Location = new System.Drawing.Point(19, 470);
-            this.buttonDebugResetInstructions.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugResetInstructions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugResetInstructions.Name = "buttonDebugResetInstructions";
             this.buttonDebugResetInstructions.Size = new System.Drawing.Size(100, 28);
             this.buttonDebugResetInstructions.TabIndex = 137;
@@ -510,7 +492,7 @@
             // textBoxDebugCompositeMsDelay
             // 
             this.textBoxDebugCompositeMsDelay.Location = new System.Drawing.Point(19, 106);
-            this.textBoxDebugCompositeMsDelay.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugCompositeMsDelay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugCompositeMsDelay.Name = "textBoxDebugCompositeMsDelay";
             this.textBoxDebugCompositeMsDelay.Size = new System.Drawing.Size(132, 22);
             this.textBoxDebugCompositeMsDelay.TabIndex = 87;
@@ -518,7 +500,7 @@
             // buttonDebugCompositeFinishDisch100A
             // 
             this.buttonDebugCompositeFinishDisch100A.Location = new System.Drawing.Point(19, 46);
-            this.buttonDebugCompositeFinishDisch100A.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugCompositeFinishDisch100A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugCompositeFinishDisch100A.Name = "buttonDebugCompositeFinishDisch100A";
             this.buttonDebugCompositeFinishDisch100A.Size = new System.Drawing.Size(173, 28);
             this.buttonDebugCompositeFinishDisch100A.TabIndex = 1;
@@ -529,7 +511,7 @@
             // buttonDebugCompositeFinishDisch10A
             // 
             this.buttonDebugCompositeFinishDisch10A.Location = new System.Drawing.Point(19, 10);
-            this.buttonDebugCompositeFinishDisch10A.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugCompositeFinishDisch10A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugCompositeFinishDisch10A.Name = "buttonDebugCompositeFinishDisch10A";
             this.buttonDebugCompositeFinishDisch10A.Size = new System.Drawing.Size(173, 28);
             this.buttonDebugCompositeFinishDisch10A.TabIndex = 0;
@@ -620,32 +602,10 @@
             this.panelDebugInstructionList.Controls.Add(this.textBoxDebugPrescaler);
             this.panelDebugInstructionList.Controls.Add(this.buttonDebugDataRecTask);
             this.panelDebugInstructionList.Location = new System.Drawing.Point(384, 7);
-            this.panelDebugInstructionList.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDebugInstructionList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelDebugInstructionList.Name = "panelDebugInstructionList";
             this.panelDebugInstructionList.Size = new System.Drawing.Size(645, 556);
             this.panelDebugInstructionList.TabIndex = 6;
-            // 
-            // buttonDebugFastChargerOff
-            // 
-            this.buttonDebugFastChargerOff.Location = new System.Drawing.Point(4, 947);
-            this.buttonDebugFastChargerOff.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDebugFastChargerOff.Name = "buttonDebugFastChargerOff";
-            this.buttonDebugFastChargerOff.Size = new System.Drawing.Size(149, 28);
-            this.buttonDebugFastChargerOff.TabIndex = 152;
-            this.buttonDebugFastChargerOff.Text = "FastChargerOff";
-            this.buttonDebugFastChargerOff.UseVisualStyleBackColor = true;
-            this.buttonDebugFastChargerOff.Click += new System.EventHandler(this.buttonDebugFastChargerOff_Click);
-            // 
-            // buttonDebugFastChargerOn
-            // 
-            this.buttonDebugFastChargerOn.Location = new System.Drawing.Point(6, 911);
-            this.buttonDebugFastChargerOn.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDebugFastChargerOn.Name = "buttonDebugFastChargerOn";
-            this.buttonDebugFastChargerOn.Size = new System.Drawing.Size(149, 28);
-            this.buttonDebugFastChargerOn.TabIndex = 151;
-            this.buttonDebugFastChargerOn.Text = "FastChargerOn";
-            this.buttonDebugFastChargerOn.UseVisualStyleBackColor = true;
-            this.buttonDebugFastChargerOn.Click += new System.EventHandler(this.buttonDebugFastChargerOn_Click);
             // 
             // comboBoxDebugDisableCritHigh
             // 
@@ -654,7 +614,7 @@
             "CH0",
             "CH1"});
             this.comboBoxDebugDisableCritHigh.Location = new System.Drawing.Point(161, 562);
-            this.comboBoxDebugDisableCritHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugDisableCritHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugDisableCritHigh.Name = "comboBoxDebugDisableCritHigh";
             this.comboBoxDebugDisableCritHigh.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugDisableCritHigh.TabIndex = 150;
@@ -672,7 +632,7 @@
             // buttonDebugDiasbleCriticalHigh
             // 
             this.buttonDebugDiasbleCriticalHigh.Location = new System.Drawing.Point(5, 562);
-            this.buttonDebugDiasbleCriticalHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDiasbleCriticalHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDiasbleCriticalHigh.Name = "buttonDebugDiasbleCriticalHigh";
             this.buttonDebugDiasbleCriticalHigh.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugDiasbleCriticalHigh.TabIndex = 148;
@@ -687,7 +647,7 @@
             "CH0",
             "CH1"});
             this.comboBoxDebugDisableCritLow.Location = new System.Drawing.Point(161, 438);
-            this.comboBoxDebugDisableCritLow.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugDisableCritLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugDisableCritLow.Name = "comboBoxDebugDisableCritLow";
             this.comboBoxDebugDisableCritLow.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugDisableCritLow.TabIndex = 147;
@@ -705,7 +665,7 @@
             // buttonDebugDiasbleCriticalLow
             // 
             this.buttonDebugDiasbleCriticalLow.Location = new System.Drawing.Point(5, 438);
-            this.buttonDebugDiasbleCriticalLow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDiasbleCriticalLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDiasbleCriticalLow.Name = "buttonDebugDiasbleCriticalLow";
             this.buttonDebugDiasbleCriticalLow.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugDiasbleCriticalLow.TabIndex = 145;
@@ -736,7 +696,7 @@
             // textBoxDebugSetCriticalHighGain
             // 
             this.textBoxDebugSetCriticalHighGain.Location = new System.Drawing.Point(408, 502);
-            this.textBoxDebugSetCriticalHighGain.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugSetCriticalHighGain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugSetCriticalHighGain.Name = "textBoxDebugSetCriticalHighGain";
             this.textBoxDebugSetCriticalHighGain.Size = new System.Drawing.Size(99, 22);
             this.textBoxDebugSetCriticalHighGain.TabIndex = 141;
@@ -744,7 +704,7 @@
             // textBoxDebugSetCriticalLowGain
             // 
             this.textBoxDebugSetCriticalLowGain.Location = new System.Drawing.Point(408, 378);
-            this.textBoxDebugSetCriticalLowGain.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugSetCriticalLowGain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugSetCriticalLowGain.Name = "textBoxDebugSetCriticalLowGain";
             this.textBoxDebugSetCriticalLowGain.Size = new System.Drawing.Size(99, 22);
             this.textBoxDebugSetCriticalLowGain.TabIndex = 140;
@@ -787,8 +747,8 @@
             // 
             // buttonDebugResOff
             // 
-            this.buttonDebugResOff.Location = new System.Drawing.Point(4, 1420);
-            this.buttonDebugResOff.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugResOff.Location = new System.Drawing.Point(6, 1422);
+            this.buttonDebugResOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugResOff.Name = "buttonDebugResOff";
             this.buttonDebugResOff.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugResOff.TabIndex = 135;
@@ -798,8 +758,8 @@
             // 
             // buttonDebugResOn
             // 
-            this.buttonDebugResOn.Location = new System.Drawing.Point(6, 1385);
-            this.buttonDebugResOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugResOn.Location = new System.Drawing.Point(8, 1387);
+            this.buttonDebugResOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugResOn.Name = "buttonDebugResOn";
             this.buttonDebugResOn.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugResOn.TabIndex = 134;
@@ -809,8 +769,8 @@
             // 
             // buttonDebugFanoxOff
             // 
-            this.buttonDebugFanoxOff.Location = new System.Drawing.Point(6, 1334);
-            this.buttonDebugFanoxOff.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugFanoxOff.Location = new System.Drawing.Point(8, 1336);
+            this.buttonDebugFanoxOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugFanoxOff.Name = "buttonDebugFanoxOff";
             this.buttonDebugFanoxOff.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugFanoxOff.TabIndex = 133;
@@ -820,8 +780,8 @@
             // 
             // buttonDebugFanoxOn
             // 
-            this.buttonDebugFanoxOn.Location = new System.Drawing.Point(6, 1299);
-            this.buttonDebugFanoxOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugFanoxOn.Location = new System.Drawing.Point(8, 1301);
+            this.buttonDebugFanoxOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugFanoxOn.Name = "buttonDebugFanoxOn";
             this.buttonDebugFanoxOn.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugFanoxOn.TabIndex = 132;
@@ -831,8 +791,8 @@
             // 
             // buttonDebugDischarger10AOffS2
             // 
-            this.buttonDebugDischarger10AOffS2.Location = new System.Drawing.Point(4, 1252);
-            this.buttonDebugDischarger10AOffS2.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDischarger10AOffS2.Location = new System.Drawing.Point(6, 1254);
+            this.buttonDebugDischarger10AOffS2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDischarger10AOffS2.Name = "buttonDebugDischarger10AOffS2";
             this.buttonDebugDischarger10AOffS2.Size = new System.Drawing.Size(165, 28);
             this.buttonDebugDischarger10AOffS2.TabIndex = 131;
@@ -842,8 +802,8 @@
             // 
             // buttonDebugDischarger10AOffS1
             // 
-            this.buttonDebugDischarger10AOffS1.Location = new System.Drawing.Point(4, 1205);
-            this.buttonDebugDischarger10AOffS1.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDischarger10AOffS1.Location = new System.Drawing.Point(6, 1207);
+            this.buttonDebugDischarger10AOffS1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDischarger10AOffS1.Name = "buttonDebugDischarger10AOffS1";
             this.buttonDebugDischarger10AOffS1.Size = new System.Drawing.Size(165, 28);
             this.buttonDebugDischarger10AOffS1.TabIndex = 130;
@@ -853,8 +813,8 @@
             // 
             // buttonDebugDischarger10AOn
             // 
-            this.buttonDebugDischarger10AOn.Location = new System.Drawing.Point(4, 1157);
-            this.buttonDebugDischarger10AOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDischarger10AOn.Location = new System.Drawing.Point(6, 1159);
+            this.buttonDebugDischarger10AOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDischarger10AOn.Name = "buttonDebugDischarger10AOn";
             this.buttonDebugDischarger10AOn.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugDischarger10AOn.TabIndex = 129;
@@ -864,8 +824,8 @@
             // 
             // buttonDebugDischarger100AOffS2
             // 
-            this.buttonDebugDischarger100AOffS2.Location = new System.Drawing.Point(4, 1097);
-            this.buttonDebugDischarger100AOffS2.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDischarger100AOffS2.Location = new System.Drawing.Point(6, 1099);
+            this.buttonDebugDischarger100AOffS2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDischarger100AOffS2.Name = "buttonDebugDischarger100AOffS2";
             this.buttonDebugDischarger100AOffS2.Size = new System.Drawing.Size(165, 28);
             this.buttonDebugDischarger100AOffS2.TabIndex = 128;
@@ -875,8 +835,8 @@
             // 
             // buttonDebugDischarger100AOffS1
             // 
-            this.buttonDebugDischarger100AOffS1.Location = new System.Drawing.Point(4, 1048);
-            this.buttonDebugDischarger100AOffS1.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDischarger100AOffS1.Location = new System.Drawing.Point(6, 1050);
+            this.buttonDebugDischarger100AOffS1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDischarger100AOffS1.Name = "buttonDebugDischarger100AOffS1";
             this.buttonDebugDischarger100AOffS1.Size = new System.Drawing.Size(165, 28);
             this.buttonDebugDischarger100AOffS1.TabIndex = 127;
@@ -886,8 +846,8 @@
             // 
             // buttonDebugDischarger100AOn
             // 
-            this.buttonDebugDischarger100AOn.Location = new System.Drawing.Point(4, 1000);
-            this.buttonDebugDischarger100AOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDischarger100AOn.Location = new System.Drawing.Point(6, 1002);
+            this.buttonDebugDischarger100AOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDischarger100AOn.Name = "buttonDebugDischarger100AOn";
             this.buttonDebugDischarger100AOn.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugDischarger100AOn.TabIndex = 126;
@@ -898,7 +858,7 @@
             // buttonDebugChargerOff
             // 
             this.buttonDebugChargerOff.Location = new System.Drawing.Point(5, 863);
-            this.buttonDebugChargerOff.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugChargerOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugChargerOff.Name = "buttonDebugChargerOff";
             this.buttonDebugChargerOff.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugChargerOff.TabIndex = 125;
@@ -908,8 +868,8 @@
             // 
             // buttonDebugChargerOn
             // 
-            this.buttonDebugChargerOn.Location = new System.Drawing.Point(7, 827);
-            this.buttonDebugChargerOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugChargerOn.Location = new System.Drawing.Point(4, 827);
+            this.buttonDebugChargerOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugChargerOn.Name = "buttonDebugChargerOn";
             this.buttonDebugChargerOn.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugChargerOn.TabIndex = 124;
@@ -920,7 +880,7 @@
             // textBoxDebugPinSetLow
             // 
             this.textBoxDebugPinSetLow.Location = new System.Drawing.Point(161, 779);
-            this.textBoxDebugPinSetLow.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugPinSetLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugPinSetLow.Name = "textBoxDebugPinSetLow";
             this.textBoxDebugPinSetLow.Size = new System.Drawing.Size(85, 22);
             this.textBoxDebugPinSetLow.TabIndex = 123;
@@ -928,7 +888,7 @@
             // buttonDebugPinSetLow
             // 
             this.buttonDebugPinSetLow.Location = new System.Drawing.Point(4, 779);
-            this.buttonDebugPinSetLow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugPinSetLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugPinSetLow.Name = "buttonDebugPinSetLow";
             this.buttonDebugPinSetLow.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugPinSetLow.TabIndex = 122;
@@ -939,7 +899,7 @@
             // textBoxDebugPinSetHigh
             // 
             this.textBoxDebugPinSetHigh.Location = new System.Drawing.Point(161, 730);
-            this.textBoxDebugPinSetHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugPinSetHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugPinSetHigh.Name = "textBoxDebugPinSetHigh";
             this.textBoxDebugPinSetHigh.Size = new System.Drawing.Size(85, 22);
             this.textBoxDebugPinSetHigh.TabIndex = 121;
@@ -947,7 +907,7 @@
             // buttonDebugPinSetHigh
             // 
             this.buttonDebugPinSetHigh.Location = new System.Drawing.Point(4, 730);
-            this.buttonDebugPinSetHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugPinSetHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugPinSetHigh.Name = "buttonDebugPinSetHigh";
             this.buttonDebugPinSetHigh.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugPinSetHigh.TabIndex = 120;
@@ -998,7 +958,7 @@
             // textBoxDebugWaitForValueFallingValue
             // 
             this.textBoxDebugWaitForValueFallingValue.Location = new System.Drawing.Point(369, 316);
-            this.textBoxDebugWaitForValueFallingValue.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugWaitForValueFallingValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugWaitForValueFallingValue.Name = "textBoxDebugWaitForValueFallingValue";
             this.textBoxDebugWaitForValueFallingValue.Size = new System.Drawing.Size(93, 22);
             this.textBoxDebugWaitForValueFallingValue.TabIndex = 114;
@@ -1006,7 +966,7 @@
             // textBoxDebugWaitForValueRisingValue
             // 
             this.textBoxDebugWaitForValueRisingValue.Location = new System.Drawing.Point(369, 263);
-            this.textBoxDebugWaitForValueRisingValue.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugWaitForValueRisingValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugWaitForValueRisingValue.Name = "textBoxDebugWaitForValueRisingValue";
             this.textBoxDebugWaitForValueRisingValue.Size = new System.Drawing.Size(93, 22);
             this.textBoxDebugWaitForValueRisingValue.TabIndex = 113;
@@ -1014,7 +974,7 @@
             // textBoxDebugWaitForValueFallingLatency
             // 
             this.textBoxDebugWaitForValueFallingLatency.Location = new System.Drawing.Point(267, 316);
-            this.textBoxDebugWaitForValueFallingLatency.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugWaitForValueFallingLatency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugWaitForValueFallingLatency.Name = "textBoxDebugWaitForValueFallingLatency";
             this.textBoxDebugWaitForValueFallingLatency.Size = new System.Drawing.Size(93, 22);
             this.textBoxDebugWaitForValueFallingLatency.TabIndex = 112;
@@ -1022,7 +982,7 @@
             // textBoxDebugWaitForValueRisingLatency
             // 
             this.textBoxDebugWaitForValueRisingLatency.Location = new System.Drawing.Point(267, 263);
-            this.textBoxDebugWaitForValueRisingLatency.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugWaitForValueRisingLatency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugWaitForValueRisingLatency.Name = "textBoxDebugWaitForValueRisingLatency";
             this.textBoxDebugWaitForValueRisingLatency.Size = new System.Drawing.Size(93, 22);
             this.textBoxDebugWaitForValueRisingLatency.TabIndex = 111;
@@ -1054,7 +1014,7 @@
             "CH0",
             "CH1"});
             this.comboBoxDebugWaitForValueFalling.Location = new System.Drawing.Point(163, 316);
-            this.comboBoxDebugWaitForValueFalling.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugWaitForValueFalling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugWaitForValueFalling.Name = "comboBoxDebugWaitForValueFalling";
             this.comboBoxDebugWaitForValueFalling.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugWaitForValueFalling.TabIndex = 108;
@@ -1066,7 +1026,7 @@
             "CH0",
             "CH1"});
             this.comboBoxDebugWaitForValueRising.Location = new System.Drawing.Point(161, 263);
-            this.comboBoxDebugWaitForValueRising.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugWaitForValueRising.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugWaitForValueRising.Name = "comboBoxDebugWaitForValueRising";
             this.comboBoxDebugWaitForValueRising.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugWaitForValueRising.TabIndex = 107;
@@ -1084,7 +1044,7 @@
             // textBoxDebugLedOff
             // 
             this.textBoxDebugLedOff.Location = new System.Drawing.Point(161, 681);
-            this.textBoxDebugLedOff.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugLedOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugLedOff.Name = "textBoxDebugLedOff";
             this.textBoxDebugLedOff.Size = new System.Drawing.Size(85, 22);
             this.textBoxDebugLedOff.TabIndex = 105;
@@ -1092,7 +1052,7 @@
             // buttonDebugLedOff
             // 
             this.buttonDebugLedOff.Location = new System.Drawing.Point(5, 678);
-            this.buttonDebugLedOff.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugLedOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugLedOff.Name = "buttonDebugLedOff";
             this.buttonDebugLedOff.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugLedOff.TabIndex = 104;
@@ -1113,7 +1073,7 @@
             // textBoxDebugLedOn
             // 
             this.textBoxDebugLedOn.Location = new System.Drawing.Point(161, 620);
-            this.textBoxDebugLedOn.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugLedOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugLedOn.Name = "textBoxDebugLedOn";
             this.textBoxDebugLedOn.Size = new System.Drawing.Size(85, 22);
             this.textBoxDebugLedOn.TabIndex = 102;
@@ -1121,7 +1081,7 @@
             // buttonDebugLedOn
             // 
             this.buttonDebugLedOn.Location = new System.Drawing.Point(5, 618);
-            this.buttonDebugLedOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugLedOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugLedOn.Name = "buttonDebugLedOn";
             this.buttonDebugLedOn.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugLedOn.TabIndex = 101;
@@ -1136,7 +1096,7 @@
             "CH0",
             "CH1"});
             this.comboBoxDebugSetCritHigh.Location = new System.Drawing.Point(304, 500);
-            this.comboBoxDebugSetCritHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugSetCritHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugSetCritHigh.Name = "comboBoxDebugSetCritHigh";
             this.comboBoxDebugSetCritHigh.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugSetCritHigh.TabIndex = 100;
@@ -1164,7 +1124,7 @@
             // textBoxDebugSetCriticalHigh
             // 
             this.textBoxDebugSetCriticalHigh.Location = new System.Drawing.Point(163, 501);
-            this.textBoxDebugSetCriticalHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugSetCriticalHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugSetCriticalHigh.Name = "textBoxDebugSetCriticalHigh";
             this.textBoxDebugSetCriticalHigh.Size = new System.Drawing.Size(132, 22);
             this.textBoxDebugSetCriticalHigh.TabIndex = 97;
@@ -1172,7 +1132,7 @@
             // buttonDebugSetCriticalHigh
             // 
             this.buttonDebugSetCriticalHigh.Location = new System.Drawing.Point(5, 498);
-            this.buttonDebugSetCriticalHigh.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugSetCriticalHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugSetCriticalHigh.Name = "buttonDebugSetCriticalHigh";
             this.buttonDebugSetCriticalHigh.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugSetCriticalHigh.TabIndex = 96;
@@ -1187,7 +1147,7 @@
             "CH0",
             "CH1"});
             this.comboBoxDebugSetCritLow.Location = new System.Drawing.Point(303, 375);
-            this.comboBoxDebugSetCritLow.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugSetCritLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugSetCritLow.Name = "comboBoxDebugSetCritLow";
             this.comboBoxDebugSetCritLow.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugSetCritLow.TabIndex = 95;
@@ -1215,7 +1175,7 @@
             // textBoxDebugSetCriticalLow
             // 
             this.textBoxDebugSetCriticalLow.Location = new System.Drawing.Point(161, 377);
-            this.textBoxDebugSetCriticalLow.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugSetCriticalLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugSetCriticalLow.Name = "textBoxDebugSetCriticalLow";
             this.textBoxDebugSetCriticalLow.Size = new System.Drawing.Size(132, 22);
             this.textBoxDebugSetCriticalLow.TabIndex = 92;
@@ -1223,7 +1183,7 @@
             // buttonDebugSetCriticalLow
             // 
             this.buttonDebugSetCriticalLow.Location = new System.Drawing.Point(4, 374);
-            this.buttonDebugSetCriticalLow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugSetCriticalLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugSetCriticalLow.Name = "buttonDebugSetCriticalLow";
             this.buttonDebugSetCriticalLow.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugSetCriticalLow.TabIndex = 91;
@@ -1234,7 +1194,7 @@
             // buttonDebugWaitForValueFalling
             // 
             this.buttonDebugWaitForValueFalling.Location = new System.Drawing.Point(5, 316);
-            this.buttonDebugWaitForValueFalling.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugWaitForValueFalling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugWaitForValueFalling.Name = "buttonDebugWaitForValueFalling";
             this.buttonDebugWaitForValueFalling.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugWaitForValueFalling.TabIndex = 90;
@@ -1245,7 +1205,7 @@
             // buttonDebugWaitForValueRising
             // 
             this.buttonDebugWaitForValueRising.Location = new System.Drawing.Point(5, 263);
-            this.buttonDebugWaitForValueRising.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugWaitForValueRising.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugWaitForValueRising.Name = "buttonDebugWaitForValueRising";
             this.buttonDebugWaitForValueRising.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugWaitForValueRising.TabIndex = 89;
@@ -1256,7 +1216,7 @@
             // buttonDebugDataRecFinish
             // 
             this.buttonDebugDataRecFinish.Location = new System.Drawing.Point(5, 207);
-            this.buttonDebugDataRecFinish.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDataRecFinish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDataRecFinish.Name = "buttonDebugDataRecFinish";
             this.buttonDebugDataRecFinish.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugDataRecFinish.TabIndex = 88;
@@ -1277,7 +1237,7 @@
             // textBoxDebugWaitInMiliseconds
             // 
             this.textBoxDebugWaitInMiliseconds.Location = new System.Drawing.Point(161, 145);
-            this.textBoxDebugWaitInMiliseconds.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugWaitInMiliseconds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugWaitInMiliseconds.Name = "textBoxDebugWaitInMiliseconds";
             this.textBoxDebugWaitInMiliseconds.Size = new System.Drawing.Size(132, 22);
             this.textBoxDebugWaitInMiliseconds.TabIndex = 86;
@@ -1285,7 +1245,7 @@
             // buttonDebugWaitForMs
             // 
             this.buttonDebugWaitForMs.Location = new System.Drawing.Point(5, 143);
-            this.buttonDebugWaitForMs.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugWaitForMs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugWaitForMs.Name = "buttonDebugWaitForMs";
             this.buttonDebugWaitForMs.Size = new System.Drawing.Size(148, 28);
             this.buttonDebugWaitForMs.TabIndex = 85;
@@ -1296,7 +1256,7 @@
             // buttonDebugWaitDataRecToFinish
             // 
             this.buttonDebugWaitDataRecToFinish.Location = new System.Drawing.Point(5, 80);
-            this.buttonDebugWaitDataRecToFinish.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugWaitDataRecToFinish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugWaitDataRecToFinish.Name = "buttonDebugWaitDataRecToFinish";
             this.buttonDebugWaitDataRecToFinish.Size = new System.Drawing.Size(248, 28);
             this.buttonDebugWaitDataRecToFinish.TabIndex = 84;
@@ -1311,7 +1271,7 @@
             "Continious",
             "Target Points"});
             this.comboBoxDebugDataRecTaskOpMode.Location = new System.Drawing.Point(267, 30);
-            this.comboBoxDebugDataRecTaskOpMode.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugDataRecTaskOpMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugDataRecTaskOpMode.Name = "comboBoxDebugDataRecTaskOpMode";
             this.comboBoxDebugDataRecTaskOpMode.Size = new System.Drawing.Size(131, 24);
             this.comboBoxDebugDataRecTaskOpMode.TabIndex = 83;
@@ -1324,7 +1284,7 @@
             "CH1",
             "DUAL"});
             this.comboBoxDebugDataRecTaskCh.Location = new System.Drawing.Point(161, 30);
-            this.comboBoxDebugDataRecTaskCh.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDebugDataRecTaskCh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDebugDataRecTaskCh.Name = "comboBoxDebugDataRecTaskCh";
             this.comboBoxDebugDataRecTaskCh.Size = new System.Drawing.Size(96, 24);
             this.comboBoxDebugDataRecTaskCh.TabIndex = 82;
@@ -1372,7 +1332,7 @@
             // textBoxDebugTargetPoints
             // 
             this.textBoxDebugTargetPoints.Location = new System.Drawing.Point(509, 30);
-            this.textBoxDebugTargetPoints.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugTargetPoints.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugTargetPoints.Name = "textBoxDebugTargetPoints";
             this.textBoxDebugTargetPoints.Size = new System.Drawing.Size(95, 22);
             this.textBoxDebugTargetPoints.TabIndex = 77;
@@ -1380,7 +1340,7 @@
             // textBoxDebugPrescaler
             // 
             this.textBoxDebugPrescaler.Location = new System.Drawing.Point(407, 30);
-            this.textBoxDebugPrescaler.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugPrescaler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugPrescaler.Name = "textBoxDebugPrescaler";
             this.textBoxDebugPrescaler.Size = new System.Drawing.Size(93, 22);
             this.textBoxDebugPrescaler.TabIndex = 76;
@@ -1388,7 +1348,7 @@
             // buttonDebugDataRecTask
             // 
             this.buttonDebugDataRecTask.Location = new System.Drawing.Point(4, 27);
-            this.buttonDebugDataRecTask.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugDataRecTask.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDebugDataRecTask.Name = "buttonDebugDataRecTask";
             this.buttonDebugDataRecTask.Size = new System.Drawing.Size(149, 28);
             this.buttonDebugDataRecTask.TabIndex = 0;
@@ -1401,7 +1361,7 @@
             this.textBoxDebugInstructionPool.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxDebugInstructionPool.Location = new System.Drawing.Point(8, 7);
-            this.textBoxDebugInstructionPool.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDebugInstructionPool.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDebugInstructionPool.Multiline = true;
             this.textBoxDebugInstructionPool.Name = "textBoxDebugInstructionPool";
             this.textBoxDebugInstructionPool.ReadOnly = true;
@@ -1413,9 +1373,9 @@
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.dataGridViewCap1);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Size = new System.Drawing.Size(1267, 574);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Cap1";
@@ -1424,7 +1384,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(93, 383);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 1;
@@ -1461,7 +1421,7 @@
             this.Column20,
             this.Column21});
             this.dataGridViewCap1.Location = new System.Drawing.Point(8, 7);
-            this.dataGridViewCap1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewCap1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewCap1.Name = "dataGridViewCap1";
             this.dataGridViewCap1.RowHeadersVisible = false;
             this.dataGridViewCap1.Size = new System.Drawing.Size(1169, 309);
@@ -1628,9 +1588,9 @@
             // 
             this.tabPage4.Controls.Add(this.dataGridViewCap2);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage4.Size = new System.Drawing.Size(1267, 574);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Cap2";
@@ -1666,7 +1626,7 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewCheckBoxColumn10});
             this.dataGridViewCap2.Location = new System.Drawing.Point(8, 7);
-            this.dataGridViewCap2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewCap2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewCap2.Name = "dataGridViewCap2";
             this.dataGridViewCap2.RowHeadersVisible = false;
             this.dataGridViewCap2.Size = new System.Drawing.Size(1169, 309);
@@ -1829,35 +1789,27 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // buttonTestRunDown10A
+            // buttonDebugFastChargerOff
             // 
-            this.buttonTestRunDown10A.Location = new System.Drawing.Point(21, 268);
-            this.buttonTestRunDown10A.Name = "buttonTestRunDown10A";
-            this.buttonTestRunDown10A.Size = new System.Drawing.Size(115, 23);
-            this.buttonTestRunDown10A.TabIndex = 142;
-            this.buttonTestRunDown10A.Text = "10A DOWN";
-            this.buttonTestRunDown10A.UseVisualStyleBackColor = true;
-            this.buttonTestRunDown10A.Click += new System.EventHandler(this.buttonTestRunDown10A_Click);
+            this.buttonDebugFastChargerOff.Location = new System.Drawing.Point(6, 950);
+            this.buttonDebugFastChargerOff.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugFastChargerOff.Name = "buttonDebugFastChargerOff";
+            this.buttonDebugFastChargerOff.Size = new System.Drawing.Size(149, 28);
+            this.buttonDebugFastChargerOff.TabIndex = 153;
+            this.buttonDebugFastChargerOff.Text = "Fast Charger Off";
+            this.buttonDebugFastChargerOff.UseVisualStyleBackColor = true;
+            this.buttonDebugFastChargerOff.Click += new System.EventHandler(this.buttonDebugFastChargerOff_Click);
             // 
-            // buttonTestRunDown100A
+            // buttonDebugFastChargerOn
             // 
-            this.buttonTestRunDown100A.Location = new System.Drawing.Point(21, 297);
-            this.buttonTestRunDown100A.Name = "buttonTestRunDown100A";
-            this.buttonTestRunDown100A.Size = new System.Drawing.Size(115, 23);
-            this.buttonTestRunDown100A.TabIndex = 143;
-            this.buttonTestRunDown100A.Text = "100A DOWN";
-            this.buttonTestRunDown100A.UseVisualStyleBackColor = true;
-            this.buttonTestRunDown100A.Click += new System.EventHandler(this.buttonTestRunDown100A_Click);
-            // 
-            // buttonTestRunUp
-            // 
-            this.buttonTestRunUp.Location = new System.Drawing.Point(23, 326);
-            this.buttonTestRunUp.Name = "buttonTestRunUp";
-            this.buttonTestRunUp.Size = new System.Drawing.Size(113, 23);
-            this.buttonTestRunUp.TabIndex = 144;
-            this.buttonTestRunUp.Text = "CHARGE";
-            this.buttonTestRunUp.UseVisualStyleBackColor = true;
-            this.buttonTestRunUp.Click += new System.EventHandler(this.buttonTestRunUp_Click);
+            this.buttonDebugFastChargerOn.Location = new System.Drawing.Point(5, 914);
+            this.buttonDebugFastChargerOn.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDebugFastChargerOn.Name = "buttonDebugFastChargerOn";
+            this.buttonDebugFastChargerOn.Size = new System.Drawing.Size(149, 28);
+            this.buttonDebugFastChargerOn.TabIndex = 152;
+            this.buttonDebugFastChargerOn.Text = "Fast Charger On";
+            this.buttonDebugFastChargerOn.UseVisualStyleBackColor = true;
+            this.buttonDebugFastChargerOn.Click += new System.EventHandler(this.buttonDebugFastChargerOn_Click);
             // 
             // FormMain
             // 
@@ -1865,7 +1817,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 624);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.Text = "Charger Controller";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).EndInit();
@@ -2042,10 +1994,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonDebugFastChargerOff;
         private System.Windows.Forms.Button buttonDebugFastChargerOn;
-        private System.Windows.Forms.Button buttonMiksa;
-        private System.Windows.Forms.Button buttonTestRunUp;
-        private System.Windows.Forms.Button buttonTestRunDown100A;
-        private System.Windows.Forms.Button buttonTestRunDown10A;
     }
 }
 
