@@ -30,10 +30,10 @@ namespace SupercapController
             InitializeComponent();
 
             // Configure serial driver
-            //serial.ReadTimeout = 500; // 500ms
-            //serial.WriteTimeout = 500; // 500ms
+            serial.ReadTimeout = 500; // 500ms
+            serial.WriteTimeout = 500; // 500ms
             serial.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived); // Subscribe to fucking handler
-            
+
             SetThreadCultureInfo(); // Select CultureInfo for this thread
 
             StartupConfigClass.Init();
@@ -122,33 +122,16 @@ namespace SupercapController
             Thread.CurrentThread.CurrentCulture = nfi;
         }
 
-        #region OLD DATA_RECEIVED
-        //private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    tempSerialReceiveBuff = new byte[serial.BytesToRead]; // Maybe not needed anymore
-        //    serial.Read(tempSerialReceiveBuff, 0, tempSerialReceiveBuff.Length);
-        //    if (uartReceiver.CollectData(tempSerialReceiveBuff))
-        //    {
-        //        // All data collected, process it based on pressed button
-        //        processFunction(uartReceiver.bData);
-        //    }
-        //}
-        #endregion
-
-
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             tempSerialReceiveBuff = new byte[serial.BytesToRead]; // Maybe not needed anymore
             serial.Read(tempSerialReceiveBuff, 0, tempSerialReceiveBuff.Length);
-            if (uartReceiver.CollectData(tempSerialReceiveBuff) == UARTResult.Done)
+            if (uartReceiver.CollectData(tempSerialReceiveBuff))
             {
                 // All data collected, process it based on pressed button
                 processFunction(uartReceiver.bData);
             }
         }
-
-
-
 
         /// <summary>
         /// Default method for processing UART received data

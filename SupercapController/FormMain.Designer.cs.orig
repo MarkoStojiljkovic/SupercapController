@@ -1441,6 +1441,7 @@
             // 
             // panelCap1
             // 
+<<<<<<< HEAD
             this.panelCap1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCap1.AutoScroll = true;
@@ -1615,6 +1616,15 @@
             this.buttonCap1ChargeToValue.Text = "Charge to:";
             this.buttonCap1ChargeToValue.UseVisualStyleBackColor = true;
             this.buttonCap1ChargeToValue.Click += new System.EventHandler(this.buttonCap1ChargeToValue_Click);
+=======
+            this.button1.Location = new System.Drawing.Point(93, 383);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+>>>>>>> bcfbf66f788e8380654331920a8a7568d90b77e6
             // 
             // dataGridViewCap1
             // 
@@ -2228,6 +2238,7 @@
         private System.Windows.Forms.Button buttonDebugDiasbleCriticalHigh;
         private System.Windows.Forms.ComboBox comboBoxDebugDisableCritLow;
         private System.Windows.Forms.Label label23;
+<<<<<<< HEAD
         private System.Windows.Forms.Button buttonCap1ChargeToValue;
         private System.Windows.Forms.Panel panelCap1;
         private System.Windows.Forms.Button buttonCap1DisableCritLow;
@@ -2246,12 +2257,15 @@
         private System.Windows.Forms.Button buttonCap1Discharge10A;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBoxCap1ChargeToValue;
+=======
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonDebugFastChargerOff;
         private System.Windows.Forms.Button buttonDebugFastChargerOn;
         private System.Windows.Forms.Button buttonMiksa;
         private System.Windows.Forms.Button buttonTestRunUp;
         private System.Windows.Forms.Button buttonTestRunDown100A;
         private System.Windows.Forms.Button buttonTestRunDown10A;
+>>>>>>> bcfbf66f788e8380654331920a8a7568d90b77e6
     }
 }
 

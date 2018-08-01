@@ -77,10 +77,13 @@ namespace SupercapController
                 if (addr < 1 || addr > 116) throw new Exception();
                 ConfigClass.UpdateWorkingDeviceAddress(addr);
                 buttonDebugResetInstructions_Click(this, EventArgs.Empty);
+<<<<<<< HEAD
+=======
                 // Reset DataGrid
                 dataGridViewDataDownloadMesHeaders.DataSource = null;
                 dataGridViewDataDownloadMesHeaders.Rows.Clear();
                 dataGridViewDataDownloadMesHeaders.Refresh();
+>>>>>>> bcfbf66f788e8380654331920a8a7568d90b77e6
                 this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
             }
             catch (Exception)
