@@ -36,5 +36,6 @@ namespace SupercapController
                     throw new Exception("Select Operation Mode");
             }
         }
+        
     }
 }

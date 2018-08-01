@@ -110,10 +110,7 @@ namespace SupercapController
             byte ch;
             UInt16 latency = 0;
             float value, gain;
-
             
-
-
             if (checkBoxDebugUseDefGain.Checked)
             {
                 // Use gain that is inferred from configuration file

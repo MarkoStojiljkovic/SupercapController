@@ -43,7 +43,7 @@ namespace SupercapController
         {
             while (running)
             {
-                Thread.Sleep(waitInterval); // 1 sec
+                Thread.Sleep(waitInterval);
                 OnTick();
             }
         }

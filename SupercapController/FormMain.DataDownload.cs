@@ -76,6 +76,7 @@ namespace SupercapController
                 addr = Convert.ToInt32(textBoxDataDownloadAddrSelect.Text);
                 if (addr < 1 || addr > 116) throw new Exception();
                 ConfigClass.UpdateWorkingDeviceAddress(addr);
+                buttonDebugResetInstructions_Click(this, EventArgs.Empty);
                 this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
             }
             catch (Exception)

@@ -134,7 +134,24 @@
             this.buttonDebugDataRecTask = new System.Windows.Forms.Button();
             this.textBoxDebugInstructionPool = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panelCap1 = new System.Windows.Forms.Panel();
+            this.buttonCap1DisableCritLow = new System.Windows.Forms.Button();
+            this.buttonCap1DisableCritHigh = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBoxCap1SetCritLow = new System.Windows.Forms.TextBox();
+            this.buttonCap1SetCritLow = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBoxCap1SetCritHigh = new System.Windows.Forms.TextBox();
+            this.buttonCap1SetCritHigh = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBoxCap1Disch100A = new System.Windows.Forms.TextBox();
+            this.buttonCap1Discharge100A = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBoxCap1Disch10A = new System.Windows.Forms.TextBox();
+            this.buttonCap1Discharge10A = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxCap1ChargeToValue = new System.Windows.Forms.TextBox();
+            this.buttonCap1ChargeToValue = new System.Windows.Forms.Button();
             this.dataGridViewCap1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,6 +204,7 @@
             this.panelDebugCompositeInstructions.SuspendLayout();
             this.panelDebugInstructionList.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panelCap1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCap1)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCap2)).BeginInit();
@@ -1270,7 +1288,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.panelCap1);
             this.tabPage3.Controls.Add(this.dataGridViewCap1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -1280,14 +1298,182 @@
             this.tabPage3.Text = "Cap1";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // panelCap1
             // 
-            this.button1.Location = new System.Drawing.Point(70, 311);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panelCap1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCap1.AutoScroll = true;
+            this.panelCap1.Controls.Add(this.buttonCap1DisableCritLow);
+            this.panelCap1.Controls.Add(this.buttonCap1DisableCritHigh);
+            this.panelCap1.Controls.Add(this.label28);
+            this.panelCap1.Controls.Add(this.textBoxCap1SetCritLow);
+            this.panelCap1.Controls.Add(this.buttonCap1SetCritLow);
+            this.panelCap1.Controls.Add(this.label29);
+            this.panelCap1.Controls.Add(this.textBoxCap1SetCritHigh);
+            this.panelCap1.Controls.Add(this.buttonCap1SetCritHigh);
+            this.panelCap1.Controls.Add(this.label27);
+            this.panelCap1.Controls.Add(this.textBoxCap1Disch100A);
+            this.panelCap1.Controls.Add(this.buttonCap1Discharge100A);
+            this.panelCap1.Controls.Add(this.label26);
+            this.panelCap1.Controls.Add(this.textBoxCap1Disch10A);
+            this.panelCap1.Controls.Add(this.buttonCap1Discharge10A);
+            this.panelCap1.Controls.Add(this.label25);
+            this.panelCap1.Controls.Add(this.textBoxCap1ChargeToValue);
+            this.panelCap1.Controls.Add(this.buttonCap1ChargeToValue);
+            this.panelCap1.Location = new System.Drawing.Point(6, 263);
+            this.panelCap1.Name = "panelCap1";
+            this.panelCap1.Size = new System.Drawing.Size(877, 195);
+            this.panelCap1.TabIndex = 2;
+            // 
+            // buttonCap1DisableCritLow
+            // 
+            this.buttonCap1DisableCritLow.Location = new System.Drawing.Point(18, 254);
+            this.buttonCap1DisableCritLow.Name = "buttonCap1DisableCritLow";
+            this.buttonCap1DisableCritLow.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1DisableCritLow.TabIndex = 17;
+            this.buttonCap1DisableCritLow.Text = "Disable Crit Low";
+            this.buttonCap1DisableCritLow.UseVisualStyleBackColor = true;
+            this.buttonCap1DisableCritLow.Click += new System.EventHandler(this.buttonCap1DisableCritLow_Click);
+            // 
+            // buttonCap1DisableCritHigh
+            // 
+            this.buttonCap1DisableCritHigh.Location = new System.Drawing.Point(18, 225);
+            this.buttonCap1DisableCritHigh.Name = "buttonCap1DisableCritHigh";
+            this.buttonCap1DisableCritHigh.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1DisableCritHigh.TabIndex = 16;
+            this.buttonCap1DisableCritHigh.Text = "Disable Crit High";
+            this.buttonCap1DisableCritHigh.UseVisualStyleBackColor = true;
+            this.buttonCap1DisableCritHigh.Click += new System.EventHandler(this.buttonCap1DisableCritHigh_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(228, 190);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(22, 13);
+            this.label28.TabIndex = 15;
+            this.label28.Text = "mV";
+            // 
+            // textBoxCap1SetCritLow
+            // 
+            this.textBoxCap1SetCritLow.Location = new System.Drawing.Point(122, 187);
+            this.textBoxCap1SetCritLow.Name = "textBoxCap1SetCritLow";
+            this.textBoxCap1SetCritLow.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCap1SetCritLow.TabIndex = 14;
+            // 
+            // buttonCap1SetCritLow
+            // 
+            this.buttonCap1SetCritLow.Location = new System.Drawing.Point(18, 185);
+            this.buttonCap1SetCritLow.Name = "buttonCap1SetCritLow";
+            this.buttonCap1SetCritLow.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1SetCritLow.TabIndex = 13;
+            this.buttonCap1SetCritLow.Text = "Set Crit Low";
+            this.buttonCap1SetCritLow.UseVisualStyleBackColor = true;
+            this.buttonCap1SetCritLow.Click += new System.EventHandler(this.buttonCap1SetCritLow_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(228, 150);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(22, 13);
+            this.label29.TabIndex = 12;
+            this.label29.Text = "mV";
+            // 
+            // textBoxCap1SetCritHigh
+            // 
+            this.textBoxCap1SetCritHigh.Location = new System.Drawing.Point(122, 147);
+            this.textBoxCap1SetCritHigh.Name = "textBoxCap1SetCritHigh";
+            this.textBoxCap1SetCritHigh.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCap1SetCritHigh.TabIndex = 11;
+            // 
+            // buttonCap1SetCritHigh
+            // 
+            this.buttonCap1SetCritHigh.Location = new System.Drawing.Point(18, 145);
+            this.buttonCap1SetCritHigh.Name = "buttonCap1SetCritHigh";
+            this.buttonCap1SetCritHigh.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1SetCritHigh.TabIndex = 10;
+            this.buttonCap1SetCritHigh.Text = "Set Crit High";
+            this.buttonCap1SetCritHigh.UseVisualStyleBackColor = true;
+            this.buttonCap1SetCritHigh.Click += new System.EventHandler(this.buttonCap1SetCritHigh_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(228, 110);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(22, 13);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "mV";
+            // 
+            // textBoxCap1Disch100A
+            // 
+            this.textBoxCap1Disch100A.Location = new System.Drawing.Point(122, 107);
+            this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
+            this.textBoxCap1Disch100A.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCap1Disch100A.TabIndex = 8;
+            // 
+            // buttonCap1Discharge100A
+            // 
+            this.buttonCap1Discharge100A.Location = new System.Drawing.Point(18, 105);
+            this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
+            this.buttonCap1Discharge100A.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1Discharge100A.TabIndex = 7;
+            this.buttonCap1Discharge100A.Text = "Discharge 100A";
+            this.buttonCap1Discharge100A.UseVisualStyleBackColor = true;
+            this.buttonCap1Discharge100A.Click += new System.EventHandler(this.buttonCap1Discharge100A_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(228, 70);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(22, 13);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "mV";
+            // 
+            // textBoxCap1Disch10A
+            // 
+            this.textBoxCap1Disch10A.Location = new System.Drawing.Point(122, 67);
+            this.textBoxCap1Disch10A.Name = "textBoxCap1Disch10A";
+            this.textBoxCap1Disch10A.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCap1Disch10A.TabIndex = 5;
+            // 
+            // buttonCap1Discharge10A
+            // 
+            this.buttonCap1Discharge10A.Location = new System.Drawing.Point(18, 65);
+            this.buttonCap1Discharge10A.Name = "buttonCap1Discharge10A";
+            this.buttonCap1Discharge10A.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1Discharge10A.TabIndex = 4;
+            this.buttonCap1Discharge10A.Text = "Discharge 10A";
+            this.buttonCap1Discharge10A.UseVisualStyleBackColor = true;
+            this.buttonCap1Discharge10A.Click += new System.EventHandler(this.buttonCap1Discharge10A_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(228, 30);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(22, 13);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "mV";
+            // 
+            // textBoxCap1ChargeToValue
+            // 
+            this.textBoxCap1ChargeToValue.Location = new System.Drawing.Point(122, 27);
+            this.textBoxCap1ChargeToValue.Name = "textBoxCap1ChargeToValue";
+            this.textBoxCap1ChargeToValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCap1ChargeToValue.TabIndex = 2;
+            // 
+            // buttonCap1ChargeToValue
+            // 
+            this.buttonCap1ChargeToValue.Location = new System.Drawing.Point(18, 25);
+            this.buttonCap1ChargeToValue.Name = "buttonCap1ChargeToValue";
+            this.buttonCap1ChargeToValue.Size = new System.Drawing.Size(98, 23);
+            this.buttonCap1ChargeToValue.TabIndex = 1;
+            this.buttonCap1ChargeToValue.Text = "Charge to:";
+            this.buttonCap1ChargeToValue.UseVisualStyleBackColor = true;
+            this.buttonCap1ChargeToValue.Click += new System.EventHandler(this.buttonCap1ChargeToValue_Click);
             // 
             // dataGridViewCap1
             // 
@@ -1295,6 +1481,8 @@
             this.dataGridViewCap1.AllowUserToDeleteRows = false;
             this.dataGridViewCap1.AllowUserToResizeColumns = false;
             this.dataGridViewCap1.AllowUserToResizeRows = false;
+            this.dataGridViewCap1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCap1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCap1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -1703,6 +1891,8 @@
             this.panelDebugInstructionList.ResumeLayout(false);
             this.panelDebugInstructionList.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.panelCap1.ResumeLayout(false);
+            this.panelCap1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCap1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCap2)).EndInit();
@@ -1863,7 +2053,24 @@
         private System.Windows.Forms.Button buttonDebugDiasbleCriticalHigh;
         private System.Windows.Forms.ComboBox comboBoxDebugDisableCritLow;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCap1ChargeToValue;
+        private System.Windows.Forms.Panel panelCap1;
+        private System.Windows.Forms.Button buttonCap1DisableCritLow;
+        private System.Windows.Forms.Button buttonCap1DisableCritHigh;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox textBoxCap1SetCritLow;
+        private System.Windows.Forms.Button buttonCap1SetCritLow;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBoxCap1SetCritHigh;
+        private System.Windows.Forms.Button buttonCap1SetCritHigh;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBoxCap1Disch100A;
+        private System.Windows.Forms.Button buttonCap1Discharge100A;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBoxCap1Disch10A;
+        private System.Windows.Forms.Button buttonCap1Discharge10A;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBoxCap1ChargeToValue;
     }
 }
 
