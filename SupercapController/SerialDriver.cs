@@ -28,8 +28,13 @@ namespace SupercapController
                 }
             }
         }
+        const int MAX_TIMEOUTS = 10;
+        //bool useRetry = false;
+        //int retryCount = 0;
+        //int totalRetry = 4;
+        //int sleepBeforeRetry = 1000;
 
-        static Ticker ticker = new Ticker(10);
+        static Ticker ticker = new Ticker(100);
 
         static SerialPort serial = new SerialPort();
 
@@ -53,6 +58,7 @@ namespace SupercapController
         private static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             tempSerialReceiveBuff = new byte[serial.BytesToRead];
+            Console.WriteLine("Data Received: " + tempSerialReceiveBuff.Length);
             serial.Read(tempSerialReceiveBuff, 0, tempSerialReceiveBuff.Length);
             if (!busy)
             {
@@ -63,12 +69,24 @@ namespace SupercapController
             switch (uartReceiver.CollectData(tempSerialReceiveBuff))
             {
                 case UARTResult.Done:
-                    // All data collected, process it given success delegate
-                    busy = false;
-                    _successCallback(uartReceiver.bData);
-                    //BytesRead = 0;
+                    taskState = 0;
                     Running = 0;
-                    uartReceiver.Reset();
+                    busy = false;
+                    // All data collected, process it in a given success delegate if checksum matches
+                    ChecksumClass cs = new ChecksumClass();
+                    if (cs.VerifyChecksumFromReceivedMessage(uartReceiver.bData))
+                    {
+                        // Checksum match
+                        var dataWithoutChecksum = UARTHelperClass.RemoveChecksumFromMessage(uartReceiver.bData);
+                        uartReceiver.Reset();
+                        Console.WriteLine("Finished from DataReceived method");
+                        _successCallback(dataWithoutChecksum);
+                    }
+                    else
+                    {
+                        // Checksum not valid
+                        _failCallback();
+                    }
                     break;
                 case UARTResult.WaitMoreData:
                     Running = 1;
@@ -81,29 +99,37 @@ namespace SupercapController
             }
         }
 
-        const int MAX_TIMEOUTS = 10;
-        static int timeout = 0;
+        
         private static void TickTask()
         {
+            
             switch (taskState)
             {
                 case 0: // IDLE
+                    //Console.WriteLine("Tick IDLE");
                     break;
                 case 1:
+                    Console.WriteLine("Tick RUNNING " + Running.ToString());
+
+
+                    if (Running == 0)
+                    {
+                        Console.WriteLine("Tick Finished");
+                        taskState = 0;
+                        return;
+                    }
+
                     if (busy == false)
                     {
                         // This shouldnt happen
                         throw new Exception("Wrong busy flag in SerialDriver.TickTask");
                     }
 
-                    if (Running == 0)
-                    {
-                        taskState = 0;
-                    }
 
-                    if (Running >= MAX_TIMEOUTS)
+                    if (Running++ >= MAX_TIMEOUTS)
                     {
                         // Timeout, restart everything and call fail delegate
+                        Console.WriteLine("Tick timeout");
                         uartReceiver.Reset();
                         taskState = 0;
                         _failCallback();
@@ -136,9 +162,20 @@ namespace SupercapController
             //BytesRead = 0;
             _successCallback = sucCb;
             _failCallback = fCb;
-            serial.Write(data, 0, data.Length);
-            taskState = 1; // Put SM where it belongs
-            return true;
+            if (serial.IsOpen)
+            {
+                serial.Write(data, 0, data.Length);
+                taskState = 1; // Put SM where it belongs
+                Running = 1;
+                return true;
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Port is not open!");
+                return false;
+            }
+            
+            
         }
 
         public static string Open(string portName)

@@ -24,6 +24,7 @@ namespace SupercapController
         {
             waitInterval = waitInt;
             Thread t = new Thread(TickTask);
+            t.IsBackground = true;
             t.Start();
         }
         

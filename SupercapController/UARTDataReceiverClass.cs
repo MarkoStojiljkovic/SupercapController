@@ -65,14 +65,17 @@ namespace SupercapController
                     state = 2;
                     return UARTResult.WaitMoreData;
                 case 2:
-#warning MAKE IT PRECISE NOT "<="
                     fragmentedData.AddRange(data);
-                    if (dataLen + 2 <= fragmentedData.Count)
+                    if (dataLen + 2 == fragmentedData.Count)
                     {
                         // Everything arrived at once
                         state = 0;
                         bData = fragmentedData.ToArray();
                         return UARTResult.Done;
+                    }
+                    else if (fragmentedData.Count > dataLen + 2)
+                    {
+                        throw new Exception("MORE DATA RECEIVED!!!");
                     }
                     return UARTResult.WaitMoreData;
                 default:

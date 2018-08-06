@@ -24,11 +24,11 @@ namespace SupercapController
             labelDebugBytesUsed.Text = "Bytes Used : " + data.Length;
             try
             {
-                serial.Write(data, 0, data.Length);
+                SerialDriver.Send(data, DebugExecuteSuccessCallback, DebugExecuteFailCallback);
             }
             catch (Exception)
             {
-                MessageBox.Show("Open COM port first!");
+                MessageBox.Show("Problem occured while trying to send data to serial port!");
                 FormCustomConsole.WriteLine("------- Commands not sent --------\r\n");
                 return;
 
@@ -39,6 +39,16 @@ namespace SupercapController
             FormCustomConsole.WriteLine("------- Commands sent --------\r\n");
         }
 
+        private void DebugExecuteSuccessCallback(byte[] b)
+        {
+            // Its ACK no need to use data
+            MessageBox.Show("Commands sent successfully!");
+        }
+
+        private void DebugExecuteFailCallback()
+        {
+            MessageBox.Show("Commands not received by device!");
+        }
 
         private void buttonDebugDataRecTask_Click(object sender, EventArgs e)
         {
@@ -529,6 +539,13 @@ namespace SupercapController
             FormCustomConsole.WriteLine("ResOff");
         }
 
+        private void buttonDebugRequestACK_Click(object sender, EventArgs e)
+        {
+            com.ReturnACK();
+            textBoxDebugInstructionPool.Text += "Return ACK\r\n";
+            FormCustomConsole.WriteLine("Return ACK");
+        }
+        
         private void buttonDebugCompositeFinishDisch10A_Click(object sender, EventArgs e)
         {
             UInt32 ms;
@@ -583,9 +600,23 @@ namespace SupercapController
 
         private void buttonMiksa_Click(object sender, EventArgs e)
         {
-            buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
+            //buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
+            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
+            //buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
+            buttonDebugRequestACK_Click(this, EventArgs.Empty);
+            buttonDebugLedOn_Click(this, EventArgs.Empty);
             buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
+            buttonDebugLedOff_Click(this, EventArgs.Empty);
+
+            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
+            buttonDebugLedOn_Click(this, EventArgs.Empty);
+            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
+            buttonDebugLedOff_Click(this, EventArgs.Empty);
+
+            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
+            buttonDebugLedOn_Click(this, EventArgs.Empty);
+            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
+            buttonDebugLedOff_Click(this, EventArgs.Empty);
         }
 
         private void buttonTestRunDown10A_Click(object sender, EventArgs e)

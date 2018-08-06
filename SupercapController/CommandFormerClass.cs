@@ -163,7 +163,6 @@ namespace SupercapController
         {
 #warning IMPROVE THIS
             // targt value is given in mV
-
             if (targetValue > 3300)
             {
                 targetValue = 3300 - delta;
@@ -311,6 +310,13 @@ namespace SupercapController
         {
             bl.Add(29);
         }
+
+        public void ReturnACK()
+        {
+            bl.Add(30);
+        }
+
+
 
         /// <summary>
         /// Calculate checksum, and append it at the end of message

@@ -32,7 +32,7 @@ namespace SupercapController
             
             foreach (var index in list)
             {
-                ConfigClass.UpdateWorkingDeviceAddress(addr); 
+                //ConfigClass.UpdateWorkingDeviceAddress(addr); 
                 gain = ConfigClass.deviceGainCH1;
                 tValue = value / gain;
             }
