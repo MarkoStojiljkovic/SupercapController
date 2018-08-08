@@ -4,6 +4,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DebugTools;
 
 namespace SupercapController
 {
@@ -29,10 +30,12 @@ namespace SupercapController
             }
         }
         const int MAX_TIMEOUTS = 10;
-        //bool useRetry = false;
-        //int retryCount = 0;
-        //int totalRetry = 4;
-        //int sleepBeforeRetry = 1000;
+
+        static bool _useRetry = false;
+        static int _retryCount = 0;
+        const int _TOTAL_RETRY = 3;
+        static int _sleepBeforeRetry = 0;
+        const int _TOTAL_SLEEP_CNT = 15; // 15 * 100 ms
 
         static Ticker ticker = new Ticker(100);
 
@@ -46,6 +49,7 @@ namespace SupercapController
         
         static int taskState = 0; // State that controls SM in TickTask
 
+        static byte[] dataPointer;
 
 
         // Static constructor
@@ -58,7 +62,7 @@ namespace SupercapController
         private static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             tempSerialReceiveBuff = new byte[serial.BytesToRead];
-            Console.WriteLine("Data Received: " + tempSerialReceiveBuff.Length);
+            //Console.WriteLine("Data Received: " + tempSerialReceiveBuff.Length);
             serial.Read(tempSerialReceiveBuff, 0, tempSerialReceiveBuff.Length);
             if (!busy)
             {
@@ -79,13 +83,34 @@ namespace SupercapController
                         // Checksum match
                         var dataWithoutChecksum = UARTHelperClass.RemoveChecksumFromMessage(uartReceiver.bData);
                         uartReceiver.Reset();
-                        Console.WriteLine("Finished from DataReceived method");
+                        FormCustomConsole.WriteLineWithConsole("Finished from DataReceived method");
                         _successCallback(dataWithoutChecksum);
                     }
                     else
                     {
-                        // Checksum not valid
-                        _failCallback();
+                        if (_useRetry)
+                        {
+                            if (_retryCount >= _TOTAL_RETRY)
+                            {
+                                FormCustomConsole.WriteWithConsole("Aborting process (checksum doesnt match) at ");
+                                FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
+                                _failCallback();
+                                busy = false;
+                            }
+                            else
+                            {
+                                // Leave busy flag we are not finished yet
+                                _retryCount++;
+                                _sleepBeforeRetry = 1;
+                                taskState = 2;
+                            }
+                        }
+                        else
+                        {
+                            // Checksum not valid
+                            _failCallback();
+                            busy = false;
+                        }
                     }
                     break;
                 case UARTResult.WaitMoreData:
@@ -109,9 +134,8 @@ namespace SupercapController
                     //Console.WriteLine("Tick IDLE");
                     break;
                 case 1:
-                    Console.WriteLine("Tick RUNNING " + Running.ToString());
-
-
+                    //Console.WriteLine("Tick RUNNING " + Running.ToString());
+                    
                     if (Running == 0)
                     {
                         Console.WriteLine("Tick Finished");
@@ -128,13 +152,56 @@ namespace SupercapController
 
                     if (Running++ >= MAX_TIMEOUTS)
                     {
-                        // Timeout, restart everything and call fail delegate
-                        Console.WriteLine("Tick timeout");
+                        // Timeout, retry if possible or restart everything and call fail delegate
+                        FormCustomConsole.WriteWithConsole("Tick timeout at ");
+                        FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
                         uartReceiver.Reset();
                         taskState = 0;
-                        _failCallback();
-                        busy = false;
+                        if (_useRetry)
+                        {
+                            if (_retryCount >= _TOTAL_RETRY)
+                            {
+                                FormCustomConsole.WriteWithConsole("Aborting process at ");
+                                FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
+                                _failCallback();
+                                busy = false;
+                            }
+                            else
+                            {
+                                // Leave busy flag we are not finished yet
+                                _retryCount++;
+                                _sleepBeforeRetry = 1;
+                                taskState = 2;
+                            }
+                        }
+                        else
+                        {
+                            _failCallback();
+                            busy = false;
+                        }
                         return;
+                    }
+                    break;
+                case 2: // State for retry delay\
+                    //Console.WriteLine("Retry delay state " + _sleepBeforeRetry);
+                    if (_sleepBeforeRetry++ >= _TOTAL_SLEEP_CNT)
+                    {
+                        if (serial.IsOpen)
+                        {
+                            FormCustomConsole.WriteWithConsole("Sending again at ");
+                            FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
+                            serial.Write(dataPointer, 0, dataPointer.Length);
+                            taskState = 1; // Put SM where it belongs
+                            Running = 1;
+                        }
+                        else
+                        {
+                            // Abort everything
+                            System.Windows.Forms.MessageBox.Show("Port is not open!");
+                            _failCallback();
+                            busy = false;
+                            taskState = 0;
+                        }
                     }
                     break;
                 default:
@@ -148,22 +215,33 @@ namespace SupercapController
             {
                 return false;
             }
+            dataPointer = data;
             serial.Write(data, 0, data.Length);
             return true;
         }
 
-        public static bool Send(byte[] data, Action<byte[]> sucCb, Action fCb)
+        public static bool Send(byte[] data, Action<byte[]> sucCb, Action fCb, bool useRet = true)
         {
             if (busy)
             {
                 return false;
             }
             busy = true;
-            //BytesRead = 0;
+            _useRetry = useRet;
+            if (useRet)
+            {
+                // Start from 1 so we dont need to take -1 into consideration
+                _retryCount = 1; 
+                _sleepBeforeRetry = 1;
+            }
+            
             _successCallback = sucCb;
             _failCallback = fCb;
             if (serial.IsOpen)
             {
+                dataPointer = data;
+                FormCustomConsole.WriteWithConsole("Sending started at ");
+                FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
                 serial.Write(data, 0, data.Length);
                 taskState = 1; // Put SM where it belongs
                 Running = 1;

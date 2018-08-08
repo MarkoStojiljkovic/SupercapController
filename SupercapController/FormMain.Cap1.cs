@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DebugTools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -102,5 +103,43 @@ namespace SupercapController
             }
             return list;
         }
+
+
+
+        private async void buttonCap1RunCommandsFromDebug_Click(object sender, EventArgs e)
+        {
+            int delay;
+            // First parse float value
+            try
+            {
+                delay = int.Parse(textBoxCap1DebugDelay.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Insert valid float value!");
+                return;
+            }
+
+
+            list = GetSelectedIndexes(dataGridViewCap1);
+
+            foreach (var index in list)
+            {
+                ConfigClass.UpdateWorkingDeviceAddress(index);
+                this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
+
+                //com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+                buttonDebugResetInstructions_Click(this, EventArgs.Empty);
+                //textBoxDebugInstructionPool.Text = "";
+                FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + index + "\r\n");
+                listOfCommands(this, EventArgs.Empty);
+                buttonDebugExecute_Click(this, EventArgs.Empty);
+                // Wait delay async
+                await Task.Delay(delay);
+            }
+            FormCustomConsole.WriteLineWithConsole("All commands sent!");
+        }
+
+
     }
 }

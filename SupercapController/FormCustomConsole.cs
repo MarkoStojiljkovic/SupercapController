@@ -51,6 +51,15 @@ namespace DebugTools
             Console.WriteLine(text);
         }
 
+        public static void WriteWithConsole(string text) // Add text to console from every object thru static method
+        {
+            if (isActive) // If active, update text
+            {
+                FormCustomConsolePtr.UpdateText(text);
+            }
+            Console.Write(text);
+        }
+
         private void FormCustomConsole_FormClosed(object sender, FormClosedEventArgs e)
         {
             isActive = false;

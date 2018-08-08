@@ -49,6 +49,7 @@
             this.buttonDataDownloadGetMeasures = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelDebugCompositeInstructions = new System.Windows.Forms.Panel();
+            this.buttonDebugRequestACK = new System.Windows.Forms.Button();
             this.buttonTestRunUp = new System.Windows.Forms.Button();
             this.buttonTestRunDown100A = new System.Windows.Forms.Button();
             this.buttonTestRunDown10A = new System.Windows.Forms.Button();
@@ -141,6 +142,8 @@
             this.textBoxDebugInstructionPool = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panelCap1 = new System.Windows.Forms.Panel();
+            this.textBoxCap1DebugDelay = new System.Windows.Forms.TextBox();
+            this.buttonCap1RunCommandsFromDebug = new System.Windows.Forms.Button();
             this.buttonCap1DisableCritLow = new System.Windows.Forms.Button();
             this.buttonCap1DisableCritHigh = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -203,7 +206,7 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.buttonDebugRequestACK = new System.Windows.Forms.Button();
+            this.checkBoxCap1Freeze = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -313,7 +316,7 @@
             this.tabPage1.Controls.Add(this.dataGridViewDataDownloadMesHeaders);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(948, 464);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Download";
@@ -417,7 +420,7 @@
             this.tabPage2.Controls.Add(this.textBoxDebugInstructionPool);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(948, 464);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debug";
@@ -446,10 +449,20 @@
             this.panelDebugCompositeInstructions.Size = new System.Drawing.Size(164, 454);
             this.panelDebugCompositeInstructions.TabIndex = 9;
             // 
+            // buttonDebugRequestACK
+            // 
+            this.buttonDebugRequestACK.Location = new System.Drawing.Point(14, 353);
+            this.buttonDebugRequestACK.Name = "buttonDebugRequestACK";
+            this.buttonDebugRequestACK.Size = new System.Drawing.Size(88, 23);
+            this.buttonDebugRequestACK.TabIndex = 145;
+            this.buttonDebugRequestACK.Text = "Request ACK";
+            this.buttonDebugRequestACK.UseVisualStyleBackColor = true;
+            this.buttonDebugRequestACK.Click += new System.EventHandler(this.buttonDebugRequestACK_Click);
+            // 
             // buttonTestRunUp
             // 
             this.buttonTestRunUp.Location = new System.Drawing.Point(17, 265);
-            this.buttonTestRunUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestRunUp.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestRunUp.Name = "buttonTestRunUp";
             this.buttonTestRunUp.Size = new System.Drawing.Size(85, 19);
             this.buttonTestRunUp.TabIndex = 144;
@@ -460,7 +473,7 @@
             // buttonTestRunDown100A
             // 
             this.buttonTestRunDown100A.Location = new System.Drawing.Point(16, 241);
-            this.buttonTestRunDown100A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestRunDown100A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestRunDown100A.Name = "buttonTestRunDown100A";
             this.buttonTestRunDown100A.Size = new System.Drawing.Size(86, 19);
             this.buttonTestRunDown100A.TabIndex = 143;
@@ -471,7 +484,7 @@
             // buttonTestRunDown10A
             // 
             this.buttonTestRunDown10A.Location = new System.Drawing.Point(16, 218);
-            this.buttonTestRunDown10A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestRunDown10A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestRunDown10A.Name = "buttonTestRunDown10A";
             this.buttonTestRunDown10A.Size = new System.Drawing.Size(86, 19);
             this.buttonTestRunDown10A.TabIndex = 142;
@@ -482,7 +495,7 @@
             // buttonMiksa
             // 
             this.buttonMiksa.Location = new System.Drawing.Point(16, 185);
-            this.buttonMiksa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMiksa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMiksa.Name = "buttonMiksa";
             this.buttonMiksa.Size = new System.Drawing.Size(56, 19);
             this.buttonMiksa.TabIndex = 141;
@@ -789,7 +802,7 @@
             // textBoxDebugWaitForValueFallingGain
             // 
             this.textBoxDebugWaitForValueFallingGain.Location = new System.Drawing.Point(352, 257);
-            this.textBoxDebugWaitForValueFallingGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDebugWaitForValueFallingGain.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDebugWaitForValueFallingGain.Name = "textBoxDebugWaitForValueFallingGain";
             this.textBoxDebugWaitForValueFallingGain.Size = new System.Drawing.Size(76, 20);
             this.textBoxDebugWaitForValueFallingGain.TabIndex = 137;
@@ -797,7 +810,7 @@
             // textBoxDebugWaitForValueRisingGain
             // 
             this.textBoxDebugWaitForValueRisingGain.Location = new System.Drawing.Point(352, 213);
-            this.textBoxDebugWaitForValueRisingGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDebugWaitForValueRisingGain.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDebugWaitForValueRisingGain.Name = "textBoxDebugWaitForValueRisingGain";
             this.textBoxDebugWaitForValueRisingGain.Size = new System.Drawing.Size(76, 20);
             this.textBoxDebugWaitForValueRisingGain.TabIndex = 136;
@@ -1370,7 +1383,7 @@
             this.tabPage3.Controls.Add(this.dataGridViewCap1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(948, 464);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Cap1";
@@ -1381,6 +1394,9 @@
             this.panelCap1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCap1.AutoScroll = true;
+            this.panelCap1.Controls.Add(this.checkBoxCap1Freeze);
+            this.panelCap1.Controls.Add(this.textBoxCap1DebugDelay);
+            this.panelCap1.Controls.Add(this.buttonCap1RunCommandsFromDebug);
             this.panelCap1.Controls.Add(this.buttonCap1DisableCritLow);
             this.panelCap1.Controls.Add(this.buttonCap1DisableCritHigh);
             this.panelCap1.Controls.Add(this.label28);
@@ -1398,16 +1414,34 @@
             this.panelCap1.Controls.Add(this.label25);
             this.panelCap1.Controls.Add(this.textBoxCap1ChargeToValue);
             this.panelCap1.Controls.Add(this.buttonCap1ChargeToValue);
-            this.panelCap1.Location = new System.Drawing.Point(4, 214);
-            this.panelCap1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCap1.Location = new System.Drawing.Point(6, 262);
+            this.panelCap1.Margin = new System.Windows.Forms.Padding(2);
             this.panelCap1.Name = "panelCap1";
-            this.panelCap1.Size = new System.Drawing.Size(658, 158);
+            this.panelCap1.Size = new System.Drawing.Size(937, 197);
             this.panelCap1.TabIndex = 2;
+            // 
+            // textBoxCap1DebugDelay
+            // 
+            this.textBoxCap1DebugDelay.Location = new System.Drawing.Point(284, 57);
+            this.textBoxCap1DebugDelay.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCap1DebugDelay.Name = "textBoxCap1DebugDelay";
+            this.textBoxCap1DebugDelay.Size = new System.Drawing.Size(152, 20);
+            this.textBoxCap1DebugDelay.TabIndex = 19;
+            // 
+            // buttonCap1RunCommandsFromDebug
+            // 
+            this.buttonCap1RunCommandsFromDebug.Location = new System.Drawing.Point(284, 24);
+            this.buttonCap1RunCommandsFromDebug.Name = "buttonCap1RunCommandsFromDebug";
+            this.buttonCap1RunCommandsFromDebug.Size = new System.Drawing.Size(152, 23);
+            this.buttonCap1RunCommandsFromDebug.TabIndex = 18;
+            this.buttonCap1RunCommandsFromDebug.Text = "Run commands from debug";
+            this.buttonCap1RunCommandsFromDebug.UseVisualStyleBackColor = true;
+            this.buttonCap1RunCommandsFromDebug.Click += new System.EventHandler(this.buttonCap1RunCommandsFromDebug_Click);
             // 
             // buttonCap1DisableCritLow
             // 
             this.buttonCap1DisableCritLow.Location = new System.Drawing.Point(14, 206);
-            this.buttonCap1DisableCritLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1DisableCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1DisableCritLow.Name = "buttonCap1DisableCritLow";
             this.buttonCap1DisableCritLow.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1DisableCritLow.TabIndex = 17;
@@ -1418,7 +1452,7 @@
             // buttonCap1DisableCritHigh
             // 
             this.buttonCap1DisableCritHigh.Location = new System.Drawing.Point(14, 183);
-            this.buttonCap1DisableCritHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1DisableCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1DisableCritHigh.Name = "buttonCap1DisableCritHigh";
             this.buttonCap1DisableCritHigh.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1DisableCritHigh.TabIndex = 16;
@@ -1439,7 +1473,7 @@
             // textBoxCap1SetCritLow
             // 
             this.textBoxCap1SetCritLow.Location = new System.Drawing.Point(92, 152);
-            this.textBoxCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1SetCritLow.Name = "textBoxCap1SetCritLow";
             this.textBoxCap1SetCritLow.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1SetCritLow.TabIndex = 14;
@@ -1447,7 +1481,7 @@
             // buttonCap1SetCritLow
             // 
             this.buttonCap1SetCritLow.Location = new System.Drawing.Point(14, 150);
-            this.buttonCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1SetCritLow.Name = "buttonCap1SetCritLow";
             this.buttonCap1SetCritLow.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1SetCritLow.TabIndex = 13;
@@ -1468,7 +1502,7 @@
             // textBoxCap1SetCritHigh
             // 
             this.textBoxCap1SetCritHigh.Location = new System.Drawing.Point(92, 119);
-            this.textBoxCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1SetCritHigh.Name = "textBoxCap1SetCritHigh";
             this.textBoxCap1SetCritHigh.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1SetCritHigh.TabIndex = 11;
@@ -1476,7 +1510,7 @@
             // buttonCap1SetCritHigh
             // 
             this.buttonCap1SetCritHigh.Location = new System.Drawing.Point(14, 118);
-            this.buttonCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1SetCritHigh.Name = "buttonCap1SetCritHigh";
             this.buttonCap1SetCritHigh.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1SetCritHigh.TabIndex = 10;
@@ -1497,7 +1531,7 @@
             // textBoxCap1Disch100A
             // 
             this.textBoxCap1Disch100A.Location = new System.Drawing.Point(92, 87);
-            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
             this.textBoxCap1Disch100A.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1Disch100A.TabIndex = 8;
@@ -1505,7 +1539,7 @@
             // buttonCap1Discharge100A
             // 
             this.buttonCap1Discharge100A.Location = new System.Drawing.Point(14, 85);
-            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
             this.buttonCap1Discharge100A.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1Discharge100A.TabIndex = 7;
@@ -1526,7 +1560,7 @@
             // textBoxCap1Disch10A
             // 
             this.textBoxCap1Disch10A.Location = new System.Drawing.Point(92, 54);
-            this.textBoxCap1Disch10A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1Disch10A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1Disch10A.Name = "textBoxCap1Disch10A";
             this.textBoxCap1Disch10A.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1Disch10A.TabIndex = 5;
@@ -1534,7 +1568,7 @@
             // buttonCap1Discharge10A
             // 
             this.buttonCap1Discharge10A.Location = new System.Drawing.Point(14, 53);
-            this.buttonCap1Discharge10A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1Discharge10A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1Discharge10A.Name = "buttonCap1Discharge10A";
             this.buttonCap1Discharge10A.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1Discharge10A.TabIndex = 4;
@@ -1555,7 +1589,7 @@
             // textBoxCap1ChargeToValue
             // 
             this.textBoxCap1ChargeToValue.Location = new System.Drawing.Point(92, 22);
-            this.textBoxCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1ChargeToValue.Name = "textBoxCap1ChargeToValue";
             this.textBoxCap1ChargeToValue.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1ChargeToValue.TabIndex = 2;
@@ -1563,7 +1597,7 @@
             // buttonCap1ChargeToValue
             // 
             this.buttonCap1ChargeToValue.Location = new System.Drawing.Point(14, 20);
-            this.buttonCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1ChargeToValue.Name = "buttonCap1ChargeToValue";
             this.buttonCap1ChargeToValue.Size = new System.Drawing.Size(74, 19);
             this.buttonCap1ChargeToValue.TabIndex = 1;
@@ -1605,7 +1639,7 @@
             this.dataGridViewCap1.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewCap1.Name = "dataGridViewCap1";
             this.dataGridViewCap1.RowHeadersVisible = false;
-            this.dataGridViewCap1.Size = new System.Drawing.Size(877, 251);
+            this.dataGridViewCap1.Size = new System.Drawing.Size(936, 251);
             this.dataGridViewCap1.TabIndex = 0;
             // 
             // Column1
@@ -1770,7 +1804,7 @@
             this.tabPage4.Controls.Add(this.dataGridViewCap2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(948, 464);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Cap2";
@@ -1968,15 +2002,15 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // buttonDebugRequestACK
+            // checkBoxCap1Freeze
             // 
-            this.buttonDebugRequestACK.Location = new System.Drawing.Point(14, 353);
-            this.buttonDebugRequestACK.Name = "buttonDebugRequestACK";
-            this.buttonDebugRequestACK.Size = new System.Drawing.Size(88, 23);
-            this.buttonDebugRequestACK.TabIndex = 145;
-            this.buttonDebugRequestACK.Text = "Request ACK";
-            this.buttonDebugRequestACK.UseVisualStyleBackColor = true;
-            this.buttonDebugRequestACK.Click += new System.EventHandler(this.buttonDebugRequestACK_Click);
+            this.checkBoxCap1Freeze.AutoSize = true;
+            this.checkBoxCap1Freeze.Location = new System.Drawing.Point(442, 28);
+            this.checkBoxCap1Freeze.Name = "checkBoxCap1Freeze";
+            this.checkBoxCap1Freeze.Size = new System.Drawing.Size(112, 17);
+            this.checkBoxCap1Freeze.TabIndex = 20;
+            this.checkBoxCap1Freeze.Text = "Freeze commands";
+            this.checkBoxCap1Freeze.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -2184,6 +2218,9 @@
         private System.Windows.Forms.Button buttonTestRunDown100A;
         private System.Windows.Forms.Button buttonTestRunDown10A;
         private System.Windows.Forms.Button buttonDebugRequestACK;
+        private System.Windows.Forms.TextBox textBoxCap1DebugDelay;
+        private System.Windows.Forms.Button buttonCap1RunCommandsFromDebug;
+        private System.Windows.Forms.CheckBox checkBoxCap1Freeze;
     }
 }
 

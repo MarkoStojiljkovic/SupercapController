@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DebugTools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,10 +49,10 @@ namespace SupercapController
                 // Send Commands
                 // Paint the cell
 
-                Console.WriteLine("Sending to ID:" + item);
+                FormCustomConsole.WriteLineWithConsole("Sending to ID:" + item);
                 // Wait 
                 await Task.Delay(1000);
-                Console.WriteLine("ID:" + item + " finished");
+                FormCustomConsole.WriteLineWithConsole("ID:" + item + " finished");
 
             }
         }
