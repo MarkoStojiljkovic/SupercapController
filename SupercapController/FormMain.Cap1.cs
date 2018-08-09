@@ -128,16 +128,43 @@ namespace SupercapController
                 ConfigClass.UpdateWorkingDeviceAddress(index);
                 this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
 
+                #region OLD STUFF
                 //com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
-                buttonDebugResetInstructions_Click(this, EventArgs.Empty);
-                //textBoxDebugInstructionPool.Text = "";
-                FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + index + "\r\n");
-                listOfCommands(this, EventArgs.Empty);
-                buttonDebugExecute_Click(this, EventArgs.Empty);
+                //buttonDebugResetInstructions_Click(this, EventArgs.Empty);
+                //FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + index + "\r\n");
+                //listOfCommands(this, EventArgs.Empty);
+                //buttonDebugExecute_Click(this, EventArgs.Empty);
+                #endregion
+                FormCustomConsole.WriteLineWithConsole("\r\n ------------------------");
+                // form test sequence
+                com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+                //AppendTestSequence();
+                com.ReturnACK();
+                com.AppendLedOn(2);
+                com.AppendWaitForMs(2000);
+                com.AppendLedOff(2);
+                var data = com.GetFinalCommandList();
+                labelDebugBytesUsed.Text = "Bytes Used : " + data.Length;
+                try
+                {
+                    FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + index + "\r\n");
+                    SerialDriver.Send(data, DebugExecuteSuccessCallback, DebugExecuteFailCallback);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Problem occured while trying to send data to serial port!");
+                    FormCustomConsole.WriteLine("------- Commands not sent --------\r\n");
+                    return;
+
+                }
+                // Reset everything
+                com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+                textBoxDebugInstructionPool.Text = "";
                 // Wait delay async
+
                 await Task.Delay(delay);
             }
-            FormCustomConsole.WriteLineWithConsole("All commands sent!");
+            FormCustomConsole.WriteLineWithConsole("\r\n ******All commands sent!*****");
         }
 
 

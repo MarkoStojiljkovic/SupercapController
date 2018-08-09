@@ -29,13 +29,13 @@ namespace SupercapController
                 }
             }
         }
-        const int MAX_TIMEOUTS = 20;
+        const int MAX_TIMEOUTS = 10;
 
         static bool _useRetry = false;
         static int _retryCount = 0;
         const int _TOTAL_RETRY = 3;
         static int _sleepBeforeRetry = 0;
-        const int _TOTAL_SLEEP_CNT = 20; // 15 * 100 ms
+        const int _TOTAL_SLEEP_CNT = 15; // 15 * 100 ms
 
         static Ticker ticker = new Ticker(100);
 

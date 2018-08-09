@@ -47,12 +47,12 @@ namespace SupercapController
 
         void SuccsessCallback(byte[] b)
         {
-            Console.WriteLine("HAPPY SHIT");
+            FormCustomConsole.WriteLineWithConsole("Success!!");
         }
 
         void FailCallback()
         {
-            MessageBox.Show("SAD SHIT");
+            FormCustomConsole.WriteLineWithConsole("Fail!!");
         }
 
         private void buttonDataDownloadConsole_Click(object sender, EventArgs e)

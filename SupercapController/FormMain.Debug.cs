@@ -794,13 +794,15 @@ namespace SupercapController
         private void buttonTestAll_Click(object sender, EventArgs e)
         {
 
+            AppendTestSequence();
+        }
 
+        private void AppendTestSequence()
+        {
             // Request return ACK
             com.ReturnACK();
             textBoxDebugInstructionPool.Text += "Return ACK\r\n";
             FormCustomConsole.WriteLine("Return ACK");
-
-           
 
             // Charger on
             com.AppendChargerOn();
@@ -812,7 +814,7 @@ namespace SupercapController
             float tmpValue;
             // Wait for value rising  3800
             tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
-            
+
             com.AppendWaitForValueRising(1, 0, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 3800 \r\n";
@@ -899,7 +901,7 @@ namespace SupercapController
             com.AppendDischarger10AOffS2();
             textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger10AOff S2");
-            
+
 
             // Delay 1s
             com.AppendWaitForMs(1000);
@@ -925,7 +927,7 @@ namespace SupercapController
                 ", " + tmpValue.ToString() + ")3800 \r\n";
             FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 3800");
-            
+
             // Fast charger off
             com.FastChargeOff();
             textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
@@ -949,7 +951,7 @@ namespace SupercapController
             com.AppendWaitForMs(300000);
             textBoxDebugInstructionPool.Text += "Delay in seconds: " + 300 + "\r\n";
             FormCustomConsole.WriteLine("Delay in seconds: " + 300);
-            
+
             // Data recorder task CH1 , 1- continuous, 0-target points
             com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
             textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
