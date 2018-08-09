@@ -62,7 +62,7 @@ namespace SupercapController
         private static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             tempSerialReceiveBuff = new byte[serial.BytesToRead];
-            //Console.WriteLine("Data Received: " + tempSerialReceiveBuff.Length);
+            
             serial.Read(tempSerialReceiveBuff, 0, tempSerialReceiveBuff.Length);
             if (!busy)
             {
