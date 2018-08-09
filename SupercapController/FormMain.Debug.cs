@@ -790,5 +790,212 @@ namespace SupercapController
             buttonDebugWaitForValueRising_Click(this, EventArgs.Empty);
             buttonDebugFastChargerOff_Click(this, EventArgs.Empty);
         }
+
+        private void buttonTestAll_Click(object sender, EventArgs e)
+        {
+
+
+            // Request return ACK
+            com.ReturnACK();
+            textBoxDebugInstructionPool.Text += "Return ACK\r\n";
+            FormCustomConsole.WriteLine("Return ACK");
+
+           
+
+            // Charger on
+            com.AppendChargerOn();
+            textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
+            FormCustomConsole.WriteLine("ChargerOn");
+
+            com.AppendLedOn(2); // DEBUG DIODES
+
+            float tmpValue;
+            // Wait for value rising  3800
+            tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
+            
+            com.AppendWaitForValueRising(1, 0, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 3800 \r\n";
+            FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 3800");
+
+            // Fast charger off
+            com.FastChargeOff();
+            textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
+            FormCustomConsole.WriteLine("FastChargerOff");
+
+            com.AppendLedOff(2); // DEBUG DIODES
+
+            // Delay 15min   900000 ms
+            com.AppendWaitForMs(900000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 900 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 900);
+
+            // Discharge 10 On
+            com.AppendDischarger10AOn();
+            textBoxDebugInstructionPool.Text += "Discharger10AOn\r\n";
+            FormCustomConsole.WriteLine("Discharger10AOn");
+
+            com.AppendLedOn(2); // DEBUG DIODES
+
+            // Delay 1sec   1000 ms
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 1);
+
+            // Data recorder task CH1 , 1- continuous, 0-target points
+            com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ") \r\n";
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ")");
+
+            // Delay 2sec   2000 ms
+            com.AppendWaitForMs(2000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 2 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 2);
+
+            // Data recorder finish
+            com.AppendDataRecFinish();
+            textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
+            FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
+
+            // Wait for value falling 2400
+            tmpValue = 2400 / ConfigClass.deviceGainCH1; ;
+            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 2400  \r\n";
+            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 2400");
+
+            com.AppendLedOff(2); // DEBUG DIODES
+
+            // Data recorder task CH1 , 1- continuous, 0-target points
+            com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ") \r\n";
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ")");
+
+            // Wait for value falling 2200
+            tmpValue = 2200 / ConfigClass.deviceGainCH1; ;
+            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 2200  \r\n";
+            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 2200");
+
+            // Discharger 10A OFF S1
+            com.AppendDischarger10AOffS1();
+            textBoxDebugInstructionPool.Text += "Discharger10AOff S1\r\n";
+            FormCustomConsole.WriteLine("Discharger10AOff S1");
+
+            // Delay 200ms
+            com.AppendWaitForMs(200);
+            textBoxDebugInstructionPool.Text += "Delay in mseconds: " + 200 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in mseconds: " + 200);
+
+            // Discharger 10A OFF S2
+            com.AppendDischarger10AOffS2();
+            textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
+            FormCustomConsole.WriteLine("Discharger10AOff S2");
+            
+
+            // Delay 1s
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 1);
+
+            // Data recorder finish
+            com.AppendDataRecFinish();
+            textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
+            FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
+
+            com.AppendLedOn(2); // DEBUG DIODES
+            // Charger on
+            com.AppendChargerOn();
+            textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
+            FormCustomConsole.WriteLine("ChargerOn");
+
+            // Wait for value rising  3800
+            tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
+
+            com.AppendWaitForValueRising(1, 0, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ")3800 \r\n";
+            FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 3800");
+            
+            // Fast charger off
+            com.FastChargeOff();
+            textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
+            FormCustomConsole.WriteLine("FastChargerOff");
+
+            com.AppendLedOff(2); // DEBUG DIODES
+
+            // Delay 15min   900000 ms
+            com.AppendWaitForMs(900000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 900 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 900);
+
+            // Charger off
+            com.AppendChargerOff();
+            textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
+            FormCustomConsole.WriteLine("ChargerOff");
+
+            com.AppendLedOn(2); // DEBUG DIODES
+
+            // Delay 5min   300000 ms
+            com.AppendWaitForMs(300000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 300 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 300);
+            
+            // Data recorder task CH1 , 1- continuous, 0-target points
+            com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ") \r\n";
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ")");
+
+            // Delay 1s
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 1);
+
+            // Discharger 100A On
+            com.AppendDischarger100AOn();
+            textBoxDebugInstructionPool.Text += "Discharger100AOn\r\n";
+            FormCustomConsole.WriteLine("Discharger100AOn");
+
+            // Wait for value falling 3000
+            tmpValue = 3000 / ConfigClass.deviceGainCH1; ;
+            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 3000  \r\n";
+            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 3000");
+
+            // Discharger 100A OFF S1
+            com.AppendDischarger100AOffS1();
+            textBoxDebugInstructionPool.Text += "Discharger100AOff S1\r\n";
+            FormCustomConsole.WriteLine("Discharger100AOff S1");
+
+            // Delay 200ms
+            com.AppendWaitForMs(200);
+            textBoxDebugInstructionPool.Text += "Delay in mseconds: " + 200 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in mseconds: " + 200);
+
+            // Discharger 100A OFF S2
+            com.AppendDischarger100AOffS2();
+            textBoxDebugInstructionPool.Text += "Discharger100AOff S2\r\n";
+            FormCustomConsole.WriteLine("Discharger100AOff S2");
+
+            // Data recorder finish
+            com.AppendDataRecFinish();
+            textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
+            FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
+
+            com.AppendLedOff(2); // DEBUG DIODES
+        }
     }
 }

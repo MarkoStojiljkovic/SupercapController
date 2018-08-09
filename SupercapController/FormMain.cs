@@ -113,5 +113,7 @@ namespace SupercapController
             nfi.NumberFormat.NumberDecimalSeparator = ".";
             Thread.CurrentThread.CurrentCulture = nfi;
         }
+
+        
     }
 }
