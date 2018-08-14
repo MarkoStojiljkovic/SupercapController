@@ -809,7 +809,7 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
             FormCustomConsole.WriteLine("ChargerOn");
 
-            com.AppendLedOn(2); // DEBUG DIODES
+            com.AppendLedOn(3); // DEBUG DIODES
 
             float tmpValue;
             // Wait for value rising  3800
@@ -826,7 +826,7 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
             FormCustomConsole.WriteLine("FastChargerOff");
 
-            com.AppendLedOff(2); // DEBUG DIODES
+            com.AppendLedOff(3); // DEBUG DIODES
 
             // Delay 15min   900000 ms
             com.AppendWaitForMs(900000);
@@ -838,12 +838,12 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Discharger10AOn\r\n";
             FormCustomConsole.WriteLine("Discharger10AOn");
 
-            com.AppendLedOn(2); // DEBUG DIODES
+            com.AppendLedOn(3); // DEBUG DIODES
 
             // Delay 1sec   1000 ms
-            com.AppendWaitForMs(1000);
-            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
-            FormCustomConsole.WriteLine("Delay in seconds: " + 1);
+            //com.AppendWaitForMs(1000);
+            //textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
+            //FormCustomConsole.WriteLine("Delay in seconds: " + 1);
 
             // Data recorder task CH1 , 1- continuous, 0-target points
             com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
@@ -852,31 +852,26 @@ namespace SupercapController
             FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
                 ", " + "0" + ")");
 
-            // Delay 2sec   2000 ms
-            com.AppendWaitForMs(2000);
-            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 2 + "\r\n";
-            FormCustomConsole.WriteLine("Delay in seconds: " + 2);
+            // Delay 3sec   3000 ms
+            com.AppendWaitForMs(3000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 3 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 3);
 
             // Data recorder finish
             com.AppendDataRecFinish();
             textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
             FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
 
-            // Wait for value falling 2400
-            tmpValue = 2400 / ConfigClass.deviceGainCH1; ;
-            com.AppendWaitForValueFalling(1, 0, tmpValue);
-            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
-                ", " + tmpValue.ToString() + ") 2400  \r\n";
-            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
-                ", " + tmpValue.ToString() + ") 2400");
-
-            com.AppendLedOff(2); // DEBUG DIODES
-
+            // Delay 3sec   1000 ms
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 1);
+            
             // Data recorder task CH1 , 1- continuous, 0-target points
-            com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
-            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+            com.AppendDataRecorderTask(1, 1, 100, 0, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "100" +
                 ", " + "0" + ") \r\n";
-            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "100" +
                 ", " + "0" + ")");
 
             // Wait for value falling 2200
@@ -887,6 +882,12 @@ namespace SupercapController
             FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 2200");
 
+            // Data recorder finish
+            com.AppendDataRecFinish();
+            textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
+            FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
+
+            
             // Discharger 10A OFF S1
             com.AppendDischarger10AOffS1();
             textBoxDebugInstructionPool.Text += "Discharger10AOff S1\r\n";
@@ -902,18 +903,19 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger10AOff S2");
 
+            com.AppendLedOff(3); // DEBUG DIODES
 
             // Delay 1s
             com.AppendWaitForMs(1000);
             textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
             FormCustomConsole.WriteLine("Delay in seconds: " + 1);
 
-            // Data recorder finish
-            com.AppendDataRecFinish();
-            textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
-            FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
+            //// Data recorder finish
+            //com.AppendDataRecFinish();
+            //textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
+            //FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
 
-            com.AppendLedOn(2); // DEBUG DIODES
+            com.AppendLedOn(3); // DEBUG DIODES
             // Charger on
             com.AppendChargerOn();
             textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
@@ -933,7 +935,7 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
             FormCustomConsole.WriteLine("FastChargerOff");
 
-            com.AppendLedOff(2); // DEBUG DIODES
+            com.AppendLedOff(3); // DEBUG DIODES
 
             // Delay 15min   900000 ms
             com.AppendWaitForMs(900000);
@@ -945,7 +947,7 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
             FormCustomConsole.WriteLine("ChargerOff");
 
-            com.AppendLedOn(2); // DEBUG DIODES
+            com.AppendLedOn(3); // DEBUG DIODES
 
             // Delay 5min   300000 ms
             com.AppendWaitForMs(300000);
@@ -997,7 +999,7 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
             FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
 
-            com.AppendLedOff(2); // DEBUG DIODES
+            com.AppendLedOff(3); // DEBUG DIODES
         }
     }
 }

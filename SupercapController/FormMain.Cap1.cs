@@ -138,11 +138,11 @@ namespace SupercapController
                 FormCustomConsole.WriteLineWithConsole("\r\n ------------------------");
                 // form test sequence
                 com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
-                //AppendTestSequence();
-                com.ReturnACK();
-                com.AppendLedOn(2);
-                com.AppendWaitForMs(2000);
-                com.AppendLedOff(2);
+                AppendTestSequence();
+                //com.ReturnACK();
+                //com.AppendLedOn(2);
+                //com.AppendWaitForMs(2000);
+                //com.AppendLedOff(2);
                 var data = com.GetFinalCommandList();
                 labelDebugBytesUsed.Text = "Bytes Used : " + data.Length;
                 try
