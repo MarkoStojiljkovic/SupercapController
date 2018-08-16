@@ -10,15 +10,9 @@ namespace SupercapController
     partial class FormMain
     {
         CommandFormerClass com;
-        EventHandler listOfCommands;
 
         private void buttonDebugResetInstructions_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands = null;
-                listOfCommands += buttonDebugResetInstructions_Click;
-            }
             com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
             textBoxDebugInstructionPool.Text = "";
             FormCustomConsole.WriteLine("------- Commands reset --------\r\n");
@@ -26,10 +20,6 @@ namespace SupercapController
 
         private void buttonDebugExecute_Click(object sender, EventArgs e)
         {
-            //if (!checkBoxCap1Freeze.Checked)
-            //{
-            //    listOfCommands += buttonDebugExecute_Click;
-            //}
             var data = com.GetFinalCommandList();
             labelDebugBytesUsed.Text = "Bytes Used : " + data.Length;
             try
@@ -64,10 +54,6 @@ namespace SupercapController
 
         private void buttonDebugDataRecTask_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDataRecTask_Click;
-            }
             byte ch;
             byte op;
             uint prescaler;
@@ -101,10 +87,6 @@ namespace SupercapController
 
         private void buttonDebugWaitDataRecToFinish_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugWaitDataRecToFinish_Click;
-            }
             com.AppendWaitForDataRecorderToFinish();
             textBoxDebugInstructionPool.Text += "Wair for data recorder to finish\r\n";
             FormCustomConsole.WriteLine("Wair for data recorder to finish");
@@ -112,10 +94,6 @@ namespace SupercapController
 
         private void buttonDebugWaitForMs_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugWaitForMs_Click;
-            }
             UInt32 ms;
             try
             {
@@ -134,10 +112,6 @@ namespace SupercapController
 
         private void buttonDebugDataRecFinish_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDataRecFinish_Click;
-            }
             com.AppendDataRecFinish();
             textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
             FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
@@ -145,10 +119,6 @@ namespace SupercapController
 
         private void buttonDebugWaitForValueRising_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugWaitForValueRising_Click;
-            }
             byte ch;
             UInt16 latency = 0;
             float value, gain;
@@ -209,10 +179,6 @@ namespace SupercapController
 
         private void buttonDebugWaitForValueFalling_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugWaitForValueFalling_Click;
-            }
             byte ch;
             UInt16 latency = 0;
             float value, gain;
@@ -270,10 +236,6 @@ namespace SupercapController
 
         private void buttonDebugSetCriticalLow_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugSetCriticalLow_Click;
-            }
             byte ch;
             float value, gain;
 
@@ -325,10 +287,6 @@ namespace SupercapController
 
         private void buttonDebugDiasbleCriticalLow_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDiasbleCriticalLow_Click;
-            }
             byte ch;
             try
             {
@@ -347,10 +305,6 @@ namespace SupercapController
 
         private void buttonDebugSetCriticalHigh_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugSetCriticalHigh_Click;
-            }
             byte ch;
             float value, gain;
 
@@ -401,10 +355,6 @@ namespace SupercapController
 
         private void buttonDebugDiasbleCriticalHigh_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDiasbleCriticalHigh_Click;
-            }
             byte ch;
             try
             {
@@ -423,10 +373,6 @@ namespace SupercapController
 
         private void buttonDebugLedOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugLedOn_Click;
-            }
             byte ledNum;
             try
             {
@@ -444,10 +390,6 @@ namespace SupercapController
 
         private void buttonDebugLedOff_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugLedOff_Click;
-            }
             byte ledNum;
             try
             {
@@ -465,10 +407,6 @@ namespace SupercapController
 
         private void buttonDebugPinSetHigh_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugPinSetHigh_Click;
-            }
             byte pinNum;
             try
             {
@@ -486,10 +424,6 @@ namespace SupercapController
 
         private void buttonDebugPinSetLow_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugPinSetLow_Click;
-            }
             byte pinNum;
             try
             {
@@ -507,10 +441,6 @@ namespace SupercapController
 
         private void buttonDebugChargerOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugChargerOn_Click;
-            }
             com.AppendChargerOn();
             textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
             FormCustomConsole.WriteLine("ChargerOn");
@@ -518,10 +448,6 @@ namespace SupercapController
 
         private void buttonDebugChargerOff_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugChargerOff_Click;
-            }
             com.AppendChargerOff();
             textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
             FormCustomConsole.WriteLine("ChargerOff");
@@ -529,10 +455,6 @@ namespace SupercapController
 
         private void buttonDebugFastChargerOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugFastChargerOn_Click;
-            }
             com.FastChargeOn();
             textBoxDebugInstructionPool.Text += "FastChargerOn\r\n";
             FormCustomConsole.WriteLine("FastChargerOn");
@@ -540,10 +462,6 @@ namespace SupercapController
 
         private void buttonDebugFastChargerOff_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugFastChargerOff_Click;
-            }
             com.FastChargeOff();
             textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
             FormCustomConsole.WriteLine("FastChargerOff");
@@ -551,10 +469,6 @@ namespace SupercapController
         
         private void buttonDebugDischarger100AOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDischarger100AOn_Click;
-            }
             com.AppendDischarger100AOn();
             textBoxDebugInstructionPool.Text += "Discharger100AOn\r\n";
             FormCustomConsole.WriteLine("Discharger100AOn");
@@ -562,10 +476,6 @@ namespace SupercapController
 
         private void buttonDebugDischarger100AOffS1_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDischarger100AOffS1_Click;
-            }
             com.AppendDischarger100AOffS1();
             textBoxDebugInstructionPool.Text += "Discharger100AOff S1\r\n";
             FormCustomConsole.WriteLine("Discharger100AOff S1");
@@ -573,10 +483,6 @@ namespace SupercapController
 
         private void buttonDebugDischarger100AOffS2_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDischarger100AOffS2_Click;
-            }
             com.AppendDischarger100AOffS2();
             textBoxDebugInstructionPool.Text += "Discharger100AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger100AOff S2");
@@ -584,10 +490,6 @@ namespace SupercapController
 
         private void buttonDebugDischarger10AOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDischarger10AOn_Click;
-            }
             com.AppendDischarger10AOn();
             textBoxDebugInstructionPool.Text += "Discharger10AOn\r\n";
             FormCustomConsole.WriteLine("Discharger10AOn");
@@ -595,10 +497,6 @@ namespace SupercapController
 
         private void buttonDebugDischarger10AOffS1_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDischarger10AOffS1_Click;
-            }
             com.AppendDischarger10AOffS1();
             textBoxDebugInstructionPool.Text += "Discharger10AOff S1\r\n";
             FormCustomConsole.WriteLine("Discharger10AOff S1");
@@ -606,10 +504,6 @@ namespace SupercapController
 
         private void buttonDebugDischarger10AOffS2_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugDischarger10AOffS2_Click;
-            }
             com.AppendDischarger10AOffS2();
             textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger10AOff S2");
@@ -617,10 +511,6 @@ namespace SupercapController
 
         private void buttonDebugFanoxOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugFanoxOn_Click;
-            }
             com.AppendFanoxOn();
             textBoxDebugInstructionPool.Text += "FanoxOn\r\n";
             FormCustomConsole.WriteLine("FanoxOn");
@@ -628,10 +518,6 @@ namespace SupercapController
 
         private void buttonDebugFanoxOff_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugFanoxOff_Click;
-            }
             com.AppendFanoxOff();
             textBoxDebugInstructionPool.Text += "FanoxOff\r\n";
             FormCustomConsole.WriteLine("FanoxOff");
@@ -639,10 +525,6 @@ namespace SupercapController
 
         private void buttonDebugResOn_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugResOn_Click;
-            }
             com.AppendResOn();
             textBoxDebugInstructionPool.Text += "ResOn\r\n";
             FormCustomConsole.WriteLine("ResOn");
@@ -650,10 +532,6 @@ namespace SupercapController
 
         private void buttonDebugResOff_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugResOff_Click;
-            }
             com.AppendResOff();
             textBoxDebugInstructionPool.Text += "ResOff\r\n";
             FormCustomConsole.WriteLine("ResOff");
@@ -661,10 +539,6 @@ namespace SupercapController
 
         private void buttonDebugRequestACK_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugRequestACK_Click;
-            }
             com.ReturnACK();
             textBoxDebugInstructionPool.Text += "Return ACK\r\n";
             FormCustomConsole.WriteLine("Return ACK");
@@ -672,10 +546,6 @@ namespace SupercapController
         
         private void buttonDebugCompositeFinishDisch10A_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugCompositeFinishDisch10A_Click;
-            }
             UInt32 ms;
             try
             {
@@ -702,10 +572,6 @@ namespace SupercapController
 
         private void buttonDebugCompositeFinishDisch100A_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonDebugCompositeFinishDisch100A_Click;
-            }
             UInt32 ms;
             try
             {
@@ -736,10 +602,6 @@ namespace SupercapController
             //buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
             //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
             //buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonMiksa_Click;
-            }
 
 
             buttonDebugRequestACK_Click(this, EventArgs.Empty);
@@ -760,10 +622,6 @@ namespace SupercapController
 
         private void buttonTestRunDown10A_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonTestRunDown10A_Click;
-            }
             buttonDebugDischarger10AOn_Click(this, EventArgs.Empty);
             buttonDebugWaitForValueFalling_Click(this, EventArgs.Empty);
             buttonDebugCompositeFinishDisch10A_Click(this, EventArgs.Empty);
@@ -771,10 +629,6 @@ namespace SupercapController
 
         private void buttonTestRunDown100A_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonTestRunDown100A_Click;
-            }
             buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
             buttonDebugWaitForValueFalling_Click(this, EventArgs.Empty);
             buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
@@ -782,10 +636,6 @@ namespace SupercapController
 
         private void buttonTestRunUp_Click(object sender, EventArgs e)
         {
-            if (!checkBoxCap1Freeze.Checked)
-            {
-                listOfCommands += buttonTestRunUp_Click;
-            }
             buttonDebugChargerOn_Click(this, EventArgs.Empty);
             buttonDebugWaitForValueRising_Click(this, EventArgs.Empty);
             buttonDebugFastChargerOff_Click(this, EventArgs.Empty);

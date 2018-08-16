@@ -50,12 +50,22 @@ namespace SupercapController
                 head.timestamp[3].ToString() + "_" + head.timestamp[4].ToString() + "_" + head.timestamp[5].ToString();
             string filename = "dev" + ConfigClass.deviceAddr + "_" + time + "_" + SupercapHelperClass.ConvertChannelToSymbolicString(ch) + ".csv";
 
-            DialogResult dialogResult = MessageBox.Show("Save as: " + filename, "Save File", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            
+            saveFileDialog1.Filter = "CSV files |.csv";
+            saveFileDialog1.RestoreDirectory = true; // Remember where we saved last file
+            saveFileDialog1.FileName = filename; // Default name
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //do something
-                string path = AppDomain.CurrentDomain.BaseDirectory + filename;
-                using (StreamWriter sw = new StreamWriter(File.Create(path)))
+                //if ((myStream = saveFileDialog1.OpenFile()) != null)
+                //{
+                //    // Code to write the stream goes here.
+                //    myStream.Close();
+                //}
+                using (StreamWriter sw = new StreamWriter(File.Create(saveFileDialog1.FileName)))
                 {
                     try
                     {
@@ -66,13 +76,33 @@ namespace SupercapController
                         MessageBox.Show(ex.Message);
                     }
                 }
+            }
 
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //You dont want to save data :(
-            }
-            
+
+
+            //DialogResult dialogResult = MessageBox.Show("Save as: " + filename, "Save File", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    //do something
+            //    string path = AppDomain.CurrentDomain.BaseDirectory + filename;
+            //    using (StreamWriter sw = new StreamWriter(File.Create(path)))
+            //    {
+            //        try
+            //        {
+            //            sw.Write(sb.ToString());
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show(ex.Message);
+            //        }
+            //    }
+
+            //}
+            //else if (dialogResult == DialogResult.No)
+            //{
+            //    //You dont want to save data :(
+            //}
+
         }
     }
 }

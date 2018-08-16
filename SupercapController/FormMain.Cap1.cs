@@ -39,18 +39,7 @@ namespace SupercapController
             }
             
         }
-
-
-        private int GetNext()
-        {
-            if (list.Count == currentIndex)
-            {
-                return -1;
-            }
-
-            return list[currentIndex++];
-        }
-
+        
 
         private void buttonCap1Discharge10A_Click(object sender, EventArgs e)
         {
@@ -82,6 +71,11 @@ namespace SupercapController
 
         }
 
+        /// <summary>
+        /// Get all selected device addresses from datagrid
+        /// </summary>
+        /// <param name="dg"></param>
+        /// <returns></returns>
         private List<int> GetSelectedIndexes(DataGridView dg)
         {
             List<int> list = new List<int>();
@@ -105,7 +99,11 @@ namespace SupercapController
         }
 
 
-
+        /// <summary>
+        /// Fetch all selected addresses and send command sequence to all of them with given delay in seconds
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void buttonCap1RunCommandsFromDebug_Click(object sender, EventArgs e)
         {
             int delay;
@@ -113,6 +111,7 @@ namespace SupercapController
             try
             {
                 delay = int.Parse(textBoxCap1DebugDelay.Text);
+                delay *= 1000; // Delay is in ms and user input is in seconds
             }
             catch (Exception)
             {
@@ -139,10 +138,6 @@ namespace SupercapController
                 // form test sequence
                 com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
                 AppendTestSequence();
-                //com.ReturnACK();
-                //com.AppendLedOn(2);
-                //com.AppendWaitForMs(2000);
-                //com.AppendLedOff(2);
                 var data = com.GetFinalCommandList();
                 labelDebugBytesUsed.Text = "Bytes Used : " + data.Length;
                 try

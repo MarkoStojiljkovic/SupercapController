@@ -20,14 +20,18 @@ namespace SupercapController
             ByteArrayDecoderClass dec = new ByteArrayDecoderClass(raw);
             // Extract data len without header (2 measurements are stored in raw thats why / 4)
             int dataLen = (dec.Get2BytesAsInt() - ConfigClass.HEADER_LENGTH) / 4;
-            
-            // Remove header from raw
+
+            // Remove header from data packet
             selectedHeader = new MeasurementHeaderClass(0); // Dummy address
             selectedHeader.timestamp = dec.Get6BytesAsTimestamp();
             selectedHeader.prescaler = dec.Get4BytesAsInt();
             selectedHeader.numOfPoints = dec.Get2BytesAsInt();
             selectedHeader.operatingMode = dec.Get1ByteAsInt();
             selectedHeader.channel = dec.Get1ByteAsInt();
+
+            // Set gain textboxes default values from config class
+            textBoxGainCH0.Text = ConfigClass.deviceGainCH0.ToString();
+            textBoxGainCH1.Text = ConfigClass.deviceGainCH1.ToString();
 
             // Form timestamp string
             string time = (selectedHeader.timestamp[0] + 2000).ToString() + "/" + selectedHeader.timestamp[1].ToString() + "/" + 

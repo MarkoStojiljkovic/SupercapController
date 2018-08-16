@@ -14,27 +14,43 @@ namespace SupercapController
         int[] values;
         MeasurementHeaderClass selectedHeader;
 
+        /// <summary>
+        /// Data is downloaded, extract raw values from data packet
+        /// </summary>
+        /// <param name="raw"></param>
         public FormMeasurementSingleChannelPresenter(byte[] raw)
         {
             InitializeComponent();
+
+            
 
             ByteArrayDecoderClass dec = new ByteArrayDecoderClass(raw);
             // Extract data len without header
             int dataLen = (dec.Get2BytesAsInt() - ConfigClass.HEADER_LENGTH) / 2;
 
-            // Remove header from raw
+            // Remove header from data packet
             selectedHeader = new MeasurementHeaderClass(0); // Dummy address
             selectedHeader.timestamp = dec.Get6BytesAsTimestamp();
             selectedHeader.prescaler = dec.Get4BytesAsInt(); 
             selectedHeader.numOfPoints = dec.Get2BytesAsInt();
             selectedHeader.operatingMode = dec.Get1ByteAsInt();
             selectedHeader.channel = dec.Get1ByteAsInt();
-            
-            //int[] ts = dec.Get6BytesAsTimestamp(); // Remove timestamp
-            //dec.Get4BytesAsInt(); // Remove prescaler
-            //dec.Get2BytesAsInt(); // Remove num of points
-            //dec.Get1ByteAsInt(); // Remove operating mode
-            //int ch = dec.Get1ByteAsInt(); // Remove channel
+
+            // Set default gain in textbox from configuration
+            if (selectedHeader.channel == 0)
+            {
+                textBoxGain.Text = ConfigClass.deviceGainCH0.ToString();
+            }
+            else if (selectedHeader.channel == 1)
+            {
+                textBoxGain.Text = ConfigClass.deviceGainCH1.ToString();
+            }
+            else
+            {
+                throw new Exception("Invalid channel value in FormMeasurementSingleChannelPresenter");
+            }
+
+
 
             // Form timestamp string
             string time = (selectedHeader.timestamp[0] + 2000).ToString() + "/" + selectedHeader.timestamp[1].ToString() + "/" + 
@@ -57,13 +73,11 @@ namespace SupercapController
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
+            // Parse gain from textbox and include it when calculating real values
             float gainCH;
             try
             {
-                //string fvalueCh0 = textBoxGainCH0.Text.Replace('.', ',');
-                //string fvalueCh1 = textBoxGainCH1.Text.Replace('.', ',');
-                string fvalueCh0 = textBoxGain.Text;
-                gainCH = float.Parse(fvalueCh0);
+                gainCH = float.Parse(textBoxGain.Text);
             }
             catch (Exception)
             {
@@ -81,8 +95,6 @@ namespace SupercapController
             {
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].Cells[0].Value = i + 1; // Index
-                //int tmpInt = values[i];
-                //float tmpFloat = tmpInt;
                 //// Represent in mV
                 //float fValue = (tmpFloat * 3300) / 32768;
                 float fValueGain = SupercapHelperClass.ConvertToFloatInMiliVolts(values[i], gainCH);
