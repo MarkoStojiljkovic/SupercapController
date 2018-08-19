@@ -48,13 +48,13 @@ namespace SupercapController
             // Create file name
             string time = (head.timestamp[0] + 2000).ToString() + "_" + head.timestamp[1].ToString() + "_" + head.timestamp[2].ToString() + "_" +
                 head.timestamp[3].ToString() + "_" + head.timestamp[4].ToString() + "_" + head.timestamp[5].ToString();
-            string filename = "dev" + ConfigClass.deviceAddr + "_" + time + "_" + SupercapHelperClass.ConvertChannelToSymbolicString(ch) + ".csv";
+            string filename = "dev" + ConfigClass.deviceAddr + "_" + time + "_" + SupercapHelperClass.ConvertChannelToSymbolicString(ch);
 
 
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             
-            saveFileDialog1.Filter = "CSV files |.csv";
+            saveFileDialog1.Filter = "CSV files |*.csv";
             saveFileDialog1.RestoreDirectory = true; // Remember where we saved last file
             saveFileDialog1.FileName = filename; // Default name
 
@@ -103,6 +103,56 @@ namespace SupercapController
             //    //You dont want to save data :(
             //}
 
+        }
+
+        public static void SaveRaw(MeasurementHeaderClass head, int[] values, int ch)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            // Infer channel gain
+            float chGain;
+            if (ch == 0)
+                chGain = ConfigClass.deviceGainCH0;
+            else if (ch == 1)
+                chGain = ConfigClass.deviceGainCH1;
+            else
+            {
+                MessageBox.Show("Channel gain error");
+                return;
+            }
+
+
+            foreach (var item in values)
+            {
+                sb.Append(SupercapHelperClass.ConvertToFloatInMiliVolts(item, chGain).ToString() + ",");
+            }
+            // Remove last ','
+            sb.Remove(sb.Length - 1, 1);
+
+            // Create file name
+            
+            string filename = "J00_" + SupercapHelperClass.ConvertChannelToSymbolicString(ch) + "_";
+            
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "CSV files |*.csv";
+            saveFileDialog1.RestoreDirectory = true; // Remember where we saved last file
+            saveFileDialog1.FileName = filename; // Default name
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(File.Create(saveFileDialog1.FileName)))
+                {
+                    try
+                    {
+                        sw.Write(sb.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
         }
     }
 }

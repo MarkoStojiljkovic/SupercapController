@@ -109,5 +109,10 @@ namespace SupercapController
         {
             SaveMeasurementsToCSVClass.Save(selectedHeader, values, selectedHeader.channel);
         }
+
+        private void buttonSaveDataRaw_Click(object sender, EventArgs e)
+        {
+            SaveMeasurementsToCSVClass.SaveRaw(selectedHeader, values, selectedHeader.channel);
+        }
     }
 }

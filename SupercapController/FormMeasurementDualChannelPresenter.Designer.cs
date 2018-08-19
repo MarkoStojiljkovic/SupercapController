@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxGainCH0 = new System.Windows.Forms.TextBox();
             this.buttonCalculate = new System.Windows.Forms.Button();
@@ -53,6 +53,7 @@
             this.textBoxGainCH1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSaveData = new System.Windows.Forms.Button();
+            this.buttonSaveDataRaw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartCH0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCH0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartCH1)).BeginInit();
@@ -64,28 +65,29 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(113, 430);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(151, 529);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 23;
             this.label1.Text = "CH0 gain";
             // 
             // textBoxGainCH0
             // 
             this.textBoxGainCH0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxGainCH0.Location = new System.Drawing.Point(169, 427);
+            this.textBoxGainCH0.Location = new System.Drawing.Point(225, 526);
+            this.textBoxGainCH0.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxGainCH0.Name = "textBoxGainCH0";
-            this.textBoxGainCH0.Size = new System.Drawing.Size(100, 20);
+            this.textBoxGainCH0.Size = new System.Drawing.Size(132, 22);
             this.textBoxGainCH0.TabIndex = 22;
             this.textBoxGainCH0.Text = "1";
             // 
             // buttonCalculate
             // 
             this.buttonCalculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCalculate.Location = new System.Drawing.Point(14, 425);
+            this.buttonCalculate.Location = new System.Drawing.Point(19, 523);
+            this.buttonCalculate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCalculate.Name = "buttonCalculate";
-            this.buttonCalculate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalculate.Size = new System.Drawing.Size(100, 28);
             this.buttonCalculate.TabIndex = 21;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = true;
@@ -96,18 +98,19 @@
             this.chartCH0.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chartCH0.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartCH0.Legends.Add(legend1);
-            this.chartCH0.Location = new System.Drawing.Point(3, 3);
+            chartArea3.Name = "ChartArea1";
+            this.chartCH0.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartCH0.Legends.Add(legend3);
+            this.chartCH0.Location = new System.Drawing.Point(4, 4);
+            this.chartCH0.Margin = new System.Windows.Forms.Padding(4);
             this.chartCH0.Name = "chartCH0";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "mV";
-            this.chartCH0.Series.Add(series1);
-            this.chartCH0.Size = new System.Drawing.Size(781, 197);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "mV";
+            this.chartCH0.Series.Add(series3);
+            this.chartCH0.Size = new System.Drawing.Size(1041, 242);
             this.chartCH0.TabIndex = 20;
             this.chartCH0.Text = "chartCH0";
             // 
@@ -125,11 +128,12 @@
             this.ColumnValue,
             this.floatValue,
             this.floatValueWithGain});
-            this.dataGridViewCH0.Location = new System.Drawing.Point(790, 3);
+            this.dataGridViewCH0.Location = new System.Drawing.Point(1053, 4);
+            this.dataGridViewCH0.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewCH0.Name = "dataGridViewCH0";
             this.dataGridViewCH0.RowHeadersVisible = false;
             this.dataGridViewCH0.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewCH0.Size = new System.Drawing.Size(342, 197);
+            this.dataGridViewCH0.Size = new System.Drawing.Size(456, 242);
             this.dataGridViewCH0.TabIndex = 19;
             // 
             // ColumnIndex
@@ -161,18 +165,19 @@
             this.chartCH1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartCH1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartCH1.Legends.Add(legend2);
-            this.chartCH1.Location = new System.Drawing.Point(3, 206);
+            chartArea4.Name = "ChartArea1";
+            this.chartCH1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartCH1.Legends.Add(legend4);
+            this.chartCH1.Location = new System.Drawing.Point(4, 254);
+            this.chartCH1.Margin = new System.Windows.Forms.Padding(4);
             this.chartCH1.Name = "chartCH1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "mV";
-            this.chartCH1.Series.Add(series2);
-            this.chartCH1.Size = new System.Drawing.Size(781, 198);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "mV";
+            this.chartCH1.Series.Add(series4);
+            this.chartCH1.Size = new System.Drawing.Size(1041, 243);
             this.chartCH1.TabIndex = 25;
             this.chartCH1.Text = "chartCH1";
             // 
@@ -190,11 +195,12 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dataGridViewCH1.Location = new System.Drawing.Point(790, 206);
+            this.dataGridViewCH1.Location = new System.Drawing.Point(1053, 254);
+            this.dataGridViewCH1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewCH1.Name = "dataGridViewCH1";
             this.dataGridViewCH1.RowHeadersVisible = false;
             this.dataGridViewCH1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewCH1.Size = new System.Drawing.Size(342, 198);
+            this.dataGridViewCH1.Size = new System.Drawing.Size(456, 243);
             this.dataGridViewCH1.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn1
@@ -225,19 +231,19 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 430);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(389, 529);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 27;
             this.label2.Text = "Ch1 gain";
             // 
             // textBoxGainCH1
             // 
             this.textBoxGainCH1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxGainCH1.Location = new System.Drawing.Point(346, 427);
+            this.textBoxGainCH1.Location = new System.Drawing.Point(461, 526);
+            this.textBoxGainCH1.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxGainCH1.Name = "textBoxGainCH1";
-            this.textBoxGainCH1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxGainCH1.Size = new System.Drawing.Size(132, 22);
             this.textBoxGainCH1.TabIndex = 26;
             this.textBoxGainCH1.Text = "1";
             // 
@@ -248,35 +254,50 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 464F));
             this.tableLayoutPanel1.Controls.Add(this.chartCH0, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewCH0, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.chartCH1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewCH1, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 15);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1135, 407);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1513, 501);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // buttonSaveData
             // 
             this.buttonSaveData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSaveData.Location = new System.Drawing.Point(1050, 424);
+            this.buttonSaveData.Location = new System.Drawing.Point(782, 524);
+            this.buttonSaveData.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSaveData.Name = "buttonSaveData";
-            this.buttonSaveData.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveData.Size = new System.Drawing.Size(100, 28);
             this.buttonSaveData.TabIndex = 29;
             this.buttonSaveData.Text = "Save Data";
             this.buttonSaveData.UseVisualStyleBackColor = true;
             this.buttonSaveData.Click += new System.EventHandler(this.buttonSaveData_Click);
             // 
+            // buttonSaveDataRaw
+            // 
+            this.buttonSaveDataRaw.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSaveDataRaw.Location = new System.Drawing.Point(628, 524);
+            this.buttonSaveDataRaw.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSaveDataRaw.Name = "buttonSaveDataRaw";
+            this.buttonSaveDataRaw.Size = new System.Drawing.Size(146, 28);
+            this.buttonSaveDataRaw.TabIndex = 30;
+            this.buttonSaveDataRaw.Text = "Save Data Raw";
+            this.buttonSaveDataRaw.UseVisualStyleBackColor = true;
+            this.buttonSaveDataRaw.Click += new System.EventHandler(this.buttonSaveDataRaw_Click);
+            // 
             // FormMeasurementDualChannelPresenter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1159, 461);
+            this.ClientSize = new System.Drawing.Size(1545, 567);
+            this.Controls.Add(this.buttonSaveDataRaw);
             this.Controls.Add(this.buttonSaveData);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label2);
@@ -284,6 +305,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxGainCH0);
             this.Controls.Add(this.buttonCalculate);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMeasurementDualChannelPresenter";
             this.Text = "FormMeasurementDualChannelPresenter";
             ((System.ComponentModel.ISupportInitialize)(this.chartCH0)).EndInit();
@@ -317,5 +339,6 @@
         private System.Windows.Forms.TextBox textBoxGainCH1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonSaveData;
+        private System.Windows.Forms.Button buttonSaveDataRaw;
     }
 }
