@@ -64,6 +64,8 @@
             this.buttonDebugCompositeFinishDisch100A = new System.Windows.Forms.Button();
             this.buttonDebugCompositeFinishDisch10A = new System.Windows.Forms.Button();
             this.panelDebugInstructionList = new System.Windows.Forms.Panel();
+            this.buttonDebugDisableCutoffValue = new System.Windows.Forms.Button();
+            this.buttonDebugSetCutoffValue = new System.Windows.Forms.Button();
             this.buttonDebugFastChargerOff = new System.Windows.Forms.Button();
             this.buttonDebugFastChargerOn = new System.Windows.Forms.Button();
             this.comboBoxDebugDisableCritHigh = new System.Windows.Forms.ComboBox();
@@ -143,6 +145,7 @@
             this.textBoxDebugInstructionPool = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panelCap1 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
             this.textBoxCap1DebugDelay = new System.Windows.Forms.TextBox();
             this.buttonCap1RunCommandsFromDebug = new System.Windows.Forms.Button();
             this.buttonCap1DisableCritLow = new System.Windows.Forms.Button();
@@ -207,7 +210,8 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label30 = new System.Windows.Forms.Label();
+            this.textBoxDebugSetCutoffValue = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -601,6 +605,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDebugInstructionList.AutoScroll = true;
+            this.panelDebugInstructionList.Controls.Add(this.label31);
+            this.panelDebugInstructionList.Controls.Add(this.textBoxDebugSetCutoffValue);
+            this.panelDebugInstructionList.Controls.Add(this.buttonDebugDisableCutoffValue);
+            this.panelDebugInstructionList.Controls.Add(this.buttonDebugSetCutoffValue);
             this.panelDebugInstructionList.Controls.Add(this.buttonDebugFastChargerOff);
             this.panelDebugInstructionList.Controls.Add(this.buttonDebugFastChargerOn);
             this.panelDebugInstructionList.Controls.Add(this.comboBoxDebugDisableCritHigh);
@@ -681,6 +689,26 @@
             this.panelDebugInstructionList.Name = "panelDebugInstructionList";
             this.panelDebugInstructionList.Size = new System.Drawing.Size(484, 452);
             this.panelDebugInstructionList.TabIndex = 6;
+            // 
+            // buttonDebugDisableCutoffValue
+            // 
+            this.buttonDebugDisableCutoffValue.Location = new System.Drawing.Point(3, 1215);
+            this.buttonDebugDisableCutoffValue.Name = "buttonDebugDisableCutoffValue";
+            this.buttonDebugDisableCutoffValue.Size = new System.Drawing.Size(112, 23);
+            this.buttonDebugDisableCutoffValue.TabIndex = 154;
+            this.buttonDebugDisableCutoffValue.Text = "Disable Cutoff";
+            this.buttonDebugDisableCutoffValue.UseVisualStyleBackColor = true;
+            this.buttonDebugDisableCutoffValue.Click += new System.EventHandler(this.buttonDebugDisableCutoffValue_Click);
+            // 
+            // buttonDebugSetCutoffValue
+            // 
+            this.buttonDebugSetCutoffValue.Location = new System.Drawing.Point(4, 1186);
+            this.buttonDebugSetCutoffValue.Name = "buttonDebugSetCutoffValue";
+            this.buttonDebugSetCutoffValue.Size = new System.Drawing.Size(112, 23);
+            this.buttonDebugSetCutoffValue.TabIndex = 153;
+            this.buttonDebugSetCutoffValue.Text = "Set Cutoff";
+            this.buttonDebugSetCutoffValue.UseVisualStyleBackColor = true;
+            this.buttonDebugSetCutoffValue.Click += new System.EventHandler(this.buttonDebugSetCutoffValue_Click);
             // 
             // buttonDebugFastChargerOff
             // 
@@ -1433,6 +1461,15 @@
             this.panelCap1.Size = new System.Drawing.Size(937, 197);
             this.panelCap1.TabIndex = 2;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(422, 64);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(187, 13);
+            this.label30.TabIndex = 21;
+            this.label30.Text = "Delay between operations in seconds:";
+            // 
             // textBoxCap1DebugDelay
             // 
             this.textBoxCap1DebugDelay.Location = new System.Drawing.Point(422, 82);
@@ -2016,14 +2053,21 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // label30
+            // textBoxDebugSetCutoffValue
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(422, 64);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(187, 13);
-            this.label30.TabIndex = 21;
-            this.label30.Text = "Delay between operations in seconds:";
+            this.textBoxDebugSetCutoffValue.Location = new System.Drawing.Point(122, 1188);
+            this.textBoxDebugSetCutoffValue.Name = "textBoxDebugSetCutoffValue";
+            this.textBoxDebugSetCutoffValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDebugSetCutoffValue.TabIndex = 155;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(119, 1172);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(101, 13);
+            this.label31.TabIndex = 156;
+            this.label31.Text = "Target Value 0 - 3.3";
             // 
             // FormMain
             // 
@@ -2235,6 +2279,10 @@
         private System.Windows.Forms.Button buttonCap1RunCommandsFromDebug;
         private System.Windows.Forms.Button buttonTestAll;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button buttonDebugDisableCutoffValue;
+        private System.Windows.Forms.Button buttonDebugSetCutoffValue;
+        private System.Windows.Forms.TextBox textBoxDebugSetCutoffValue;
+        private System.Windows.Forms.Label label31;
     }
 }
 

@@ -120,7 +120,7 @@ namespace SupercapController
         private void buttonDebugWaitForValueRising_Click(object sender, EventArgs e)
         {
             byte ch;
-            UInt16 latency = 0;
+            UInt16 latency;
             float value, gain;
             
             if (checkBoxDebugUseDefGain.Checked)
@@ -169,7 +169,18 @@ namespace SupercapController
                 }
             }
 
-            
+            // parse latency
+            try
+            {
+                latency = Convert.ToUInt16(textBoxDebugWaitForValueRisingLatency.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Insert valid value for latency!");
+                return;
+            }
+
+
             com.AppendWaitForValueRising(ch, latency, value);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + comboBoxDebugWaitForValueRising.Text + ", " + latency +
                 ", " + value.ToString() + ")\r\n";
@@ -180,7 +191,7 @@ namespace SupercapController
         private void buttonDebugWaitForValueFalling_Click(object sender, EventArgs e)
         {
             byte ch;
-            UInt16 latency = 0;
+            UInt16 latency;
             float value, gain;
             
             if (checkBoxDebugUseDefGain.Checked)
@@ -226,7 +237,18 @@ namespace SupercapController
                     return;
                 }
             }
-            
+
+            // parse latency
+            try
+            {
+                latency = Convert.ToUInt16(textBoxDebugWaitForValueFallingLatency.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Insert valid value for latency!");
+                return;
+            }
+
             com.AppendWaitForValueFalling(ch, latency, value);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + comboBoxDebugWaitForValueFalling.Text + ", " + latency +
                 ", " + value.ToString() + ")\r\n";
@@ -543,7 +565,33 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Return ACK\r\n";
             FormCustomConsole.WriteLine("Return ACK");
         }
-        
+
+
+
+        private void buttonDebugSetCutoffValue_Click(object sender, EventArgs e)
+        {
+            float value = float.Parse(textBoxDebugSetCutoffValue.Text);
+            float gain = ConfigClass.deviceGainCH1;
+            value = value / gain;
+            com.SetCutoffValueCH1(value);
+
+            textBoxDebugInstructionPool.Text += "SetCutoffValue(" + value + ") " + textBoxDebugSetCutoffValue.Text + "\r\n";
+            FormCustomConsole.WriteLine("SetCutoffValue(" + value + ")" + textBoxDebugSetCutoffValue.Text);
+
+        }
+
+        private void buttonDebugDisableCutoffValue_Click(object sender, EventArgs e)
+        {
+            com.SetCutoffValueCH1(0x8000);
+            textBoxDebugInstructionPool.Text += "DisableCutoffValue()\r\n";
+            FormCustomConsole.WriteLine("DisableCutoffValue()\r\n");
+        }
+
+
+
+
+        #region COMPOSITE COMMANDS
+
         private void buttonDebugCompositeFinishDisch10A_Click(object sender, EventArgs e)
         {
             UInt32 ms;
@@ -851,5 +899,7 @@ namespace SupercapController
 
             com.AppendLedOff(3); // DEBUG DIODES
         }
+
+        #endregion COMPOSITE COMMANDS
     }
 }

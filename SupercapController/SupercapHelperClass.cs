@@ -29,7 +29,7 @@ namespace SupercapController
             float fValue = (tmpFloat * 3300) / 32768;
             return fValue * gain;
         }
-
+       
         public static float ConvertToFloatInMiliVolts(int val)
         {
             float tmpFloat = val;
