@@ -598,26 +598,9 @@ namespace SupercapController
 
         private void buttonMiksa_Click(object sender, EventArgs e)
         {
-            // Run discharger for 1 sec
-            //buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
-
-
-            buttonDebugRequestACK_Click(this, EventArgs.Empty);
-            buttonDebugLedOn_Click(this, EventArgs.Empty);
-            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            buttonDebugLedOff_Click(this, EventArgs.Empty);
-
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOn_Click(this, EventArgs.Empty);
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOff_Click(this, EventArgs.Empty);
-
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOn_Click(this, EventArgs.Empty);
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOff_Click(this, EventArgs.Empty);
+            com.TempSetCutoff();
+            textBoxDebugInstructionPool.Text += "Disable cutoff\r\n";
+            FormCustomConsole.WriteLine("Disable cutoff");
         }
 
         private void buttonTestRunDown10A_Click(object sender, EventArgs e)
@@ -663,7 +646,7 @@ namespace SupercapController
 
             // Wait for value falling 2200
             tmpValue = 2200 / ConfigClass.deviceGainCH1; ;
-            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            com.AppendWaitForValueFalling(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 2200  \r\n";
             FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
@@ -701,7 +684,7 @@ namespace SupercapController
             // Wait for value rising  3800
             tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
 
-            com.AppendWaitForValueRising(1, 0, tmpValue);
+            com.AppendWaitForValueRising(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 3800 \r\n";
             FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
@@ -762,7 +745,7 @@ namespace SupercapController
 
             // Wait for value falling 2200
             tmpValue = 2200 / ConfigClass.deviceGainCH1; ;
-            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            com.AppendWaitForValueFalling(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 2200  \r\n";
             FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
@@ -810,7 +793,7 @@ namespace SupercapController
             // Wait for value rising  3800
             tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
 
-            com.AppendWaitForValueRising(1, 0, tmpValue);
+            com.AppendWaitForValueRising(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ")3800 \r\n";
             FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
@@ -859,7 +842,7 @@ namespace SupercapController
 
             // Wait for value falling 3000
             tmpValue = 3000 / ConfigClass.deviceGainCH1; ;
-            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            com.AppendWaitForValueFalling(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 3000  \r\n";
             FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +

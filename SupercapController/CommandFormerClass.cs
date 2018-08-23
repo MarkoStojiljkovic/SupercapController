@@ -316,7 +316,13 @@ namespace SupercapController
             bl.Add(30);
         }
 
+        public void TempSetCutoff()
+        {
+            bl.Add(31);
+            UInt16 uValue = 0x8000;
+            bl.AddRange(CustomConvertorClass.ConvertIntTo2Bytes(uValue));
 
+        }
 
         /// <summary>
         /// Calculate checksum, and append it at the end of message
