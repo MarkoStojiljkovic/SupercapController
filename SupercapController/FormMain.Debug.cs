@@ -646,26 +646,9 @@ namespace SupercapController
 
         private void buttonMiksa_Click(object sender, EventArgs e)
         {
-            // Run discharger for 1 sec
-            //buttonDebugDischarger100AOn_Click(this, EventArgs.Empty);
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugCompositeFinishDisch100A_Click(this, EventArgs.Empty);
-
-
-            buttonDebugRequestACK_Click(this, EventArgs.Empty);
-            buttonDebugLedOn_Click(this, EventArgs.Empty);
-            buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            buttonDebugLedOff_Click(this, EventArgs.Empty);
-
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOn_Click(this, EventArgs.Empty);
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOff_Click(this, EventArgs.Empty);
-
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOn_Click(this, EventArgs.Empty);
-            //buttonDebugWaitForMs_Click(this, EventArgs.Empty);
-            //buttonDebugLedOff_Click(this, EventArgs.Empty);
+            com.TempSetCutoff();
+            textBoxDebugInstructionPool.Text += "Disable cutoff\r\n";
+            FormCustomConsole.WriteLine("Disable cutoff");
         }
 
         private void buttonTestRunDown10A_Click(object sender, EventArgs e)
@@ -697,11 +680,47 @@ namespace SupercapController
 
         private void AppendTestSequence()
         {
+            float tmpValue;
+
             // Request return ACK
             com.ReturnACK();
             textBoxDebugInstructionPool.Text += "Return ACK\r\n";
             FormCustomConsole.WriteLine("Return ACK");
 
+            // Discharge 10 On
+            com.AppendDischarger10AOn();
+            textBoxDebugInstructionPool.Text += "Discharger10AOn\r\n";
+            FormCustomConsole.WriteLine("Discharger10AOn");
+
+            // Wait for value falling 2200
+            tmpValue = 2200 / ConfigClass.deviceGainCH1; ;
+            com.AppendWaitForValueFalling(1, 5, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 2200  \r\n";
+            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 2200");
+            
+            // Discharger 10A OFF S1
+            com.AppendDischarger10AOffS1();
+            textBoxDebugInstructionPool.Text += "Discharger10AOff S1\r\n";
+            FormCustomConsole.WriteLine("Discharger10AOff S1");
+
+            // Delay 200ms
+            com.AppendWaitForMs(200);
+            textBoxDebugInstructionPool.Text += "Delay in mseconds: " + 200 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in mseconds: " + 200);
+
+            // Discharger 10A OFF S2
+            com.AppendDischarger10AOffS2();
+            textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
+            FormCustomConsole.WriteLine("Discharger10AOff S2");
+
+            // Delay 5 sec
+            com.AppendWaitForMs(5000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 5 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 5);
+
+            // ORIGINAL
             // Charger on
             com.AppendChargerOn();
             textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
@@ -709,11 +728,11 @@ namespace SupercapController
 
             com.AppendLedOn(3); // DEBUG DIODES
 
-            float tmpValue;
+            
             // Wait for value rising  3800
             tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
 
-            com.AppendWaitForValueRising(1, 0, tmpValue);
+            com.AppendWaitForValueRising(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 3800 \r\n";
             FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
@@ -744,7 +763,7 @@ namespace SupercapController
             //FormCustomConsole.WriteLine("Delay in seconds: " + 1);
 
             // Data recorder task CH1 , 1- continuous, 0-target points
-            com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
+            com.AppendDataRecorderTask(2, 1, 0, 0, DateTime.Now);
             textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
                 ", " + "0" + ") \r\n";
             FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
@@ -766,7 +785,7 @@ namespace SupercapController
             FormCustomConsole.WriteLine("Delay in seconds: " + 1);
             
             // Data recorder task CH1 , 1- continuous, 0-target points
-            com.AppendDataRecorderTask(1, 1, 100, 0, DateTime.Now);
+            com.AppendDataRecorderTask(2, 1, 100, 0, DateTime.Now);
             textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "100" +
                 ", " + "0" + ") \r\n";
             FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "100" +
@@ -774,7 +793,7 @@ namespace SupercapController
 
             // Wait for value falling 2200
             tmpValue = 2200 / ConfigClass.deviceGainCH1; ;
-            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            com.AppendWaitForValueFalling(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 2200  \r\n";
             FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +
@@ -800,7 +819,7 @@ namespace SupercapController
             com.AppendDischarger10AOffS2();
             textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger10AOff S2");
-
+            
             com.AppendLedOff(3); // DEBUG DIODES
 
             // Delay 1s
@@ -822,7 +841,7 @@ namespace SupercapController
             // Wait for value rising  3800
             tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
 
-            com.AppendWaitForValueRising(1, 0, tmpValue);
+            com.AppendWaitForValueRising(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ")3800 \r\n";
             FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
@@ -853,7 +872,7 @@ namespace SupercapController
             FormCustomConsole.WriteLine("Delay in seconds: " + 300);
 
             // Data recorder task CH1 , 1- continuous, 0-target points
-            com.AppendDataRecorderTask(1, 1, 0, 0, DateTime.Now);
+            com.AppendDataRecorderTask(2, 1, 0, 0, DateTime.Now);
             textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
                 ", " + "0" + ") \r\n";
             FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
@@ -871,7 +890,7 @@ namespace SupercapController
 
             // Wait for value falling 3000
             tmpValue = 3000 / ConfigClass.deviceGainCH1; ;
-            com.AppendWaitForValueFalling(1, 0, tmpValue);
+            com.AppendWaitForValueFalling(1, 5, tmpValue);
             textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 0 +
                 ", " + tmpValue.ToString() + ") 3000  \r\n";
             FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 0 +

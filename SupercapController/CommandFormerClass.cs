@@ -340,6 +340,13 @@ namespace SupercapController
         {
             bl.Add(31);
             bl.AddRange(CustomConvertorClass.ConvertIntTo2Bytes(uValue));
+		}
+		
+        public void TempSetCutoff()
+        {
+            bl.Add(31);
+            UInt16 uValue = 0x8000;
+            bl.AddRange(CustomConvertorClass.ConvertIntTo2Bytes(uValue));
         }
 
         /// <summary>
