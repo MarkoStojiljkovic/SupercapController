@@ -38,6 +38,7 @@
             this.GetDataCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonDataDownloadGetVoltage = new System.Windows.Forms.Button();
             this.buttonDataDownloadAddrSelect = new System.Windows.Forms.Button();
             this.textBoxDataDownloadAddrSelect = new System.Windows.Forms.TextBox();
             this.buttonDataDownloadConsole = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             this.buttonDataDownloadGetMeasures = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelDebugCompositeInstructions = new System.Windows.Forms.Panel();
+            this.labelExecuteStatus = new System.Windows.Forms.Label();
             this.buttonTestAll = new System.Windows.Forms.Button();
             this.buttonDebugRequestACK = new System.Windows.Forms.Button();
             this.buttonTestRunUp = new System.Windows.Forms.Button();
@@ -64,6 +66,8 @@
             this.buttonDebugCompositeFinishDisch100A = new System.Windows.Forms.Button();
             this.buttonDebugCompositeFinishDisch10A = new System.Windows.Forms.Button();
             this.panelDebugInstructionList = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBoxDebugSetCutoffValue = new System.Windows.Forms.TextBox();
             this.buttonDebugDisableCutoffValue = new System.Windows.Forms.Button();
             this.buttonDebugSetCutoffValue = new System.Windows.Forms.Button();
             this.buttonDebugFastChargerOff = new System.Windows.Forms.Button();
@@ -210,8 +214,6 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.textBoxDebugSetCutoffValue = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -309,6 +311,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonDataDownloadGetVoltage);
             this.tabPage1.Controls.Add(this.buttonDataDownloadAddrSelect);
             this.tabPage1.Controls.Add(this.textBoxDataDownloadAddrSelect);
             this.tabPage1.Controls.Add(this.buttonDataDownloadConsole);
@@ -326,6 +329,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Download";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonDataDownloadGetVoltage
+            // 
+            this.buttonDataDownloadGetVoltage.Location = new System.Drawing.Point(188, 39);
+            this.buttonDataDownloadGetVoltage.Name = "buttonDataDownloadGetVoltage";
+            this.buttonDataDownloadGetVoltage.Size = new System.Drawing.Size(75, 23);
+            this.buttonDataDownloadGetVoltage.TabIndex = 10;
+            this.buttonDataDownloadGetVoltage.Text = "Get Voltage";
+            this.buttonDataDownloadGetVoltage.UseVisualStyleBackColor = true;
+            this.buttonDataDownloadGetVoltage.Click += new System.EventHandler(this.buttonDataDownloadGetVoltage_Click);
             // 
             // buttonDataDownloadAddrSelect
             // 
@@ -436,6 +449,7 @@
             this.panelDebugCompositeInstructions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDebugCompositeInstructions.AutoScroll = true;
+            this.panelDebugCompositeInstructions.Controls.Add(this.labelExecuteStatus);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonTestAll);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugRequestACK);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonTestRunUp);
@@ -454,6 +468,14 @@
             this.panelDebugCompositeInstructions.Name = "panelDebugCompositeInstructions";
             this.panelDebugCompositeInstructions.Size = new System.Drawing.Size(164, 454);
             this.panelDebugCompositeInstructions.TabIndex = 9;
+            // 
+            // labelExecuteStatus
+            // 
+            this.labelExecuteStatus.AutoSize = true;
+            this.labelExecuteStatus.Location = new System.Drawing.Point(95, 419);
+            this.labelExecuteStatus.Name = "labelExecuteStatus";
+            this.labelExecuteStatus.Size = new System.Drawing.Size(0, 13);
+            this.labelExecuteStatus.TabIndex = 147;
             // 
             // buttonTestAll
             // 
@@ -689,6 +711,22 @@
             this.panelDebugInstructionList.Name = "panelDebugInstructionList";
             this.panelDebugInstructionList.Size = new System.Drawing.Size(484, 452);
             this.panelDebugInstructionList.TabIndex = 6;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(119, 1172);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(101, 13);
+            this.label31.TabIndex = 156;
+            this.label31.Text = "Target Value 0 - 3.3";
+            // 
+            // textBoxDebugSetCutoffValue
+            // 
+            this.textBoxDebugSetCutoffValue.Location = new System.Drawing.Point(122, 1188);
+            this.textBoxDebugSetCutoffValue.Name = "textBoxDebugSetCutoffValue";
+            this.textBoxDebugSetCutoffValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDebugSetCutoffValue.TabIndex = 155;
             // 
             // buttonDebugDisableCutoffValue
             // 
@@ -2053,22 +2091,6 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // textBoxDebugSetCutoffValue
-            // 
-            this.textBoxDebugSetCutoffValue.Location = new System.Drawing.Point(122, 1188);
-            this.textBoxDebugSetCutoffValue.Name = "textBoxDebugSetCutoffValue";
-            this.textBoxDebugSetCutoffValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDebugSetCutoffValue.TabIndex = 155;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(119, 1172);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(101, 13);
-            this.label31.TabIndex = 156;
-            this.label31.Text = "Target Value 0 - 3.3";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2283,6 +2305,8 @@
         private System.Windows.Forms.Button buttonDebugSetCutoffValue;
         private System.Windows.Forms.TextBox textBoxDebugSetCutoffValue;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label labelExecuteStatus;
+        private System.Windows.Forms.Button buttonDataDownloadGetVoltage;
     }
 }
 

@@ -43,6 +43,22 @@ namespace SupercapController
             var data = cm.GetFinalCommandList();
             SerialDriver.Send(data, SuccsessCallback, FailCallback);
         }
+
+        /// <summary>
+        /// Get current voltage from device (current ADC sample from CH1)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonDataDownloadGetVoltage_Click(object sender, EventArgs e)
+        {
+            // Send command to get last ADC sample
+            CommandFormerClass cm = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+            cm.GetLastADCSample(1);
+            var data = cm.GetFinalCommandList();
+            SerialDriver.Send(data, GetADCResultCallbackCH1, FailCallback);
+        }
+
+
 #warning DEBUG FUNCTIONS
 
         void SuccsessCallback(byte[] b)
@@ -53,6 +69,26 @@ namespace SupercapController
         void FailCallback()
         {
             FormCustomConsole.WriteLineWithConsole("Fail!!");
+        }
+
+
+        void GetADCResultCallbackCH1(byte[] b)
+        {
+            ByteArrayDecoderClass decoder = new ByteArrayDecoderClass(b);
+
+            decoder.Get2BytesAsInt(); // Ignore first 2 values (message length)
+            // Get raw value and convert to human readable values, with and without gain
+            var rawValue = decoder.Get2BytesAsInt16();
+            float fValueGain = SupercapHelperClass.ConvertToFloatInMiliVolts(rawValue, ConfigClass.deviceGainCH1);
+            float fValue = SupercapHelperClass.ConvertToFloatInMiliVolts(rawValue);
+            // Show them in separate thread so you dont block current
+            Thread t = new Thread(() =>
+            {
+                string s = "Raw ADC: " + rawValue + "\r\nValue in mV: " + fValue +  "\r\nValue in mV with gain: " + fValueGain;
+                MessageBox.Show(s, DateTime.Now.ToString());
+            });
+            t.IsBackground = true;
+            t.Start();
         }
 
         private void buttonDataDownloadConsole_Click(object sender, EventArgs e)
@@ -243,7 +279,7 @@ namespace SupercapController
         }
 
 
-
+        
 
 
 

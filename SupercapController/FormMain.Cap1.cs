@@ -1,8 +1,10 @@
 ﻿using DebugTools;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,7 +14,6 @@ namespace SupercapController
     {
 
         List<int> list;
-        int currentIndex = 0;
 
         private void buttonCap1ChargeToValue_Click(object sender, EventArgs e)
         {
@@ -29,7 +30,7 @@ namespace SupercapController
             }
 
 
-            list = GetSelectedIndexes(dataGridViewCap1);
+            list = DataGridHelperClass.GetSelectedIndexes(dataGridViewCap1);
             
             foreach (var index in list)
             {
@@ -70,34 +71,7 @@ namespace SupercapController
         {
 
         }
-
-        /// <summary>
-        /// Get all selected device addresses from datagrid
-        /// </summary>
-        /// <param name="dg"></param>
-        /// <returns></returns>
-        private List<int> GetSelectedIndexes(DataGridView dg)
-        {
-            List<int> list = new List<int>();
-            
-            foreach (DataGridViewRow row in dg.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    //do operations with cell
-                    if (cell is DataGridViewCheckBoxCell)
-                    {
-                        if (Convert.ToBoolean(cell.Value) == true)
-                        {
-                            list.Add(Convert.ToInt32(row.Cells[cell.ColumnIndex - 1].Value));
-                        }
-                        
-                    }
-                }
-            }
-            return list;
-        }
-
+        
 
         /// <summary>
         /// Fetch all selected addresses and send command sequence to all of them with given delay in seconds
@@ -118,22 +92,19 @@ namespace SupercapController
                 MessageBox.Show("Insert valid float value!");
                 return;
             }
+#warning UNTESTED CODE
+            // Reset device pool and datagrid
+            //ConfigClass.DevPoolCap1.DevicePoolReset();
+            //DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
+            DataGridHelperClass.ClearStatusColorsFromDataGrid(dataGridViewCap1);
 
-
-            list = GetSelectedIndexes(dataGridViewCap1);
+            list = DataGridHelperClass.GetSelectedIndexes(dataGridViewCap1);
 
             foreach (var index in list)
             {
                 ConfigClass.UpdateWorkingDeviceAddress(index);
                 this.Text = "Charger Controller   DEV_ADDR=" + ConfigClass.deviceAddr.ToString() + "     GainCH0=" + ConfigClass.deviceGainCH0 + "  GainCH1=" + ConfigClass.deviceGainCH1;
-
-                #region OLD STUFF
-                //com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
-                //buttonDebugResetInstructions_Click(this, EventArgs.Empty);
-                //FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + index + "\r\n");
-                //listOfCommands(this, EventArgs.Empty);
-                //buttonDebugExecute_Click(this, EventArgs.Empty);
-                #endregion
+                
                 FormCustomConsole.WriteLineWithConsole("\r\n ------------------------");
                 // form test sequence
                 com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
@@ -143,7 +114,7 @@ namespace SupercapController
                 try
                 {
                     FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + index + "\r\n");
-                    SerialDriver.Send(data, DebugExecuteSuccessCallback, DebugExecuteFailCallback);
+                    SerialDriver.Send(data, Cap1ExecuteSuccessCallback, Cap1ExecuteFailCallback);
                 }
                 catch (Exception)
                 {
@@ -159,9 +130,55 @@ namespace SupercapController
 
                 await Task.Delay(delay);
             }
+            Thread t = new Thread(() =>
+            {
+                MessageBox.Show("******All commands sent!*****", DateTime.Now.ToString());
+            });
+            t.IsBackground = true;
+            t.Start();
             FormCustomConsole.WriteLineWithConsole("\r\n ******All commands sent!*****");
         }
 
 
+        private void Cap1ExecuteSuccessCallback(byte[] b)
+        {
+            // Its ACK no need to use data
+            //MessageBox.Show("Commands sent successfully!");
+            Invoke((MethodInvoker)delegate
+            {
+                ChangeColorOnDatagrid(ConfigClass.deviceAddr, System.Drawing.Color.Green);
+            }
+            );
+            FormCustomConsole.WriteLineWithConsole("COMMANDS SENT SUCCESSFULLY TO DEVICE:" + ConfigClass.deviceAddr + "!!!");
+        }
+
+        private void Cap1ExecuteFailCallback()
+        {
+            //MessageBox.Show("Commands not received by device!");
+            Invoke((MethodInvoker)delegate
+            {
+                ChangeColorOnDatagrid(ConfigClass.deviceAddr, Color.Red);
+            });
+            FormCustomConsole.WriteLineWithConsole("COMMANDS NOT RECEIVED BY DEVICE WITH ID:" + ConfigClass.deviceAddr + "!!!");
+        }
+
+        public void ChangeColorOnDatagrid(int index, Color col)
+        {
+            DataGridViewCell cell;
+            if (index < ConfigClass.cap2AddrOffset)
+            {
+                cell = DataGridHelperClass.FindCellWithID(dataGridViewCap1, index);
+            }
+            else
+            {
+                cell = DataGridHelperClass.FindCellWithID(dataGridViewCap2, index);
+            }
+            if (cell != null)
+            {
+                cell.Style.BackColor = col;
+            }
+            else
+                throw new Exception("Cell not found in FormMain.ChangeColorOnDataGrid()");
+        }
     }
 }

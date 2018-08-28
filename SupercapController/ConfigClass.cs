@@ -40,7 +40,6 @@ namespace SupercapController
         /// <param name="id"></param>
         public static void UpdateWorkingDeviceAddress(int id)
         {
-
             deviceAddr = (byte)id;
             deviceGainCH0 = DeviceGainStorageSerializableClass.lastInstance.dev[id - 1].gainCH0;
             deviceGainCH1 = DeviceGainStorageSerializableClass.lastInstance.dev[id - 1].gainCH1;

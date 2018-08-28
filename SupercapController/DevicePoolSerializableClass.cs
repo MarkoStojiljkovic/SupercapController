@@ -22,6 +22,12 @@ namespace SupercapController
             cntDev = 0;
         }
 
+        public void DevicePoolReset()
+        {
+            cntContainer = 0;
+            cntDev = 0;
+        }
+
 
         // Empty constructor for serialization
         public DevicePoolSerializableClass()

@@ -44,65 +44,10 @@ namespace SupercapController
             #endregion
 #warning DEBUGGING DATAGRIDVIEW
             
-            PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
-            PopulateCapDataGrid(ConfigClass.DevPoolCap2, dataGridViewCap2);
+            DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
+            DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap2, dataGridViewCap2);
         }
-
-        private void PopulateCapDataGrid(DevicePoolSerializableClass devPool, DataGridView datagrid )
-        {
-            Tuple<bool, bool, int> tup;
-            for (int i = 0; i < ConfigClass.NUM_OF_CONTAINERS; i++)
-            {
-                datagrid.Rows.Add("kom" + (i+1), 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0);
-                for (int y = 0; y < ConfigClass.NUM_OF_DEVICES_IN_CONTAINER; y++)
-                {
-                    tup = devPool.GetNext();
-                    CorrectDevicePoolGrid(i,y, tup, datagrid);
-
-                }
-            }
-        }
-
-        /// <summary>
-        /// Correct datagrid based on conifiguration file (disable or skip some cells)
-        /// </summary>
-        /// <param name="rowIndex"></param>
-        /// <param name="colIndex"></param>
-        /// <param name="tup"></param>
-        /// <param name="datagrid"></param>
-        private void CorrectDevicePoolGrid(int rowIndex,int colIndex, Tuple<bool, bool, int> tup, DataGridView datagrid)
-        {
-            // Adjust column index
-            colIndex = (colIndex * 2) + 1;
-            // Check what needs to be done with cell
-            if (tup.Item2 == true) // skip ?
-            {
-                // Disable, fill blank and paint darker
-                datagrid.Rows[rowIndex].Cells[colIndex].Value = "";
-                datagrid.Rows[rowIndex].Cells[colIndex].ReadOnly = true;
-                datagrid.Rows[rowIndex].Cells[colIndex++].Style.BackColor = Color.LightGray;
-                datagrid.Rows[rowIndex].Cells[colIndex].Value = 0; // Deselect checkbox
-                datagrid.Rows[rowIndex].Cells[colIndex].ReadOnly = true;
-                datagrid.Rows[rowIndex].Cells[colIndex].Style.BackColor = Color.LightGray;
-                return;
-            }
-            else if (tup.Item1 != true) // Enabled ?
-            {
-                // Disable and paint darker
-                datagrid.Rows[rowIndex].Cells[colIndex].Value = tup.Item3;
-                datagrid.Rows[rowIndex].Cells[colIndex].ReadOnly = true;
-                datagrid.Rows[rowIndex].Cells[colIndex++].Style.BackColor = Color.LightGray;
-                datagrid.Rows[rowIndex].Cells[colIndex].Value = 0; // Deselect checkbox
-                datagrid.Rows[rowIndex].Cells[colIndex].ReadOnly = true;
-                datagrid.Rows[rowIndex].Cells[colIndex].Style.BackColor = Color.LightGray;
-                return;
-            }
-            // Not skipped and enabled, fill with values
-            datagrid.Rows[rowIndex].Cells[colIndex].Value = tup.Item3;
-            datagrid.Rows[rowIndex].Cells[colIndex++].ReadOnly = true;
-            datagrid.Rows[rowIndex].Cells[colIndex].Value = 0; // Deselect checkbox
-        }
-
+        
         /// <summary>
         /// Keep all culture settings except NumberDecimalSeparator (which will be '.')
         /// </summary>
@@ -113,7 +58,7 @@ namespace SupercapController
             nfi.NumberFormat.NumberDecimalSeparator = ".";
             Thread.CurrentThread.CurrentCulture = nfi;
         }
-
         
+
     }
 }

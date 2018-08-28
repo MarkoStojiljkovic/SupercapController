@@ -161,7 +161,6 @@ namespace SupercapController
         }
         public void AppendSetCriticalLow(float targetValue, byte channel)
         {
-#warning IMPROVE THIS
             // targt value is given in mV
             if (targetValue > 3300)
             {
@@ -296,9 +295,10 @@ namespace SupercapController
             bl.Add(26);
         }
 
-        public void GetGain()
+        public void GetLastADCSample(byte ch)
         {
             bl.Add(27);
+            bl.Add(ch);
         }
 
         public void FastChargeOn()
@@ -341,13 +341,6 @@ namespace SupercapController
             bl.Add(31);
             bl.AddRange(CustomConvertorClass.ConvertIntTo2Bytes(uValue));
 		}
-		
-        public void TempSetCutoff()
-        {
-            bl.Add(31);
-            UInt16 uValue = 0x8000;
-            bl.AddRange(CustomConvertorClass.ConvertIntTo2Bytes(uValue));
-        }
 
         /// <summary>
         /// Calculate checksum, and append it at the end of message

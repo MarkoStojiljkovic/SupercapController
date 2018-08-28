@@ -33,6 +33,8 @@ namespace SupercapController
                 return;
 
             }
+            labelExecuteStatus.Text = "Pending";
+            labelExecuteStatus.ForeColor = System.Drawing.Color.Black;
             // Reset everything
             com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
             textBoxDebugInstructionPool.Text = "";
@@ -43,12 +45,24 @@ namespace SupercapController
         {
             // Its ACK no need to use data
             //MessageBox.Show("Commands sent successfully!");
+            Invoke((MethodInvoker)delegate
+            {
+                labelExecuteStatus.Text = "Success!";
+                labelExecuteStatus.ForeColor = System.Drawing.Color.Green;
+            }
+            );
+            
             FormCustomConsole.WriteLineWithConsole("COMMANDS SENT SUCCESSFULLY!!!");
         }
 
         private void DebugExecuteFailCallback()
         {
             //MessageBox.Show("Commands not received by device!");
+            Invoke((MethodInvoker)delegate
+            {
+                labelExecuteStatus.Text = "Fail!";
+                labelExecuteStatus.ForeColor = System.Drawing.Color.Red;
+            });
             FormCustomConsole.WriteLineWithConsole("COMMANDS NOT RECEIVED BY DEVICE!!!");
         }
 
@@ -646,9 +660,7 @@ namespace SupercapController
 
         private void buttonMiksa_Click(object sender, EventArgs e)
         {
-            com.TempSetCutoff();
-            textBoxDebugInstructionPool.Text += "Disable cutoff\r\n";
-            FormCustomConsole.WriteLine("Disable cutoff");
+
         }
 
         private void buttonTestRunDown10A_Click(object sender, EventArgs e)
