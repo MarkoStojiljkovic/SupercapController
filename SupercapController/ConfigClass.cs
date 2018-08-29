@@ -29,7 +29,7 @@ namespace SupercapController
         // These settings should match settings in firmware
         public const byte startSeq = 254;
         public const int MEASURE_INFO_BASE = 512;
-        public const int MEASURE_INFO_LEN = 34;
+        public const int MEASURE_INFO_LEN = 82;
         public const int HEADER_LENGTH = 14;
 
 

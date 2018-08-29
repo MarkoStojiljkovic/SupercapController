@@ -699,6 +699,39 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Return ACK\r\n";
             FormCustomConsole.WriteLine("Return ACK");
 
+            // Data recorder task DUAL CH, TARGET POINTS, 0 Prescaler, 700 points
+            com.AppendDataRecorderTask(2, 2, 0, 700, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ") \r\n";
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ")");
+
+            // Delay 1sec   1000 ms
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: 1\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: 1");
+
+
+            // Res on
+            com.AppendResOn();
+            textBoxDebugInstructionPool.Text += "ResOn()\r\n";
+            FormCustomConsole.WriteLine("ResOn()");
+
+            // Delay 500msec   500 ms
+            com.AppendWaitForMs(500);
+            textBoxDebugInstructionPool.Text += "Delay in ms: 500\r\n";
+            FormCustomConsole.WriteLine("Delay in ms: 500");
+
+            // Res off
+            com.AppendResOff();
+            textBoxDebugInstructionPool.Text += "ResOff()\r\n";
+            FormCustomConsole.WriteLine("ResOff()");
+
+            // Delay 2sec   2 sec
+            com.AppendWaitForMs(2000);
+            textBoxDebugInstructionPool.Text += "Delay 2sec\r\n";
+            FormCustomConsole.WriteLine("Delay 2sec");
+
             // Discharge 10 On
             com.AppendDischarger10AOn();
             textBoxDebugInstructionPool.Text += "Discharger10AOn\r\n";
