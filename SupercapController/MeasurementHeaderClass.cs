@@ -23,7 +23,7 @@ namespace SupercapController
         public MeasurementHeaderClass(int head)
         {
             headerAddress = head;
-            dataAddress = headerAddress + 14; // Header is 14 bytes, data is placed just after header
+            dataAddress = headerAddress + ConfigClass.HEADER_LENGTH; // Header is 14 bytes, data is placed just after header
         }
     }
 }

@@ -37,7 +37,7 @@ namespace SupercapController
             sb.Append("Prescaler: " + head.prescaler + "\r\n");
             sb.Append("Number of data points: " + head.numOfPoints + "\r\n");
             sb.Append("Start:\r\n");
-            
+
             foreach (var item in values)
             {
                 sb.Append(SupercapHelperClass.ConvertToFloatInMiliVolts(item, chGain).ToString() + ",");
@@ -53,7 +53,7 @@ namespace SupercapController
 
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            
+
             saveFileDialog1.Filter = "CSV files |*.csv";
             saveFileDialog1.RestoreDirectory = true; // Remember where we saved last file
             saveFileDialog1.FileName = filename; // Default name
@@ -77,33 +77,70 @@ namespace SupercapController
                     }
                 }
             }
+        }
 
 
+        public static void Save(int[] values, int ch, string path, string delimiter)
+        {
+            StringBuilder sb = new StringBuilder();
 
-            //DialogResult dialogResult = MessageBox.Show("Save as: " + filename, "Save File", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    //do something
-            //    string path = AppDomain.CurrentDomain.BaseDirectory + filename;
-            //    using (StreamWriter sw = new StreamWriter(File.Create(path)))
-            //    {
-            //        try
-            //        {
-            //            sw.Write(sb.ToString());
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show(ex.Message);
-            //        }
-            //    }
+            // Infer channel gain
+            float chGain;
+            if (ch == 0)
+                chGain = ConfigClass.deviceGainCH0;
+            else if (ch == 1)
+                chGain = ConfigClass.deviceGainCH1;
+            else
+            {
+                MessageBox.Show("Channel gain error");
+                return;
+            }
 
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    //You dont want to save data :(
-            //}
+            foreach (var item in values)
+            {
+                sb.Append(SupercapHelperClass.ConvertToFloatInMiliVolts(item, chGain).ToString() + delimiter);
+            }
+            // Remove last delimiter
+            sb.Remove(sb.Length - delimiter.Length, delimiter.Length);
+
+            using (StreamWriter sw = new StreamWriter(File.Create(path)))
+            {
+                try
+                {
+                    sw.Write(sb.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
 
         }
+
+        //DialogResult dialogResult = MessageBox.Show("Save as: " + filename, "Save File", MessageBoxButtons.YesNo);
+        //if (dialogResult == DialogResult.Yes)
+        //{
+        //    //do something
+        //    string path = AppDomain.CurrentDomain.BaseDirectory + filename;
+        //    using (StreamWriter sw = new StreamWriter(File.Create(path)))
+        //    {
+        //        try
+        //        {
+        //            sw.Write(sb.ToString());
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message);
+        //        }
+        //    }
+
+        //}
+        //else if (dialogResult == DialogResult.No)
+        //{
+        //    //You dont want to save data :(
+        //}
+
+
 
         public static void SaveRaw(MeasurementHeaderClass head, int[] values, int ch)
         {

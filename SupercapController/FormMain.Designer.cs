@@ -38,6 +38,8 @@
             this.GetDataCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxDataDownloadCapacitorDescription = new System.Windows.Forms.TextBox();
+            this.buttonDataDownloadMultiDownload = new System.Windows.Forms.Button();
             this.buttonDataDownloadGetVoltage = new System.Windows.Forms.Button();
             this.buttonDataDownloadAddrSelect = new System.Windows.Forms.Button();
             this.textBoxDataDownloadAddrSelect = new System.Windows.Forms.TextBox();
@@ -214,6 +216,7 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.labelMultiDownload = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -231,6 +234,7 @@
             // 
             this.dataGridViewDataDownloadMesHeaders.AllowUserToAddRows = false;
             this.dataGridViewDataDownloadMesHeaders.AllowUserToDeleteRows = false;
+            this.dataGridViewDataDownloadMesHeaders.AllowUserToResizeRows = false;
             this.dataGridViewDataDownloadMesHeaders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -311,6 +315,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.labelMultiDownload);
+            this.tabPage1.Controls.Add(this.textBoxDataDownloadCapacitorDescription);
+            this.tabPage1.Controls.Add(this.buttonDataDownloadMultiDownload);
             this.tabPage1.Controls.Add(this.buttonDataDownloadGetVoltage);
             this.tabPage1.Controls.Add(this.buttonDataDownloadAddrSelect);
             this.tabPage1.Controls.Add(this.textBoxDataDownloadAddrSelect);
@@ -329,6 +336,23 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Download";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDataDownloadCapacitorDescription
+            // 
+            this.textBoxDataDownloadCapacitorDescription.Location = new System.Drawing.Point(269, 13);
+            this.textBoxDataDownloadCapacitorDescription.Name = "textBoxDataDownloadCapacitorDescription";
+            this.textBoxDataDownloadCapacitorDescription.Size = new System.Drawing.Size(89, 20);
+            this.textBoxDataDownloadCapacitorDescription.TabIndex = 12;
+            // 
+            // buttonDataDownloadMultiDownload
+            // 
+            this.buttonDataDownloadMultiDownload.Location = new System.Drawing.Point(269, 39);
+            this.buttonDataDownloadMultiDownload.Name = "buttonDataDownloadMultiDownload";
+            this.buttonDataDownloadMultiDownload.Size = new System.Drawing.Size(89, 23);
+            this.buttonDataDownloadMultiDownload.TabIndex = 11;
+            this.buttonDataDownloadMultiDownload.Text = "Multi Download";
+            this.buttonDataDownloadMultiDownload.UseVisualStyleBackColor = true;
+            this.buttonDataDownloadMultiDownload.Click += new System.EventHandler(this.buttonDataDownloadMultiDownload_Click);
             // 
             // buttonDataDownloadGetVoltage
             // 
@@ -2091,6 +2115,14 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
+            // labelMultiDownload
+            // 
+            this.labelMultiDownload.AutoSize = true;
+            this.labelMultiDownload.Location = new System.Drawing.Point(364, 44);
+            this.labelMultiDownload.Name = "labelMultiDownload";
+            this.labelMultiDownload.Size = new System.Drawing.Size(0, 13);
+            this.labelMultiDownload.TabIndex = 13;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2307,6 +2339,9 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label labelExecuteStatus;
         private System.Windows.Forms.Button buttonDataDownloadGetVoltage;
+        private System.Windows.Forms.Button buttonDataDownloadMultiDownload;
+        private System.Windows.Forms.TextBox textBoxDataDownloadCapacitorDescription;
+        private System.Windows.Forms.Label labelMultiDownload;
     }
 }
 
