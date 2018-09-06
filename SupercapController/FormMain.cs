@@ -35,15 +35,10 @@ namespace SupercapController
             #region Data Download
             // Initialize all controlls from DataDownload tab
             comboBoxDataDownloadSerial.Items.AddRange(SerialPort.GetPortNames());
-
-
-            #endregion
-
-            #region Debug
-            com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
-            #endregion
-#warning DEBUGGING DATAGRIDVIEW
             
+            #endregion
+            
+            com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
             DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
             DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap2, dataGridViewCap2);
         }
@@ -58,7 +53,6 @@ namespace SupercapController
             nfi.NumberFormat.NumberDecimalSeparator = ".";
             Thread.CurrentThread.CurrentCulture = nfi;
         }
-
         
     }
 }

@@ -92,10 +92,6 @@ namespace SupercapController
                 MessageBox.Show("Insert valid float value!");
                 return;
             }
-#warning UNTESTED CODE
-            // Reset device pool and datagrid
-            //ConfigClass.DevPoolCap1.DevicePoolReset();
-            //DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
             DataGridHelperClass.ClearStatusColorsFromDataGrid(dataGridViewCap1);
 
             list = DataGridHelperClass.GetSelectedIndexes(dataGridViewCap1);

@@ -38,6 +38,7 @@
             this.GetDataCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelMultiDownload = new System.Windows.Forms.Label();
             this.textBoxDataDownloadCapacitorDescription = new System.Windows.Forms.TextBox();
             this.buttonDataDownloadMultiDownload = new System.Windows.Forms.Button();
             this.buttonDataDownloadGetVoltage = new System.Windows.Forms.Button();
@@ -162,9 +163,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.textBoxCap1SetCritHigh = new System.Windows.Forms.TextBox();
             this.buttonCap1SetCritHigh = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBoxCap1Disch100A = new System.Windows.Forms.TextBox();
-            this.buttonCap1Discharge100A = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.textBoxCap1Disch10A = new System.Windows.Forms.TextBox();
             this.buttonCap1Discharge10A = new System.Windows.Forms.Button();
@@ -216,7 +214,9 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.labelMultiDownload = new System.Windows.Forms.Label();
+            this.buttonCap1Discharge100A = new System.Windows.Forms.Button();
+            this.textBoxCap1Disch100A = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -336,6 +336,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Download";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // labelMultiDownload
+            // 
+            this.labelMultiDownload.AutoSize = true;
+            this.labelMultiDownload.Location = new System.Drawing.Point(364, 44);
+            this.labelMultiDownload.Name = "labelMultiDownload";
+            this.labelMultiDownload.Size = new System.Drawing.Size(0, 13);
+            this.labelMultiDownload.TabIndex = 13;
             // 
             // textBoxDataDownloadCapacitorDescription
             // 
@@ -1553,10 +1561,10 @@
             // 
             // buttonCap1DisableCritLow
             // 
-            this.buttonCap1DisableCritLow.Location = new System.Drawing.Point(213, 55);
+            this.buttonCap1DisableCritLow.Location = new System.Drawing.Point(230, 52);
             this.buttonCap1DisableCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1DisableCritLow.Name = "buttonCap1DisableCritLow";
-            this.buttonCap1DisableCritLow.Size = new System.Drawing.Size(100, 19);
+            this.buttonCap1DisableCritLow.Size = new System.Drawing.Size(116, 19);
             this.buttonCap1DisableCritLow.TabIndex = 17;
             this.buttonCap1DisableCritLow.Text = "Disable Crit Low";
             this.buttonCap1DisableCritLow.UseVisualStyleBackColor = true;
@@ -1564,10 +1572,10 @@
             // 
             // buttonCap1DisableCritHigh
             // 
-            this.buttonCap1DisableCritHigh.Location = new System.Drawing.Point(213, 22);
+            this.buttonCap1DisableCritHigh.Location = new System.Drawing.Point(230, 19);
             this.buttonCap1DisableCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1DisableCritHigh.Name = "buttonCap1DisableCritHigh";
-            this.buttonCap1DisableCritHigh.Size = new System.Drawing.Size(100, 19);
+            this.buttonCap1DisableCritHigh.Size = new System.Drawing.Size(116, 20);
             this.buttonCap1DisableCritHigh.TabIndex = 16;
             this.buttonCap1DisableCritHigh.Text = "Disable Crit High";
             this.buttonCap1DisableCritHigh.UseVisualStyleBackColor = true;
@@ -1576,7 +1584,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(171, 154);
+            this.label28.Location = new System.Drawing.Point(195, 151);
             this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(22, 13);
@@ -1585,7 +1593,7 @@
             // 
             // textBoxCap1SetCritLow
             // 
-            this.textBoxCap1SetCritLow.Location = new System.Drawing.Point(92, 152);
+            this.textBoxCap1SetCritLow.Location = new System.Drawing.Point(116, 149);
             this.textBoxCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1SetCritLow.Name = "textBoxCap1SetCritLow";
             this.textBoxCap1SetCritLow.Size = new System.Drawing.Size(76, 20);
@@ -1596,7 +1604,7 @@
             this.buttonCap1SetCritLow.Location = new System.Drawing.Point(14, 150);
             this.buttonCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1SetCritLow.Name = "buttonCap1SetCritLow";
-            this.buttonCap1SetCritLow.Size = new System.Drawing.Size(74, 19);
+            this.buttonCap1SetCritLow.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1SetCritLow.TabIndex = 13;
             this.buttonCap1SetCritLow.Text = "Set Crit Low";
             this.buttonCap1SetCritLow.UseVisualStyleBackColor = true;
@@ -1605,7 +1613,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(171, 122);
+            this.label29.Location = new System.Drawing.Point(195, 119);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(22, 13);
@@ -1614,7 +1622,7 @@
             // 
             // textBoxCap1SetCritHigh
             // 
-            this.textBoxCap1SetCritHigh.Location = new System.Drawing.Point(92, 119);
+            this.textBoxCap1SetCritHigh.Location = new System.Drawing.Point(116, 116);
             this.textBoxCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1SetCritHigh.Name = "textBoxCap1SetCritHigh";
             this.textBoxCap1SetCritHigh.Size = new System.Drawing.Size(76, 20);
@@ -1625,45 +1633,16 @@
             this.buttonCap1SetCritHigh.Location = new System.Drawing.Point(14, 118);
             this.buttonCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1SetCritHigh.Name = "buttonCap1SetCritHigh";
-            this.buttonCap1SetCritHigh.Size = new System.Drawing.Size(74, 19);
+            this.buttonCap1SetCritHigh.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1SetCritHigh.TabIndex = 10;
             this.buttonCap1SetCritHigh.Text = "Set Crit High";
             this.buttonCap1SetCritHigh.UseVisualStyleBackColor = true;
             this.buttonCap1SetCritHigh.Click += new System.EventHandler(this.buttonCap1SetCritHigh_Click);
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(171, 89);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(22, 13);
-            this.label27.TabIndex = 9;
-            this.label27.Text = "mV";
-            // 
-            // textBoxCap1Disch100A
-            // 
-            this.textBoxCap1Disch100A.Location = new System.Drawing.Point(92, 87);
-            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
-            this.textBoxCap1Disch100A.Size = new System.Drawing.Size(76, 20);
-            this.textBoxCap1Disch100A.TabIndex = 8;
-            // 
-            // buttonCap1Discharge100A
-            // 
-            this.buttonCap1Discharge100A.Location = new System.Drawing.Point(14, 85);
-            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
-            this.buttonCap1Discharge100A.Size = new System.Drawing.Size(74, 19);
-            this.buttonCap1Discharge100A.TabIndex = 7;
-            this.buttonCap1Discharge100A.Text = "Discharge 100A";
-            this.buttonCap1Discharge100A.UseVisualStyleBackColor = true;
-            this.buttonCap1Discharge100A.Click += new System.EventHandler(this.buttonCap1Discharge100A_Click);
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(171, 57);
+            this.label26.Location = new System.Drawing.Point(195, 54);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(22, 13);
@@ -1672,7 +1651,7 @@
             // 
             // textBoxCap1Disch10A
             // 
-            this.textBoxCap1Disch10A.Location = new System.Drawing.Point(92, 54);
+            this.textBoxCap1Disch10A.Location = new System.Drawing.Point(116, 51);
             this.textBoxCap1Disch10A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1Disch10A.Name = "textBoxCap1Disch10A";
             this.textBoxCap1Disch10A.Size = new System.Drawing.Size(76, 20);
@@ -1683,16 +1662,16 @@
             this.buttonCap1Discharge10A.Location = new System.Drawing.Point(14, 53);
             this.buttonCap1Discharge10A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1Discharge10A.Name = "buttonCap1Discharge10A";
-            this.buttonCap1Discharge10A.Size = new System.Drawing.Size(74, 19);
+            this.buttonCap1Discharge10A.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1Discharge10A.TabIndex = 4;
-            this.buttonCap1Discharge10A.Text = "Discharge 10A";
+            this.buttonCap1Discharge10A.Text = "Discharge10A";
             this.buttonCap1Discharge10A.UseVisualStyleBackColor = true;
             this.buttonCap1Discharge10A.Click += new System.EventHandler(this.buttonCap1Discharge10A_Click);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(171, 24);
+            this.label25.Location = new System.Drawing.Point(195, 21);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(22, 13);
@@ -1701,7 +1680,7 @@
             // 
             // textBoxCap1ChargeToValue
             // 
-            this.textBoxCap1ChargeToValue.Location = new System.Drawing.Point(92, 22);
+            this.textBoxCap1ChargeToValue.Location = new System.Drawing.Point(116, 19);
             this.textBoxCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1ChargeToValue.Name = "textBoxCap1ChargeToValue";
             this.textBoxCap1ChargeToValue.Size = new System.Drawing.Size(76, 20);
@@ -1712,7 +1691,7 @@
             this.buttonCap1ChargeToValue.Location = new System.Drawing.Point(14, 20);
             this.buttonCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1ChargeToValue.Name = "buttonCap1ChargeToValue";
-            this.buttonCap1ChargeToValue.Size = new System.Drawing.Size(74, 19);
+            this.buttonCap1ChargeToValue.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1ChargeToValue.TabIndex = 1;
             this.buttonCap1ChargeToValue.Text = "Charge to:";
             this.buttonCap1ChargeToValue.UseVisualStyleBackColor = true;
@@ -2115,13 +2094,34 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // labelMultiDownload
+            // buttonCap1Discharge100A
             // 
-            this.labelMultiDownload.AutoSize = true;
-            this.labelMultiDownload.Location = new System.Drawing.Point(364, 44);
-            this.labelMultiDownload.Name = "labelMultiDownload";
-            this.labelMultiDownload.Size = new System.Drawing.Size(0, 13);
-            this.labelMultiDownload.TabIndex = 13;
+            this.buttonCap1Discharge100A.Location = new System.Drawing.Point(14, 85);
+            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
+            this.buttonCap1Discharge100A.Size = new System.Drawing.Size(98, 19);
+            this.buttonCap1Discharge100A.TabIndex = 7;
+            this.buttonCap1Discharge100A.Text = "Discharge100A";
+            this.buttonCap1Discharge100A.UseVisualStyleBackColor = true;
+            this.buttonCap1Discharge100A.Click += new System.EventHandler(this.buttonCap1Discharge100A_Click);
+            // 
+            // textBoxCap1Disch100A
+            // 
+            this.textBoxCap1Disch100A.Location = new System.Drawing.Point(116, 84);
+            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
+            this.textBoxCap1Disch100A.Size = new System.Drawing.Size(76, 20);
+            this.textBoxCap1Disch100A.TabIndex = 8;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(195, 86);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(22, 13);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "mV";
             // 
             // FormMain
             // 
@@ -2314,9 +2314,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textBoxCap1SetCritHigh;
         private System.Windows.Forms.Button buttonCap1SetCritHigh;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBoxCap1Disch100A;
-        private System.Windows.Forms.Button buttonCap1Discharge100A;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBoxCap1Disch10A;
         private System.Windows.Forms.Button buttonCap1Discharge10A;
@@ -2342,6 +2339,9 @@
         private System.Windows.Forms.Button buttonDataDownloadMultiDownload;
         private System.Windows.Forms.TextBox textBoxDataDownloadCapacitorDescription;
         private System.Windows.Forms.Label labelMultiDownload;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBoxCap1Disch100A;
+        private System.Windows.Forms.Button buttonCap1Discharge100A;
     }
 }
 

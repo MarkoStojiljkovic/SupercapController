@@ -57,10 +57,7 @@ namespace SupercapController
             var data = cm.GetFinalCommandList();
             SerialDriver.Send(data, GetADCResultCallbackCH1, FailCallback);
         }
-
-
-#warning DEBUG FUNCTIONS
-
+        
         void SuccsessCallback(byte[] b)
         {
             FormCustomConsole.WriteLineWithConsole("Success!!");
@@ -274,7 +271,7 @@ namespace SupercapController
             this.Invoke(new Action(() =>
             {
                 dataGridViewDataDownloadMesHeaders.Rows.Add(head.headerAddress.ToString(), time, head.prescaler.ToString(), head.numOfPoints.ToString(),
-                head.operatingMode.ToString(), head.channel.ToString(), "KELP");
+                head.operatingMode.ToString(), head.channel.ToString(), "FETCH");
             }));
         }
 
