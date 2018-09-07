@@ -770,9 +770,7 @@ namespace SupercapController
             com.AppendChargerOn();
             textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
             FormCustomConsole.WriteLine("ChargerOn");
-
-            com.AppendLedOn(3); // DEBUG DIODES
-
+            
             
             // Wait for value rising  3800
             tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
@@ -787,8 +785,7 @@ namespace SupercapController
             com.FastChargeOff();
             textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
             FormCustomConsole.WriteLine("FastChargerOff");
-
-            com.AppendLedOff(3); // DEBUG DIODES
+            
 
             // Delay 15min   900000 ms
             com.AppendWaitForMs(900000);
@@ -799,8 +796,7 @@ namespace SupercapController
             com.AppendDischarger10AOn();
             textBoxDebugInstructionPool.Text += "Discharger10AOn\r\n";
             FormCustomConsole.WriteLine("Discharger10AOn");
-
-            com.AppendLedOn(3); // DEBUG DIODES
+            
 
             // Delay 1sec   1000 ms
             //com.AppendWaitForMs(1000);
@@ -865,19 +861,12 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Discharger10AOff S2\r\n";
             FormCustomConsole.WriteLine("Discharger10AOff S2");
             
-            com.AppendLedOff(3); // DEBUG DIODES
 
             // Delay 1s
             com.AppendWaitForMs(1000);
             textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1 + "\r\n";
             FormCustomConsole.WriteLine("Delay in seconds: " + 1);
-
-            //// Data recorder finish
-            //com.AppendDataRecFinish();
-            //textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
-            //FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
-
-            com.AppendLedOn(3); // DEBUG DIODES
+            
             // Charger on
             com.AppendChargerOn();
             textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
@@ -896,8 +885,7 @@ namespace SupercapController
             com.FastChargeOff();
             textBoxDebugInstructionPool.Text += "FastChargerOff\r\n";
             FormCustomConsole.WriteLine("FastChargerOff");
-
-            com.AppendLedOff(3); // DEBUG DIODES
+            
 
             // Delay 15min   900000 ms
             com.AppendWaitForMs(900000);
@@ -908,8 +896,7 @@ namespace SupercapController
             com.AppendChargerOff();
             textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
             FormCustomConsole.WriteLine("ChargerOff");
-
-            com.AppendLedOn(3); // DEBUG DIODES
+            
 
             // Delay 5min   300000 ms
             com.AppendWaitForMs(300000);
@@ -961,7 +948,32 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
             FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
 
-            com.AppendLedOff(3); // DEBUG DIODES
+            // Delay 1s
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds 1\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds 1");
+
+            // Charger on
+            com.AppendChargerOn();
+            textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
+            FormCustomConsole.WriteLine("ChargerOn");
+
+            // Wait for value rising  3800
+            tmpValue = 3800 / ConfigClass.deviceGainCH1; ;
+
+            com.AppendWaitForValueRising(1, 5, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ")3800 \r\n";
+            FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 0 +
+                ", " + tmpValue.ToString() + ") 3800");
+
+
+            // Charger off
+            com.AppendChargerOff();
+            textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
+            FormCustomConsole.WriteLine("ChargerOff");
+
+
         }
 
         #endregion COMPOSITE COMMANDS
