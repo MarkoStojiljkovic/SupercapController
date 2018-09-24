@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteArrayDecoderClass.cs" />
+    <Compile Include="Calibrate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calibrate.Designer.cs">
+      <DependentUpon>Calibrate.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapSequencer.cs" />
     <Compile Include="ChecksumClass.cs" />
     <Compile Include="CommandFormerClass.cs" />
@@ -103,6 +109,9 @@
     <Compile Include="Timer.cs" />
     <Compile Include="UARTDataReceiverClass.cs" />
     <Compile Include="UARTHelperClass.cs" />
+    <EmbeddedResource Include="Calibrate.resx">
+      <DependentUpon>Calibrate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCustomConsole.resx">
       <DependentUpon>FormCustomConsole.cs</DependentUpon>
     </EmbeddedResource>

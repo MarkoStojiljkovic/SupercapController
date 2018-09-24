@@ -163,6 +163,9 @@
             this.label29 = new System.Windows.Forms.Label();
             this.textBoxCap1SetCritHigh = new System.Windows.Forms.TextBox();
             this.buttonCap1SetCritHigh = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBoxCap1Disch100A = new System.Windows.Forms.TextBox();
+            this.buttonCap1Discharge100A = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.textBoxCap1Disch10A = new System.Windows.Forms.TextBox();
             this.buttonCap1Discharge10A = new System.Windows.Forms.Button();
@@ -214,9 +217,7 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.buttonCap1Discharge100A = new System.Windows.Forms.Button();
-            this.textBoxCap1Disch100A = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.buttonDataDownloadCalibrate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -315,6 +316,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonDataDownloadCalibrate);
             this.tabPage1.Controls.Add(this.labelMultiDownload);
             this.tabPage1.Controls.Add(this.textBoxDataDownloadCapacitorDescription);
             this.tabPage1.Controls.Add(this.buttonDataDownloadMultiDownload);
@@ -1639,6 +1641,35 @@
             this.buttonCap1SetCritHigh.UseVisualStyleBackColor = true;
             this.buttonCap1SetCritHigh.Click += new System.EventHandler(this.buttonCap1SetCritHigh_Click);
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(195, 86);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(22, 13);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "mV";
+            // 
+            // textBoxCap1Disch100A
+            // 
+            this.textBoxCap1Disch100A.Location = new System.Drawing.Point(116, 84);
+            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
+            this.textBoxCap1Disch100A.Size = new System.Drawing.Size(76, 20);
+            this.textBoxCap1Disch100A.TabIndex = 8;
+            // 
+            // buttonCap1Discharge100A
+            // 
+            this.buttonCap1Discharge100A.Location = new System.Drawing.Point(14, 85);
+            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
+            this.buttonCap1Discharge100A.Size = new System.Drawing.Size(98, 19);
+            this.buttonCap1Discharge100A.TabIndex = 7;
+            this.buttonCap1Discharge100A.Text = "Discharge100A";
+            this.buttonCap1Discharge100A.UseVisualStyleBackColor = true;
+            this.buttonCap1Discharge100A.Click += new System.EventHandler(this.buttonCap1Discharge100A_Click);
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -2094,34 +2125,15 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // buttonCap1Discharge100A
+            // buttonDataDownloadCalibrate
             // 
-            this.buttonCap1Discharge100A.Location = new System.Drawing.Point(14, 85);
-            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
-            this.buttonCap1Discharge100A.Size = new System.Drawing.Size(98, 19);
-            this.buttonCap1Discharge100A.TabIndex = 7;
-            this.buttonCap1Discharge100A.Text = "Discharge100A";
-            this.buttonCap1Discharge100A.UseVisualStyleBackColor = true;
-            this.buttonCap1Discharge100A.Click += new System.EventHandler(this.buttonCap1Discharge100A_Click);
-            // 
-            // textBoxCap1Disch100A
-            // 
-            this.textBoxCap1Disch100A.Location = new System.Drawing.Point(116, 84);
-            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
-            this.textBoxCap1Disch100A.Size = new System.Drawing.Size(76, 20);
-            this.textBoxCap1Disch100A.TabIndex = 8;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(195, 86);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(22, 13);
-            this.label27.TabIndex = 9;
-            this.label27.Text = "mV";
+            this.buttonDataDownloadCalibrate.Location = new System.Drawing.Point(107, 7);
+            this.buttonDataDownloadCalibrate.Name = "buttonDataDownloadCalibrate";
+            this.buttonDataDownloadCalibrate.Size = new System.Drawing.Size(75, 23);
+            this.buttonDataDownloadCalibrate.TabIndex = 14;
+            this.buttonDataDownloadCalibrate.Text = "Calibrate";
+            this.buttonDataDownloadCalibrate.UseVisualStyleBackColor = true;
+            this.buttonDataDownloadCalibrate.Click += new System.EventHandler(this.buttonDataDownloadCalibrate_Click);
             // 
             // FormMain
             // 
@@ -2342,6 +2354,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textBoxCap1Disch100A;
         private System.Windows.Forms.Button buttonCap1Discharge100A;
+        private System.Windows.Forms.Button buttonDataDownloadCalibrate;
     }
 }
 

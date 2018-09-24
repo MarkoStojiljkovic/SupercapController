@@ -414,5 +414,11 @@ namespace SupercapController
             );
         }
 
+        private void buttonDataDownloadCalibrate_Click(object sender, EventArgs e)
+        {
+            Calibrate cf = new Calibrate();
+            cf.Show();
+        }
+
     } // End Class
 }
