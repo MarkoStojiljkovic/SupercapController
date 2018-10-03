@@ -35,7 +35,7 @@ namespace SupercapController
             calibValues = new List<CalibratePoint>();
             numberOfSamples = 0;
             textBoxDisplay.Text = "";
-            labelAverage.Text = "Average";
+            textBoxGain.Text = "Average";
         }
 
         void FailCallback()
@@ -45,26 +45,30 @@ namespace SupercapController
 
         private void SuccessCallback(byte[] b)
         {
-            ByteArrayDecoderClass decoder = new ByteArrayDecoderClass(b);
-
-            decoder.Get2BytesAsInt(); // Ignore first 2 values (message length)
-            // Get raw value and convert to human readable values, with and without gain
-            var rawValue = decoder.Get2BytesAsInt16();
-            float fValue = SupercapHelperClass.ConvertToFloatInMiliVolts(rawValue);
-            float givenValue;
-            if (!float.TryParse(textBoxFixedVoltage.Text, out givenValue))
+            Invoke((MethodInvoker)delegate
             {
-                FormCustomConsole.WriteLineWithConsole("Wrong float value for calibration!");
-                return; 
-            }
-            // Add to list
-            var calPt = new CalibratePoint(fValue, givenValue);
-            calibValues.Add(calPt);
-            numberOfSamples++;
-            // Append to display
+                ByteArrayDecoderClass decoder = new ByteArrayDecoderClass(b);
 
-            // Calculate average
-            CalculateAverage();
+                decoder.Get2BytesAsInt(); // Ignore first 2 values (message length)
+                                          // Get raw value and convert to human readable values, with and without gain
+                var rawValue = decoder.Get2BytesAsInt16();
+                float fValue = SupercapHelperClass.ConvertToFloatInMiliVolts(rawValue);
+                float givenValue;
+                if (!float.TryParse(textBoxFixedVoltage.Text, out givenValue))
+                {
+                    FormCustomConsole.WriteLineWithConsole("Wrong float value for calibration!");
+                    return;
+                }
+                // Add to list
+                var calPt = new CalibratePoint(rawValue, fValue, givenValue);
+                calibValues.Add(calPt);
+                numberOfSamples++;
+                // Append to display
+                AppendToDisplay(calPt);
+                // Calculate average
+                CalculateAverage();
+            }
+            );
         }
 
         private void CalculateAverage()
@@ -76,25 +80,38 @@ namespace SupercapController
             }
             // Calculate average gain
             sum /= numberOfSamples;
-            labelAverage.Text = "Average gain: " + sum.ToString();
+            textBoxGain.Text = "Average gain: " + sum.ToString();
         }
 
         private void AppendToDisplay(CalibratePoint cp)
         {
-            string newLine = "sampled: " + cp.sampledValue + " given: " + cp.givenValue + " gain: " + cp.CalculateGain();
+            string newLine = "Raw: " + cp.rawValue +  "    sampled: " + cp.sampledValue + "   given: " + cp.givenValue + "   gain: " + cp.CalculateGain();
             textBoxDisplay.Text += "\r\n" + newLine;
+        }
+
+        private void buttonCopyGain_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in calibValues)
+            {
+                sb.Append(item.CalculateGain() + "\r\n");
+            }
+            Clipboard.SetText(sb.ToString());
         }
     }
 
     public class CalibratePoint
     {
+        public int rawValue;
         public float sampledValue;
         public float givenValue;
 
-        public CalibratePoint(float sampled, float given)
+
+        public CalibratePoint(int raw, float sampled, float given)
         {
             sampledValue = sampled;
             givenValue = given;
+            rawValue = raw;
         }
 
         public float CalculateGain()

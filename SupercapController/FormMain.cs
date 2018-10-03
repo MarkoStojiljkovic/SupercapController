@@ -41,6 +41,8 @@ namespace SupercapController
             com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
             DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
             DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap2, dataGridViewCap2);
+
+            TabDebugSetDefaultValues();
         }
         
         /// <summary>
@@ -52,6 +54,16 @@ namespace SupercapController
             CultureInfo nfi = CultureInfo.CurrentCulture.Clone() as CultureInfo;
             nfi.NumberFormat.NumberDecimalSeparator = ".";
             Thread.CurrentThread.CurrentCulture = nfi;
+        }
+
+        private void buttonTempExecute_Click(object sender, EventArgs e)
+        {
+            buttonDebugExecute_Click(this, EventArgs.Empty);
+        }
+
+        private void buttonTempReset_Click(object sender, EventArgs e)
+        {
+            buttonDebugResetInstructions_Click(this, EventArgs.Empty);
         }
     }
 }

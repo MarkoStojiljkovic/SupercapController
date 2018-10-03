@@ -11,6 +11,20 @@ namespace SupercapController
     {
         CommandFormerClass com;
 
+        /// <summary>
+        /// Set default values for some controls to reduse agony of filling them over and over on every program restart
+        /// </summary>
+        private void TabDebugSetDefaultValues()
+        {
+            comboBoxDebugWaitForValueRising.SelectedIndex = 1;
+            comboBoxDebugWaitForValueFalling.SelectedIndex = 1;
+            comboBoxDebugSetCritLow.SelectedIndex = 1;
+            comboBoxDebugDisableCritLow.SelectedIndex = 1;
+            comboBoxDebugSetCritHigh.SelectedIndex = 1;
+            comboBoxDebugDisableCritHigh.SelectedIndex = 1;
+            textBoxDebugCompositeMsDelay.Text = "200";
+        }
+
         private void buttonDebugResetInstructions_Click(object sender, EventArgs e)
         {
             com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
@@ -660,6 +674,165 @@ namespace SupercapController
 
         private void buttonMiksa_Click(object sender, EventArgs e)
         {
+            float tmpValue;
+
+            // Request return ACK
+            com.ReturnACK();
+            textBoxDebugInstructionPool.Text += "Return ACK\r\n";
+            FormCustomConsole.WriteLine("Return ACK");
+
+            // Discharge 10 On
+            com.AppendDischarger10AOn();
+            textBoxDebugInstructionPool.Text += "Discharger35AOn\r\n";
+            FormCustomConsole.WriteLine("Discharger35AOn");
+
+            // Wait for value falling 2000
+            tmpValue = 2000 / ConfigClass.deviceGainCH1; ;
+            com.AppendWaitForValueFalling(1, 3, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 2000  \r\n";
+            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 2000");
+
+            // Discharger 10A OFF S1
+            com.AppendDischarger10AOffS1();
+            textBoxDebugInstructionPool.Text += "Discharger35AOff S1\r\n";
+            FormCustomConsole.WriteLine("Discharger35AOff S1");
+
+            // Delay 200ms
+            com.AppendWaitForMs(200);
+            textBoxDebugInstructionPool.Text += "Delay in mseconds: " + 200 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in mseconds: " + 200);
+
+            // Discharger 10A OFF S2
+            com.AppendDischarger10AOffS2();
+            textBoxDebugInstructionPool.Text += "Discharger35AOff S2\r\n";
+            FormCustomConsole.WriteLine("Discharger35AOff S2");
+
+
+
+            // Charger on
+            com.AppendChargerOn();
+            textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
+            FormCustomConsole.WriteLine("ChargerOn");
+            
+            // Wait for value rising  16000
+            tmpValue = 16000 / ConfigClass.deviceGainCH1; ;
+
+            com.AppendWaitForValueRising(1, 3, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 16000 \r\n";
+            FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 16000");
+
+            // Charger off
+            com.AppendChargerOff();
+            textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
+            FormCustomConsole.WriteLine("ChargerOff");
+            
+
+            // Data recorder task CH1 , 1- continuous, 0-target points
+            com.AppendDataRecorderTask(2, 1, 0, 0, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ") \r\n";
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ")");
+
+            // Delay 15sec   15000 ms
+            com.AppendWaitForMs(15000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: 15\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: 15");
+
+            // Discharge 10 On
+            com.AppendDischarger10AOn();
+            textBoxDebugInstructionPool.Text += "Discharger35AOn\r\n";
+            FormCustomConsole.WriteLine("Discharger35AOn");
+
+            // Wait for value falling 8000
+            tmpValue = 8000 / ConfigClass.deviceGainCH1; ;
+            com.AppendWaitForValueFalling(1, 3, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueFalling(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 8000  \r\n";
+            FormCustomConsole.WriteLine("WaitForValueFalling(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 8000");
+
+            // Discharger 10A OFF S1
+            com.AppendDischarger10AOffS1();
+            textBoxDebugInstructionPool.Text += "Discharger35AOff S1\r\n";
+            FormCustomConsole.WriteLine("Discharger35AOff S1");
+
+            // Delay 200ms
+            com.AppendWaitForMs(200);
+            textBoxDebugInstructionPool.Text += "Delay in mseconds: " + 200 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in mseconds: " + 200);
+
+            // Discharger 10A OFF S2
+            com.AppendDischarger10AOffS2();
+            textBoxDebugInstructionPool.Text += "Discharger35AOff S2\r\n";
+            FormCustomConsole.WriteLine("Discharger35AOff S2");
+
+            // Delay 5 sec
+            com.AppendWaitForMs(5000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 5 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 5);
+            
+            // Data recorder finish
+            com.AppendDataRecFinish();
+            textBoxDebugInstructionPool.Text += "Data recorder finish (continious mode)\r\n";
+            FormCustomConsole.WriteLine("Data recorder finish (continious mode)");
+
+            // Charger on
+            com.AppendChargerOn();
+            textBoxDebugInstructionPool.Text += "ChargerOn\r\n";
+            FormCustomConsole.WriteLine("ChargerOn");
+
+            // Wait for value rising  16000
+            tmpValue = 16000 / ConfigClass.deviceGainCH1; ;
+
+            com.AppendWaitForValueRising(1, 3, tmpValue);
+            textBoxDebugInstructionPool.Text += "WaitForValueRising(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 16000 \r\n";
+            FormCustomConsole.WriteLine("WaitForValueRising(" + "CH1" + ", " + 3 +
+                ", " + tmpValue.ToString() + ") 16000");
+
+            // Charger off
+            com.AppendChargerOff();
+            textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
+            FormCustomConsole.WriteLine("ChargerOff");
+
+            // Delay 1sec   5000 ms
+            com.AppendWaitForMs(5000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: 5\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: 5");
+
+
+            // Data recorder task DUAL CH, TARGET POINTS, 0 Prescaler, 700 points
+            com.AppendDataRecorderTask(2, 2, 0, 700, DateTime.Now);
+            textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ") \r\n";
+            FormCustomConsole.WriteLine("DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
+                ", " + "0" + ")");
+
+            // Delay 1sec   1000 ms
+            com.AppendWaitForMs(1000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: 1\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: 1");
+            
+            // Res on
+            com.AppendResOn();
+            textBoxDebugInstructionPool.Text += "ResOn()\r\n";
+            FormCustomConsole.WriteLine("ResOn()");
+
+            // Delay 500msec   500 ms
+            com.AppendWaitForMs(500);
+            textBoxDebugInstructionPool.Text += "Delay in ms: 500\r\n";
+            FormCustomConsole.WriteLine("Delay in ms: 500");
+
+            // Res off
+            com.AppendResOff();
+            textBoxDebugInstructionPool.Text += "ResOff()\r\n";
+            FormCustomConsole.WriteLine("ResOff()");
+            
 
         }
 
