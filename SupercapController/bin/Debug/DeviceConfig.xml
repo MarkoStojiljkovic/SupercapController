@@ -4,62 +4,62 @@
     <DeviceGainInfo>
       <devAddr>1</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0442</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>2</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0311</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>3</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0363</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>4</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0392</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>5</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0332</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>6</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0474</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>7</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.04505</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>8</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.03815</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>9</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.04082</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>10</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.03715</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>11</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0504</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>12</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0378</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>13</devAddr>
@@ -94,32 +94,32 @@
     <DeviceGainInfo>
       <devAddr>19</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0297</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>20</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.03215</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>21</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0488</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>22</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0324</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>23</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.0498</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>24</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1</gainCH1>
+      <gainCH1>2.04055</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>25</devAddr>
@@ -234,7 +234,7 @@
     <DeviceGainInfo>
       <devAddr>47</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>2.0403</gainCH1>
+      <gainCH1>2.0407</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>48</devAddr>
