@@ -872,6 +872,11 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "Return ACK\r\n";
             FormCustomConsole.WriteLine("Return ACK");
 
+            // First disable fanox
+            com.AppendFanoxOff();
+            textBoxDebugInstructionPool.Text += "Fanox off\r\n";
+            FormCustomConsole.WriteLine("Fanox off");
+
             // Data recorder task DUAL CH, TARGET POINTS, 0 Prescaler, 700 points
             com.AppendDataRecorderTask(2, 2, 0, 700, DateTime.Now);
             textBoxDebugInstructionPool.Text += "DataRecTask(" + "CH1" + ", " + "continious" + " ," + "0" +
@@ -960,10 +965,10 @@ namespace SupercapController
             FormCustomConsole.WriteLine("FastChargerOff");
             
 
-            // Delay 15min   900000 ms
-            com.AppendWaitForMs(900000);
-            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 900 + "\r\n";
-            FormCustomConsole.WriteLine("Delay in seconds: " + 900);
+            // Delay 30min   1800000 ms
+            com.AppendWaitForMs(1800000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1800 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 1800);
 
             // Discharge 10 On
             com.AppendDischarger10AOn();
@@ -1060,10 +1065,10 @@ namespace SupercapController
             FormCustomConsole.WriteLine("FastChargerOff");
             
 
-            // Delay 15min   900000 ms
-            com.AppendWaitForMs(900000);
-            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 900 + "\r\n";
-            FormCustomConsole.WriteLine("Delay in seconds: " + 900);
+            // Delay 30min   1800000 ms
+            com.AppendWaitForMs(1800000);
+            textBoxDebugInstructionPool.Text += "Delay in seconds: " + 1800 + "\r\n";
+            FormCustomConsole.WriteLine("Delay in seconds: " + 1800);
 
             // Charger off
             com.AppendChargerOff();
@@ -1146,6 +1151,11 @@ namespace SupercapController
             textBoxDebugInstructionPool.Text += "ChargerOff\r\n";
             FormCustomConsole.WriteLine("ChargerOff");
 
+
+            // Enable fanox
+            com.AppendFanoxOn();
+            textBoxDebugInstructionPool.Text += "Fanox on\r\n";
+            FormCustomConsole.WriteLine("Fanox on");
 
         }
 

@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DebugTools;
+using System.Threading;
 
 namespace SupercapController
 {
     class SerialDriver
     {
         private static readonly object lockObj = new object();
+        private static readonly object lockObj2 = new object();
         static int running = 0;
         public static int Running
         {
@@ -29,6 +31,25 @@ namespace SupercapController
                 }
             }
         }
+        static bool busy = false; // Busy is active when data is expected to arrive from device
+        private static bool Busy
+        {
+            get
+            {
+                lock (lockObj2)
+                {
+                    return busy;
+                }
+            }
+            set
+            {
+                lock (lockObj2)
+                {
+                    busy = value;
+                }
+            }
+        }
+
         const int MAX_TIMEOUTS = 10;
 
         static bool _useRetry = false;
@@ -43,7 +64,7 @@ namespace SupercapController
 
         static Action<byte[]> _successCallback;
         static Action _failCallback;
-        static bool busy = false; // Busy is active when data is expected to arrive from device
+        
         static UARTDataReceiverClass uartReceiver = new UARTDataReceiverClass(); // Collects and decodes bytes sent via custom protocol 
         static byte[] tempSerialReceiveBuff;
         
@@ -64,7 +85,7 @@ namespace SupercapController
             tempSerialReceiveBuff = new byte[serial.BytesToRead];
             
             serial.Read(tempSerialReceiveBuff, 0, tempSerialReceiveBuff.Length);
-            if (!busy)
+            if (!Busy)
             {
                 // Just ignore read data that we didnt asked for
                 return;
@@ -75,7 +96,7 @@ namespace SupercapController
                 case UARTResult.Done:
                     taskState = 0;
                     Running = 0;
-                    busy = false;
+                    Busy = false;
                     // All data collected, process it in a given success delegate if checksum matches
                     ChecksumClass cs = new ChecksumClass();
                     if (cs.VerifyChecksumFromReceivedMessage(uartReceiver.bData))
@@ -95,7 +116,7 @@ namespace SupercapController
                                 FormCustomConsole.WriteWithConsole("Aborting process (checksum doesnt match) at ");
                                 FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
                                 _failCallback();
-                                busy = false;
+                                Busy = false;
                             }
                             else
                             {
@@ -109,7 +130,7 @@ namespace SupercapController
                         {
                             // Checksum not valid
                             _failCallback();
-                            busy = false;
+                            Busy = false;
                         }
                     }
                     break;
@@ -135,7 +156,6 @@ namespace SupercapController
                     break;
                 case 1:
                     //Console.WriteLine("Tick RUNNING " + Running.ToString());
-                    
                     if (Running == 0)
                     {
                         Console.WriteLine("Tick Finished");
@@ -143,7 +163,7 @@ namespace SupercapController
                         return;
                     }
 
-                    if (busy == false)
+                    if (Busy == false)
                     {
                         // This shouldnt happen
                         throw new Exception("Wrong busy flag in SerialDriver.TickTask");
@@ -164,7 +184,7 @@ namespace SupercapController
                                 FormCustomConsole.WriteWithConsole("Aborting process at ");
                                 FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
                                 _failCallback();
-                                busy = false;
+                                Busy = false;
                             }
                             else
                             {
@@ -177,7 +197,7 @@ namespace SupercapController
                         else
                         {
                             _failCallback();
-                            busy = false;
+                            Busy = false;
                         }
                         return;
                     }
@@ -199,7 +219,7 @@ namespace SupercapController
                             // Abort everything
                             System.Windows.Forms.MessageBox.Show("Port is not open!");
                             _failCallback();
-                            busy = false;
+                            Busy = false;
                             taskState = 0;
                         }
                     }
@@ -211,7 +231,7 @@ namespace SupercapController
 
         public static bool Send(byte[] data)
         {
-            if (busy)
+            if (Busy)
             {
                 return false;
             }
@@ -222,11 +242,11 @@ namespace SupercapController
 
         public static bool Send(byte[] data, Action<byte[]> sucCb, Action fCb, bool useRet = true)
         {
-            if (busy)
+            if (Busy)
             {
                 return false;
             }
-            busy = true;
+            Busy = true;
             _useRetry = useRet;
             if (useRet)
             {
@@ -240,11 +260,10 @@ namespace SupercapController
             if (serial.IsOpen)
             {
                 dataPointer = data;
-                FormCustomConsole.WriteWithConsole("Sending started at ");
                 FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
-                serial.Write(data, 0, data.Length);
                 taskState = 1; // Put SM where it belongs
                 Running = 1;
+                serial.Write(data, 0, data.Length);
                 return true;
             }
             else
