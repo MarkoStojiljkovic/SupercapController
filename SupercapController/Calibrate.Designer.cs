@@ -35,6 +35,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxGain = new System.Windows.Forms.TextBox();
             this.buttonCopyGain = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBoxAutoDecrement = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonTakeSample
@@ -53,6 +56,7 @@
             this.textBoxFixedVoltage.Name = "textBoxFixedVoltage";
             this.textBoxFixedVoltage.Size = new System.Drawing.Size(81, 20);
             this.textBoxFixedVoltage.TabIndex = 0;
+            this.textBoxFixedVoltage.Enter += new System.EventHandler(this.textBoxFixedVoltage_Enter);
             // 
             // label1
             // 
@@ -91,7 +95,7 @@
             this.textBoxGain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxGain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxGain.Location = new System.Drawing.Point(130, 435);
-            this.textBoxGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxGain.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxGain.Name = "textBoxGain";
             this.textBoxGain.ReadOnly = true;
             this.textBoxGain.Size = new System.Drawing.Size(108, 13);
@@ -102,7 +106,7 @@
             // buttonCopyGain
             // 
             this.buttonCopyGain.Location = new System.Drawing.Point(12, 115);
-            this.buttonCopyGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCopyGain.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCopyGain.Name = "buttonCopyGain";
             this.buttonCopyGain.Size = new System.Drawing.Size(80, 23);
             this.buttonCopyGain.TabIndex = 7;
@@ -111,11 +115,43 @@
             this.buttonCopyGain.UseVisualStyleBackColor = true;
             this.buttonCopyGain.Click += new System.EventHandler(this.buttonCopyGain_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(13, 144);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(103, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.TabStop = false;
+            this.checkBox1.Text = "Auto Decrement";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // textBoxAutoDecrement
+            // 
+            this.textBoxAutoDecrement.Location = new System.Drawing.Point(13, 191);
+            this.textBoxAutoDecrement.Name = "textBoxAutoDecrement";
+            this.textBoxAutoDecrement.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAutoDecrement.TabIndex = 9;
+            this.textBoxAutoDecrement.TabStop = false;
+            this.textBoxAutoDecrement.Text = "200";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 172);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Decrement by mV";
+            // 
             // Calibrate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 455);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxAutoDecrement);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.buttonCopyGain);
             this.Controls.Add(this.textBoxGain);
             this.Controls.Add(this.button1);
@@ -139,5 +175,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxGain;
         private System.Windows.Forms.Button buttonCopyGain;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBoxAutoDecrement;
+        private System.Windows.Forms.Label label2;
     }
 }

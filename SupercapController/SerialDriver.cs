@@ -269,6 +269,7 @@ namespace SupercapController
             else
             {
                 System.Windows.Forms.MessageBox.Show("Port is not open!");
+                Busy = false;
                 return false;
             }
             

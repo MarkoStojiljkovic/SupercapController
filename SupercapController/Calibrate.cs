@@ -98,6 +98,26 @@ namespace SupercapController
             }
             Clipboard.SetText(sb.ToString());
         }
+
+        private void textBoxFixedVoltage_Enter(object sender, EventArgs e)
+        {
+            if (textBoxFixedVoltage.Text == "") return;
+            int tmp, final;
+            final = Convert.ToInt32(textBoxFixedVoltage.Text);
+            //Check if auto decrement is enabled
+            if (checkBox1.Checked)
+            {
+                tmp = Convert.ToInt32(textBoxAutoDecrement.Text);
+                tmp = final - tmp;
+                if (tmp >= 0) // Dont allow negative values
+                {
+                    final = tmp;
+                }
+            }
+
+            textBoxFixedVoltage.Text = final.ToString();
+            textBoxFixedVoltage.SelectAll();
+        }
     }
 
     public class CalibratePoint
