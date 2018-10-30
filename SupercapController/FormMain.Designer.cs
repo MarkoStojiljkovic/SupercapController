@@ -38,6 +38,8 @@
             this.GetDataCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxDataDownloadCapacitorDescription35A = new System.Windows.Forms.TextBox();
+            this.buttonDataDownloadMultiDownload35A = new System.Windows.Forms.Button();
             this.buttonDataDownloadCalibrate = new System.Windows.Forms.Button();
             this.labelMultiDownload = new System.Windows.Forms.Label();
             this.textBoxDataDownloadCapacitorDescription = new System.Windows.Forms.TextBox();
@@ -255,7 +257,7 @@
             this.dataGridViewDataDownloadMesHeaders.Name = "dataGridViewDataDownloadMesHeaders";
             this.dataGridViewDataDownloadMesHeaders.ReadOnly = true;
             this.dataGridViewDataDownloadMesHeaders.RowHeadersVisible = false;
-            this.dataGridViewDataDownloadMesHeaders.Size = new System.Drawing.Size(707, 229);
+            this.dataGridViewDataDownloadMesHeaders.Size = new System.Drawing.Size(708, 342);
             this.dataGridViewDataDownloadMesHeaders.TabIndex = 0;
             this.dataGridViewDataDownloadMesHeaders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDataDownloadMesHeaders_CellContentClick);
             // 
@@ -313,11 +315,13 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(956, 490);
+            this.tabControl1.Size = new System.Drawing.Size(957, 536);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBoxDataDownloadCapacitorDescription35A);
+            this.tabPage1.Controls.Add(this.buttonDataDownloadMultiDownload35A);
             this.tabPage1.Controls.Add(this.buttonDataDownloadCalibrate);
             this.tabPage1.Controls.Add(this.labelMultiDownload);
             this.tabPage1.Controls.Add(this.textBoxDataDownloadCapacitorDescription);
@@ -335,11 +339,30 @@
             this.tabPage1.Controls.Add(this.dataGridViewDataDownloadMesHeaders);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(948, 464);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(949, 510);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Download";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDataDownloadCapacitorDescription35A
+            // 
+            this.textBoxDataDownloadCapacitorDescription35A.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxDataDownloadCapacitorDescription35A.Location = new System.Drawing.Point(171, 421);
+            this.textBoxDataDownloadCapacitorDescription35A.Name = "textBoxDataDownloadCapacitorDescription35A";
+            this.textBoxDataDownloadCapacitorDescription35A.Size = new System.Drawing.Size(138, 20);
+            this.textBoxDataDownloadCapacitorDescription35A.TabIndex = 16;
+            // 
+            // buttonDataDownloadMultiDownload35A
+            // 
+            this.buttonDataDownloadMultiDownload35A.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDataDownloadMultiDownload35A.Location = new System.Drawing.Point(170, 448);
+            this.buttonDataDownloadMultiDownload35A.Name = "buttonDataDownloadMultiDownload35A";
+            this.buttonDataDownloadMultiDownload35A.Size = new System.Drawing.Size(139, 23);
+            this.buttonDataDownloadMultiDownload35A.TabIndex = 15;
+            this.buttonDataDownloadMultiDownload35A.Text = "Multi Download 35";
+            this.buttonDataDownloadMultiDownload35A.UseVisualStyleBackColor = true;
+            this.buttonDataDownloadMultiDownload35A.Click += new System.EventHandler(this.buttonDataDownloadMultiDownload35A_Click);
             // 
             // buttonDataDownloadCalibrate
             // 
@@ -353,26 +376,30 @@
             // 
             // labelMultiDownload
             // 
+            this.labelMultiDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelMultiDownload.AutoSize = true;
-            this.labelMultiDownload.Location = new System.Drawing.Point(364, 44);
+            this.labelMultiDownload.Location = new System.Drawing.Point(22, 474);
             this.labelMultiDownload.Name = "labelMultiDownload";
-            this.labelMultiDownload.Size = new System.Drawing.Size(0, 13);
+            this.labelMultiDownload.Size = new System.Drawing.Size(37, 13);
             this.labelMultiDownload.TabIndex = 13;
+            this.labelMultiDownload.Text = "Status";
             // 
             // textBoxDataDownloadCapacitorDescription
             // 
-            this.textBoxDataDownloadCapacitorDescription.Location = new System.Drawing.Point(269, 13);
+            this.textBoxDataDownloadCapacitorDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxDataDownloadCapacitorDescription.Location = new System.Drawing.Point(25, 422);
             this.textBoxDataDownloadCapacitorDescription.Name = "textBoxDataDownloadCapacitorDescription";
-            this.textBoxDataDownloadCapacitorDescription.Size = new System.Drawing.Size(89, 20);
+            this.textBoxDataDownloadCapacitorDescription.Size = new System.Drawing.Size(139, 20);
             this.textBoxDataDownloadCapacitorDescription.TabIndex = 12;
             // 
             // buttonDataDownloadMultiDownload
             // 
-            this.buttonDataDownloadMultiDownload.Location = new System.Drawing.Point(269, 39);
+            this.buttonDataDownloadMultiDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDataDownloadMultiDownload.Location = new System.Drawing.Point(25, 448);
             this.buttonDataDownloadMultiDownload.Name = "buttonDataDownloadMultiDownload";
-            this.buttonDataDownloadMultiDownload.Size = new System.Drawing.Size(89, 23);
+            this.buttonDataDownloadMultiDownload.Size = new System.Drawing.Size(139, 23);
             this.buttonDataDownloadMultiDownload.TabIndex = 11;
-            this.buttonDataDownloadMultiDownload.Text = "Multi Download";
+            this.buttonDataDownloadMultiDownload.Text = "Multi Download 10/100";
             this.buttonDataDownloadMultiDownload.UseVisualStyleBackColor = true;
             this.buttonDataDownloadMultiDownload.Click += new System.EventHandler(this.buttonDataDownloadMultiDownload_Click);
             // 
@@ -389,7 +416,7 @@
             // buttonDataDownloadAddrSelect
             // 
             this.buttonDataDownloadAddrSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDataDownloadAddrSelect.Location = new System.Drawing.Point(418, 39);
+            this.buttonDataDownloadAddrSelect.Location = new System.Drawing.Point(419, 39);
             this.buttonDataDownloadAddrSelect.Name = "buttonDataDownloadAddrSelect";
             this.buttonDataDownloadAddrSelect.Size = new System.Drawing.Size(100, 23);
             this.buttonDataDownloadAddrSelect.TabIndex = 9;
@@ -400,7 +427,7 @@
             // textBoxDataDownloadAddrSelect
             // 
             this.textBoxDataDownloadAddrSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDataDownloadAddrSelect.Location = new System.Drawing.Point(418, 14);
+            this.textBoxDataDownloadAddrSelect.Location = new System.Drawing.Point(419, 14);
             this.textBoxDataDownloadAddrSelect.MaxLength = 3;
             this.textBoxDataDownloadAddrSelect.Name = "textBoxDataDownloadAddrSelect";
             this.textBoxDataDownloadAddrSelect.Size = new System.Drawing.Size(100, 20);
@@ -420,7 +447,7 @@
             // 
             this.labelDataDownloadSerialConnectionStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDataDownloadSerialConnectionStatus.AutoSize = true;
-            this.labelDataDownloadSerialConnectionStatus.Location = new System.Drawing.Point(548, 44);
+            this.labelDataDownloadSerialConnectionStatus.Location = new System.Drawing.Point(549, 44);
             this.labelDataDownloadSerialConnectionStatus.Name = "labelDataDownloadSerialConnectionStatus";
             this.labelDataDownloadSerialConnectionStatus.Size = new System.Drawing.Size(79, 13);
             this.labelDataDownloadSerialConnectionStatus.TabIndex = 6;
@@ -429,7 +456,7 @@
             // buttonDataDownloadSerialDisconnect
             // 
             this.buttonDataDownloadSerialDisconnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDataDownloadSerialDisconnect.Location = new System.Drawing.Point(657, 44);
+            this.buttonDataDownloadSerialDisconnect.Location = new System.Drawing.Point(658, 44);
             this.buttonDataDownloadSerialDisconnect.Name = "buttonDataDownloadSerialDisconnect";
             this.buttonDataDownloadSerialDisconnect.Size = new System.Drawing.Size(75, 23);
             this.buttonDataDownloadSerialDisconnect.TabIndex = 5;
@@ -440,7 +467,7 @@
             // buttonDataDownloadSerialConnect
             // 
             this.buttonDataDownloadSerialConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDataDownloadSerialConnect.Location = new System.Drawing.Point(657, 14);
+            this.buttonDataDownloadSerialConnect.Location = new System.Drawing.Point(658, 14);
             this.buttonDataDownloadSerialConnect.Name = "buttonDataDownloadSerialConnect";
             this.buttonDataDownloadSerialConnect.Size = new System.Drawing.Size(75, 23);
             this.buttonDataDownloadSerialConnect.TabIndex = 4;
@@ -452,7 +479,7 @@
             // 
             this.comboBoxDataDownloadSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxDataDownloadSerial.FormattingEnabled = true;
-            this.comboBoxDataDownloadSerial.Location = new System.Drawing.Point(529, 14);
+            this.comboBoxDataDownloadSerial.Location = new System.Drawing.Point(530, 14);
             this.comboBoxDataDownloadSerial.Name = "comboBoxDataDownloadSerial";
             this.comboBoxDataDownloadSerial.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDataDownloadSerial.TabIndex = 3;
@@ -484,8 +511,8 @@
             this.tabPage2.Controls.Add(this.textBoxDebugInstructionPool);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(948, 464);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(949, 510);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debug";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -512,15 +539,15 @@
             this.panelDebugCompositeInstructions.Controls.Add(this.textBoxDebugCompositeMsDelay);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugCompositeFinishDisch100A);
             this.panelDebugCompositeInstructions.Controls.Add(this.buttonDebugCompositeFinishDisch10A);
-            this.panelDebugCompositeInstructions.Location = new System.Drawing.Point(778, 6);
+            this.panelDebugCompositeInstructions.Location = new System.Drawing.Point(779, 6);
             this.panelDebugCompositeInstructions.Name = "panelDebugCompositeInstructions";
-            this.panelDebugCompositeInstructions.Size = new System.Drawing.Size(164, 454);
+            this.panelDebugCompositeInstructions.Size = new System.Drawing.Size(164, 500);
             this.panelDebugCompositeInstructions.TabIndex = 9;
             // 
             // buttonTempReset
             // 
             this.buttonTempReset.Location = new System.Drawing.Point(32, 388);
-            this.buttonTempReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTempReset.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTempReset.Name = "buttonTempReset";
             this.buttonTempReset.Size = new System.Drawing.Size(56, 19);
             this.buttonTempReset.TabIndex = 149;
@@ -531,7 +558,7 @@
             // buttonTempExecute
             // 
             this.buttonTempExecute.Location = new System.Drawing.Point(32, 414);
-            this.buttonTempExecute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTempExecute.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTempExecute.Name = "buttonTempExecute";
             this.buttonTempExecute.Size = new System.Drawing.Size(56, 19);
             this.buttonTempExecute.TabIndex = 148;
@@ -550,7 +577,7 @@
             // buttonTestAll
             // 
             this.buttonTestAll.Location = new System.Drawing.Point(17, 290);
-            this.buttonTestAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestAll.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestAll.Name = "buttonTestAll";
             this.buttonTestAll.Size = new System.Drawing.Size(85, 19);
             this.buttonTestAll.TabIndex = 146;
@@ -571,7 +598,7 @@
             // buttonTestRunUp
             // 
             this.buttonTestRunUp.Location = new System.Drawing.Point(17, 265);
-            this.buttonTestRunUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestRunUp.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestRunUp.Name = "buttonTestRunUp";
             this.buttonTestRunUp.Size = new System.Drawing.Size(85, 19);
             this.buttonTestRunUp.TabIndex = 144;
@@ -582,7 +609,7 @@
             // buttonTestRunDown100A
             // 
             this.buttonTestRunDown100A.Location = new System.Drawing.Point(16, 241);
-            this.buttonTestRunDown100A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestRunDown100A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestRunDown100A.Name = "buttonTestRunDown100A";
             this.buttonTestRunDown100A.Size = new System.Drawing.Size(86, 19);
             this.buttonTestRunDown100A.TabIndex = 143;
@@ -593,7 +620,7 @@
             // buttonTestRunDown10A
             // 
             this.buttonTestRunDown10A.Location = new System.Drawing.Point(16, 218);
-            this.buttonTestRunDown10A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTestRunDown10A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestRunDown10A.Name = "buttonTestRunDown10A";
             this.buttonTestRunDown10A.Size = new System.Drawing.Size(86, 19);
             this.buttonTestRunDown10A.TabIndex = 142;
@@ -604,7 +631,7 @@
             // buttonMiksa
             // 
             this.buttonMiksa.Location = new System.Drawing.Point(16, 185);
-            this.buttonMiksa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMiksa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMiksa.Name = "buttonMiksa";
             this.buttonMiksa.Size = new System.Drawing.Size(56, 19);
             this.buttonMiksa.TabIndex = 141;
@@ -636,7 +663,7 @@
             // buttonDebugExecute
             // 
             this.buttonDebugExecute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDebugExecute.Location = new System.Drawing.Point(14, 496);
+            this.buttonDebugExecute.Location = new System.Drawing.Point(14, 542);
             this.buttonDebugExecute.Name = "buttonDebugExecute";
             this.buttonDebugExecute.Size = new System.Drawing.Size(75, 23);
             this.buttonDebugExecute.TabIndex = 138;
@@ -647,7 +674,7 @@
             // buttonDebugResetInstructions
             // 
             this.buttonDebugResetInstructions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDebugResetInstructions.Location = new System.Drawing.Point(14, 460);
+            this.buttonDebugResetInstructions.Location = new System.Drawing.Point(14, 506);
             this.buttonDebugResetInstructions.Name = "buttonDebugResetInstructions";
             this.buttonDebugResetInstructions.Size = new System.Drawing.Size(75, 23);
             this.buttonDebugResetInstructions.TabIndex = 137;
@@ -779,7 +806,7 @@
             this.panelDebugInstructionList.Controls.Add(this.buttonDebugDataRecTask);
             this.panelDebugInstructionList.Location = new System.Drawing.Point(288, 6);
             this.panelDebugInstructionList.Name = "panelDebugInstructionList";
-            this.panelDebugInstructionList.Size = new System.Drawing.Size(484, 452);
+            this.panelDebugInstructionList.Size = new System.Drawing.Size(485, 498);
             this.panelDebugInstructionList.TabIndex = 6;
             // 
             // label31
@@ -951,7 +978,7 @@
             // textBoxDebugWaitForValueFallingGain
             // 
             this.textBoxDebugWaitForValueFallingGain.Location = new System.Drawing.Point(352, 257);
-            this.textBoxDebugWaitForValueFallingGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDebugWaitForValueFallingGain.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDebugWaitForValueFallingGain.Name = "textBoxDebugWaitForValueFallingGain";
             this.textBoxDebugWaitForValueFallingGain.Size = new System.Drawing.Size(76, 20);
             this.textBoxDebugWaitForValueFallingGain.TabIndex = 137;
@@ -959,7 +986,7 @@
             // textBoxDebugWaitForValueRisingGain
             // 
             this.textBoxDebugWaitForValueRisingGain.Location = new System.Drawing.Point(352, 213);
-            this.textBoxDebugWaitForValueRisingGain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDebugWaitForValueRisingGain.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDebugWaitForValueRisingGain.Name = "textBoxDebugWaitForValueRisingGain";
             this.textBoxDebugWaitForValueRisingGain.Size = new System.Drawing.Size(76, 20);
             this.textBoxDebugWaitForValueRisingGain.TabIndex = 136;
@@ -1526,7 +1553,7 @@
             this.textBoxDebugInstructionPool.Multiline = true;
             this.textBoxDebugInstructionPool.Name = "textBoxDebugInstructionPool";
             this.textBoxDebugInstructionPool.ReadOnly = true;
-            this.textBoxDebugInstructionPool.Size = new System.Drawing.Size(276, 445);
+            this.textBoxDebugInstructionPool.Size = new System.Drawing.Size(276, 491);
             this.textBoxDebugInstructionPool.TabIndex = 5;
             // 
             // tabPage3
@@ -1535,8 +1562,8 @@
             this.tabPage3.Controls.Add(this.dataGridViewCap1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(948, 464);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(949, 510);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Cap1";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1566,10 +1593,10 @@
             this.panelCap1.Controls.Add(this.label25);
             this.panelCap1.Controls.Add(this.textBoxCap1ChargeToValue);
             this.panelCap1.Controls.Add(this.buttonCap1ChargeToValue);
-            this.panelCap1.Location = new System.Drawing.Point(6, 262);
-            this.panelCap1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCap1.Location = new System.Drawing.Point(6, 308);
+            this.panelCap1.Margin = new System.Windows.Forms.Padding(2);
             this.panelCap1.Name = "panelCap1";
-            this.panelCap1.Size = new System.Drawing.Size(937, 197);
+            this.panelCap1.Size = new System.Drawing.Size(938, 197);
             this.panelCap1.TabIndex = 2;
             // 
             // label30
@@ -1584,7 +1611,7 @@
             // textBoxCap1DebugDelay
             // 
             this.textBoxCap1DebugDelay.Location = new System.Drawing.Point(422, 82);
-            this.textBoxCap1DebugDelay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1DebugDelay.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1DebugDelay.Name = "textBoxCap1DebugDelay";
             this.textBoxCap1DebugDelay.Size = new System.Drawing.Size(187, 20);
             this.textBoxCap1DebugDelay.TabIndex = 19;
@@ -1603,7 +1630,7 @@
             // buttonCap1DisableCritLow
             // 
             this.buttonCap1DisableCritLow.Location = new System.Drawing.Point(230, 52);
-            this.buttonCap1DisableCritLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1DisableCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1DisableCritLow.Name = "buttonCap1DisableCritLow";
             this.buttonCap1DisableCritLow.Size = new System.Drawing.Size(116, 19);
             this.buttonCap1DisableCritLow.TabIndex = 17;
@@ -1614,7 +1641,7 @@
             // buttonCap1DisableCritHigh
             // 
             this.buttonCap1DisableCritHigh.Location = new System.Drawing.Point(230, 19);
-            this.buttonCap1DisableCritHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1DisableCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1DisableCritHigh.Name = "buttonCap1DisableCritHigh";
             this.buttonCap1DisableCritHigh.Size = new System.Drawing.Size(116, 20);
             this.buttonCap1DisableCritHigh.TabIndex = 16;
@@ -1635,7 +1662,7 @@
             // textBoxCap1SetCritLow
             // 
             this.textBoxCap1SetCritLow.Location = new System.Drawing.Point(116, 149);
-            this.textBoxCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1SetCritLow.Name = "textBoxCap1SetCritLow";
             this.textBoxCap1SetCritLow.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1SetCritLow.TabIndex = 14;
@@ -1643,7 +1670,7 @@
             // buttonCap1SetCritLow
             // 
             this.buttonCap1SetCritLow.Location = new System.Drawing.Point(14, 150);
-            this.buttonCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1SetCritLow.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1SetCritLow.Name = "buttonCap1SetCritLow";
             this.buttonCap1SetCritLow.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1SetCritLow.TabIndex = 13;
@@ -1664,7 +1691,7 @@
             // textBoxCap1SetCritHigh
             // 
             this.textBoxCap1SetCritHigh.Location = new System.Drawing.Point(116, 116);
-            this.textBoxCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1SetCritHigh.Name = "textBoxCap1SetCritHigh";
             this.textBoxCap1SetCritHigh.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1SetCritHigh.TabIndex = 11;
@@ -1672,7 +1699,7 @@
             // buttonCap1SetCritHigh
             // 
             this.buttonCap1SetCritHigh.Location = new System.Drawing.Point(14, 118);
-            this.buttonCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1SetCritHigh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1SetCritHigh.Name = "buttonCap1SetCritHigh";
             this.buttonCap1SetCritHigh.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1SetCritHigh.TabIndex = 10;
@@ -1693,7 +1720,7 @@
             // textBoxCap1Disch100A
             // 
             this.textBoxCap1Disch100A.Location = new System.Drawing.Point(116, 84);
-            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1Disch100A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1Disch100A.Name = "textBoxCap1Disch100A";
             this.textBoxCap1Disch100A.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1Disch100A.TabIndex = 8;
@@ -1701,7 +1728,7 @@
             // buttonCap1Discharge100A
             // 
             this.buttonCap1Discharge100A.Location = new System.Drawing.Point(14, 85);
-            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1Discharge100A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1Discharge100A.Name = "buttonCap1Discharge100A";
             this.buttonCap1Discharge100A.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1Discharge100A.TabIndex = 7;
@@ -1722,7 +1749,7 @@
             // textBoxCap1Disch10A
             // 
             this.textBoxCap1Disch10A.Location = new System.Drawing.Point(116, 51);
-            this.textBoxCap1Disch10A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1Disch10A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1Disch10A.Name = "textBoxCap1Disch10A";
             this.textBoxCap1Disch10A.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1Disch10A.TabIndex = 5;
@@ -1730,7 +1757,7 @@
             // buttonCap1Discharge10A
             // 
             this.buttonCap1Discharge10A.Location = new System.Drawing.Point(14, 53);
-            this.buttonCap1Discharge10A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1Discharge10A.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1Discharge10A.Name = "buttonCap1Discharge10A";
             this.buttonCap1Discharge10A.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1Discharge10A.TabIndex = 4;
@@ -1751,7 +1778,7 @@
             // textBoxCap1ChargeToValue
             // 
             this.textBoxCap1ChargeToValue.Location = new System.Drawing.Point(116, 19);
-            this.textBoxCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCap1ChargeToValue.Name = "textBoxCap1ChargeToValue";
             this.textBoxCap1ChargeToValue.Size = new System.Drawing.Size(76, 20);
             this.textBoxCap1ChargeToValue.TabIndex = 2;
@@ -1759,7 +1786,7 @@
             // buttonCap1ChargeToValue
             // 
             this.buttonCap1ChargeToValue.Location = new System.Drawing.Point(14, 20);
-            this.buttonCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCap1ChargeToValue.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCap1ChargeToValue.Name = "buttonCap1ChargeToValue";
             this.buttonCap1ChargeToValue.Size = new System.Drawing.Size(98, 19);
             this.buttonCap1ChargeToValue.TabIndex = 1;
@@ -1801,7 +1828,7 @@
             this.dataGridViewCap1.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewCap1.Name = "dataGridViewCap1";
             this.dataGridViewCap1.RowHeadersVisible = false;
-            this.dataGridViewCap1.Size = new System.Drawing.Size(936, 251);
+            this.dataGridViewCap1.Size = new System.Drawing.Size(937, 251);
             this.dataGridViewCap1.TabIndex = 0;
             // 
             // Column1
@@ -1966,7 +1993,7 @@
             this.tabPage4.Controls.Add(this.dataGridViewCap2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(948, 464);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Cap2";
@@ -2168,8 +2195,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 507);
+            this.ClientSize = new System.Drawing.Size(979, 553);
             this.Controls.Add(this.tabControl1);
+            this.MinimumSize = new System.Drawing.Size(889, 0);
             this.Name = "FormMain";
             this.Text = "Charger Controller";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).EndInit();
@@ -2386,6 +2414,8 @@
         private System.Windows.Forms.Button buttonDataDownloadCalibrate;
         private System.Windows.Forms.Button buttonTempExecute;
         private System.Windows.Forms.Button buttonTempReset;
+        private System.Windows.Forms.TextBox textBoxDataDownloadCapacitorDescription35A;
+        private System.Windows.Forms.Button buttonDataDownloadMultiDownload35A;
     }
 }
 

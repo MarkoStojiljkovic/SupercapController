@@ -276,7 +276,9 @@ namespace SupercapController
         }
 
 
-        
+        #region MULTI DOWNLOAD
+        static string defaultPath = AppDomain.CurrentDomain.BaseDirectory; // Used to remember state of last picked folder
+
         /// <summary>
         /// Download 4 measurements from device, which are selected from datagrid and pack them in desired form
         /// </summary>
@@ -284,18 +286,8 @@ namespace SupercapController
         /// <param name="e"></param>
         private void buttonDataDownloadMultiDownload_Click(object sender, EventArgs e)
         {
-            var cells = dataGridViewDataDownloadMesHeaders.SelectedCells;
-
-            // Extract only row numbers 
-            List<int> rows = new List<int>();
-            foreach (DataGridViewCell item in cells)
-            {
-                rows.Add(item.RowIndex);
-            }
-            // Remove duplicates
-            List<int> uniqueRows = rows.Distinct().ToList();
-            // Sort
-            uniqueRows.Sort();
+            // Get unique row numbers from datagrid
+            List<int> uniqueRows = DataGridHelperClass.ExtractSelectedRowNumbers(dataGridViewDataDownloadMesHeaders);
             // Now check if there are 4 rows selected
             if (uniqueRows.Count != 4)
             {
@@ -327,7 +319,42 @@ namespace SupercapController
         }
 
 
-        static string defaultPath = AppDomain.CurrentDomain.BaseDirectory; // Used to remember state of last picked folder
+        private void buttonDataDownloadMultiDownload35A_Click(object sender, EventArgs e)
+        {
+            // Get unique row numbers from datagrid
+            List<int> uniqueRows = DataGridHelperClass.ExtractSelectedRowNumbers(dataGridViewDataDownloadMesHeaders);
+            // Now check if there are 2 rows selected
+            if (uniqueRows.Count != 2)
+            {
+                MessageBox.Show("Select exactly 2 rows!!!");
+                return;
+            }
+            // Now form all data that needs to be sent
+
+            // Update label
+            labelMultiDownload.Text = "Pending!";
+            labelMultiDownload.ForeColor = System.Drawing.Color.Black;
+
+            // First select selected header
+            MeasurementHeaderClass header;
+
+            // Make key value pairs of addresses and data length that needs to be read
+            var kvList = new List<Tuple<int, int>>();
+            foreach (var index in uniqueRows)
+            {
+                header = headers[index];
+                kvList.Add(new Tuple<int, int>(header.headerAddress, header.numOfPoints * 2 + ConfigClass.HEADER_LENGTH));
+
+            }
+
+            if (!MultiDownloader.Download(kvList, MultiSuccess35A, MultiFail))
+            {
+                MessageBox.Show("Request not sent!");
+            }
+        }
+
+
+
         private void MultiSuccess(List<byte[]> list)
         {
             Invoke((MethodInvoker)delegate
@@ -403,6 +430,80 @@ namespace SupercapController
             Console.WriteLine("All Done!!!!");
         }
 
+        private void MultiSuccess35A(List<byte[]> list)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                labelMultiDownload.Text = "Success!";
+                labelMultiDownload.ForeColor = System.Drawing.Color.Green;
+                const string delimiter = "\r\n";
+                Console.WriteLine("Success from MULTI");
+                //string path = AppDomain.CurrentDomain.BaseDirectory;
+                string filenameCH0;
+                string filenameCH1;
+                string midleFix = textBoxDataDownloadCapacitorDescription35A.Text;
+                int[] valuesCH0, valuesCH1;
+                MeasurementHeaderClass selectedHeader;
+                string[] postFixes = { "_R", "_C"};
+                int postFixIndex = 0;
+
+
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.SelectedPath = defaultPath;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    defaultPath = dialog.SelectedPath + "\\";
+                }
+                else
+                {
+                    // If no folder is selected just abort everything :(
+                    labelMultiDownload.Text = "Canceled!";
+                    labelMultiDownload.ForeColor = System.Drawing.Color.Black;
+                    return;
+                }
+
+
+                foreach (var item in list)
+                {
+                    ByteArrayDecoderClass dec = new ByteArrayDecoderClass(item);
+                    // Extract data len without header (2 measurements are stored in raw thats why / 4)
+                    int dataLen = (dec.Get2BytesAsInt() - ConfigClass.HEADER_LENGTH) / 4;
+
+                    // Remove header from data packet
+                    selectedHeader = new MeasurementHeaderClass(0); // Dummy address
+                    selectedHeader.timestamp = dec.Get6BytesAsTimestamp();
+                    selectedHeader.prescaler = dec.Get4BytesAsInt();
+                    selectedHeader.numOfPoints = dec.Get2BytesAsInt();
+                    selectedHeader.operatingMode = dec.Get1ByteAsInt();
+                    selectedHeader.channel = dec.Get1ByteAsInt();
+
+                    valuesCH0 = new int[dataLen];
+                    valuesCH1 = new int[dataLen];
+
+                    for (int i = 0; i < dataLen; i++)
+                    {
+                        valuesCH0[i] = dec.Get2BytesAsInt16();
+                        valuesCH1[i] = dec.Get2BytesAsInt16();
+                    }
+                    // Values are extracted so far, now form filename
+
+                    // Form timestamp string
+                    string time = (selectedHeader.timestamp[0] + 2000).ToString() + "_" + selectedHeader.timestamp[1].ToString() + "_" +
+                        selectedHeader.timestamp[2].ToString() + "__" + selectedHeader.timestamp[3].ToString() + "-" +
+                        selectedHeader.timestamp[4].ToString() + "-" + selectedHeader.timestamp[5].ToString();
+                    //string channel = SupercapHelperClass.ConvertChannelToSymbolicString(selectedHeader.channel);
+
+                    filenameCH0 = "dev" + ConfigClass.deviceAddr + "_" + midleFix + "_" + time + "_" + "CH0" + postFixes[postFixIndex];
+                    filenameCH1 = "dev" + ConfigClass.deviceAddr + "_" + midleFix + "_" + time + "_" + "CH1" + postFixes[postFixIndex];
+                    SaveMeasurementsToCSVClass.Save(valuesCH0, 0, defaultPath + filenameCH0 + ".csv", delimiter);
+                    SaveMeasurementsToCSVClass.Save(valuesCH1, 1, defaultPath + filenameCH1 + ".csv", delimiter);
+                    postFixIndex++;
+                }
+            }
+            );
+
+            Console.WriteLine("All Done!!!!");
+        }
 
         private void MultiFail()
         {
@@ -413,6 +514,10 @@ namespace SupercapController
             }
             );
         }
+
+
+        #endregion MULTI DOWNLOAD
+
 
         private void buttonDataDownloadCalibrate_Click(object sender, EventArgs e)
         {

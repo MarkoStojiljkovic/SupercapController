@@ -143,5 +143,27 @@ namespace SupercapController
             }
             return null;
         }
+
+        /// <summary>
+        /// Get all and sort selected row numbers
+        /// </summary>
+        /// <param name="dg"></param>
+        /// <returns></returns>
+        public static List<int> ExtractSelectedRowNumbers(DataGridView dg)
+        {
+            var cells = dg.SelectedCells;
+
+            // Extract only row numbers 
+            List<int> rows = new List<int>();
+            foreach (DataGridViewCell item in cells)
+            {
+                rows.Add(item.RowIndex);
+            }
+            // Remove duplicates
+            List<int> uniqueRows = rows.Distinct().ToList();
+            // Sort
+            uniqueRows.Sort();
+            return uniqueRows;
+        }
     }
 }

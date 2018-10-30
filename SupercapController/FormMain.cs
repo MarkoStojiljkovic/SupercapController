@@ -65,5 +65,7 @@ namespace SupercapController
         {
             buttonDebugResetInstructions_Click(this, EventArgs.Empty);
         }
+
+        
     }
 }
