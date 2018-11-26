@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonTakeSample = new System.Windows.Forms.Button();
             this.textBoxFixedVoltage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,6 +39,16 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBoxAutoDecrement = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelMousePosX = new System.Windows.Forms.Label();
+            this.labelMousePosY = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonCalib100A = new System.Windows.Forms.Button();
+            this.buttonCalib10A = new System.Windows.Forms.Button();
+            this.labelStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTakeSample
@@ -72,10 +83,10 @@
             this.textBoxDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDisplay.Location = new System.Drawing.Point(124, 15);
+            this.textBoxDisplay.Location = new System.Drawing.Point(206, 15);
             this.textBoxDisplay.Multiline = true;
             this.textBoxDisplay.Name = "textBoxDisplay";
-            this.textBoxDisplay.Size = new System.Drawing.Size(368, 415);
+            this.textBoxDisplay.Size = new System.Drawing.Size(286, 415);
             this.textBoxDisplay.TabIndex = 3;
             this.textBoxDisplay.TabStop = false;
             // 
@@ -144,11 +155,105 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Decrement by mV";
             // 
+            // labelMousePosX
+            // 
+            this.labelMousePosX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelMousePosX.AutoSize = true;
+            this.labelMousePosX.Location = new System.Drawing.Point(10, 407);
+            this.labelMousePosX.Name = "labelMousePosX";
+            this.labelMousePosX.Size = new System.Drawing.Size(38, 13);
+            this.labelMousePosX.TabIndex = 11;
+            this.labelMousePosX.Text = "Pos X:";
+            // 
+            // labelMousePosY
+            // 
+            this.labelMousePosY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelMousePosY.AutoSize = true;
+            this.labelMousePosY.Location = new System.Drawing.Point(10, 433);
+            this.labelMousePosY.Name = "labelMousePosY";
+            this.labelMousePosY.Size = new System.Drawing.Size(38, 13);
+            this.labelMousePosY.TabIndex = 12;
+            this.labelMousePosY.Text = "Pos Y:";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 228);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(145, 127);
+            this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.TabStop = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "X";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Y";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 70;
+            // 
+            // buttonCalib100A
+            // 
+            this.buttonCalib100A.Location = new System.Drawing.Point(16, 362);
+            this.buttonCalib100A.Name = "buttonCalib100A";
+            this.buttonCalib100A.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalib100A.TabIndex = 14;
+            this.buttonCalib100A.Text = "Calib 100A";
+            this.buttonCalib100A.UseVisualStyleBackColor = true;
+            this.buttonCalib100A.Click += new System.EventHandler(this.buttonCalib100A_Click);
+            // 
+            // buttonCalib10A
+            // 
+            this.buttonCalib10A.Location = new System.Drawing.Point(97, 362);
+            this.buttonCalib10A.Name = "buttonCalib10A";
+            this.buttonCalib10A.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalib10A.TabIndex = 15;
+            this.buttonCalib10A.Text = "Calib 10A";
+            this.buttonCalib10A.UseVisualStyleBackColor = true;
+            this.buttonCalib10A.Click += new System.EventHandler(this.buttonCalib10A_Click);
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(420, 435);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(37, 13);
+            this.labelStatus.TabIndex = 17;
+            this.labelStatus.Text = "Status";
+            // 
             // Calibrate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 455);
+            this.Controls.Add(this.labelStatus);
+            this.Controls.Add(this.buttonCalib10A);
+            this.Controls.Add(this.buttonCalib100A);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelMousePosY);
+            this.Controls.Add(this.labelMousePosX);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxAutoDecrement);
             this.Controls.Add(this.checkBox1);
@@ -159,8 +264,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxFixedVoltage);
             this.Controls.Add(this.buttonTakeSample);
+            this.KeyPreview = true;
             this.Name = "Calibrate";
             this.Text = "Calibrate";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Calibrate_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +286,14 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBoxAutoDecrement;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelMousePosX;
+        private System.Windows.Forms.Label labelMousePosY;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button buttonCalib100A;
+        private System.Windows.Forms.Button buttonCalib10A;
+        private System.Windows.Forms.Label labelStatus;
     }
 }

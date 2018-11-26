@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,9 +18,22 @@ namespace SupercapController
         List<CalibratePoint> calibValues = new List<CalibratePoint>();
         int numberOfSamples = 0;
 
+        [DllImport("user32.dll")]
+        static extern bool GetCursorPos(ref Point lpPoint);
+
+        [DllImport("user32.dll")]
+        static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+
+        private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        private const int MOUSEEVENTF_LEFTUP = 0x04;
+
         public Calibrate()
         {
             InitializeComponent();
+            dataGridView1.Rows.Add("0", "0");
+            dataGridView1.Rows.Add("0", "0");
+            //dataGridView1.Rows.Add("0", "0");
+            //dataGridView1.Rows.Add("0", "0");
         }
 
         private void buttonTakeSample_Click(object sender, EventArgs e)
@@ -117,6 +132,112 @@ namespace SupercapController
 
             textBoxFixedVoltage.Text = final.ToString();
             textBoxFixedVoltage.SelectAll();
+        }
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Point pt = new Point();
+            GetCursorPos(ref pt);
+            labelMousePosX.Text = "PosX: " + pt.X.ToString();
+            labelMousePosY.Text = "PosY: " + pt.Y.ToString();
+        }
+
+        private void Calibrate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Point pt = new Point();
+            GetCursorPos(ref pt);
+
+            switch (e.KeyChar)
+            {
+                case '/':
+                    dataGridView1.Rows[0].SetValues(pt.X.ToString(), pt.Y.ToString());
+                    break;
+                case '*':
+                    dataGridView1.Rows[1].SetValues(pt.X.ToString(), pt.Y.ToString());
+                    break;
+                //case '-':
+                //    dataGridView1.Rows[2].SetValues(pt.X.ToString(), pt.Y.ToString());
+                //    break;
+                //case '+':
+                //    dataGridView1.Rows[3].SetValues(pt.X.ToString(), pt.Y.ToString());
+                //    break;
+                default:
+                    break;
+            }
+        }
+
+        private void buttonCalib100A_Click(object sender, EventArgs e)
+        {
+            // Send commands for calibration
+            CommandFormerClass cm = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+            cm.ReturnACK();
+            cm.AppendDischarger100AOn();
+            cm.AppendWaitForMs(2000);
+            cm.AppendDataRecorderTask(0, 2, 0, 150, DateTime.Now.AddSeconds(2)); // Take into consideration 2 sec wait above
+            cm.AppendWaitForMs(1000);
+            cm.AppendDischarger100AOffS1();
+            cm.AppendWaitForMs(200);
+            cm.AppendDischarger100AOffS2();
+            var data = cm.GetFinalCommandList();
+            SerialDriver.Send(data, SuccessCallbackCurrent100A, FailCallback);
+
+            // Now enable GW INSTEC recording
+
+            Point pt = new Point(Convert.ToInt32(dataGridView1.Rows[0].Cells[0].Value), Convert.ToInt32(dataGridView1.Rows[0].Cells[1].Value));
+            Cursor.Position = pt;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, pt.X, pt.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, pt.X, pt.Y, 0, 0);
+            Thread.Sleep(100);
+            // Configrm recording
+            pt = new Point(Convert.ToInt32(dataGridView1.Rows[1].Cells[0].Value), Convert.ToInt32(dataGridView1.Rows[1].Cells[1].Value));
+            Cursor.Position = pt;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, pt.X, pt.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, pt.X, pt.Y, 0, 0);
+            Thread.Sleep(2900);
+            // Disable measures
+            pt = new Point(Convert.ToInt32(dataGridView1.Rows[0].Cells[0].Value), Convert.ToInt32(dataGridView1.Rows[0].Cells[1].Value));
+            Cursor.Position = pt;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, pt.X, pt.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, pt.X, pt.Y, 0, 0);
+        }
+
+        private void SuccessCallbackCurrent100A(byte[] obj)
+        {
+            Console.WriteLine("Finished 100A");
+        }
+
+        private void buttonCalib10A_Click(object sender, EventArgs e)
+        {
+            // Send commands for calibration
+            CommandFormerClass cm = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+            cm.ReturnACK();
+            cm.AppendDischarger10AOn();
+            cm.AppendWaitForMs(2000);
+            cm.AppendDataRecorderTask(0, 2, 0, 300, DateTime.Now.AddSeconds(2)); // Take into consideration 2 sec wait above
+            cm.AppendWaitForMs(2000);
+            cm.AppendDischarger10AOffS1();
+            cm.AppendWaitForMs(200);
+            cm.AppendDischarger10AOffS2();
+            var data = cm.GetFinalCommandList();
+            SerialDriver.Send(data, SuccessCallbackCurrent100A, FailCallback);
+
+            // Now enable GW INSTEC recording
+            Point pt = new Point(Convert.ToInt32(dataGridView1.Rows[0].Cells[0].Value), Convert.ToInt32(dataGridView1.Rows[0].Cells[1].Value));
+            Cursor.Position = pt;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, pt.X, pt.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, pt.X, pt.Y, 0, 0);
+            Thread.Sleep(100);
+            // Configrm recording
+            pt = new Point(Convert.ToInt32(dataGridView1.Rows[1].Cells[0].Value), Convert.ToInt32(dataGridView1.Rows[1].Cells[1].Value));
+            Cursor.Position = pt;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, pt.X, pt.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, pt.X, pt.Y, 0, 0);
+            Thread.Sleep(3900);
+            // Disable measures
+            pt = new Point(Convert.ToInt32(dataGridView1.Rows[0].Cells[0].Value), Convert.ToInt32(dataGridView1.Rows[0].Cells[1].Value));
+            Cursor.Position = pt;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, pt.X, pt.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, pt.X, pt.Y, 0, 0);
         }
     }
 

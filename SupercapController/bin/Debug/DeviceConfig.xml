@@ -244,7 +244,7 @@
     <DeviceGainInfo>
       <devAddr>49</devAddr>
       <gainCH0>1</gainCH0>
-      <gainCH1>1.3296</gainCH1>
+      <gainCH1>2.0326</gainCH1>
     </DeviceGainInfo>
     <DeviceGainInfo>
       <devAddr>50</devAddr>
