@@ -5,7 +5,7 @@
       <containerID>1</containerID>
       <container>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>1</devAddr>
         </DevUnit>
@@ -15,7 +15,7 @@
           <devAddr>2</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>true</enabled>
+          <enabled>false</enabled>
           <skip>false</skip>
           <devAddr>3</devAddr>
         </DevUnit>
