@@ -14,63 +14,7 @@ namespace SupercapController
     {
 
         List<int> list;
-
-        private void buttonCap1ChargeToValue_Click(object sender, EventArgs e)
-        {
-            float value, gain, tValue;
-            // First parse float value
-            try
-            {
-                value = float.Parse(textBoxCap1ChargeToValue.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Insert valid float value!");
-                return;
-            }
-
-
-            list = DataGridHelperClass.GetSelectedIndexes(dataGridViewCap1);
-            
-            foreach (var index in list)
-            {
-                //ConfigClass.UpdateWorkingDeviceAddress(addr); 
-                gain = ConfigClass.deviceGainCH1;
-                tValue = value / gain;
-            }
-            
-        }
-        
-
-        private void buttonCap1Discharge10A_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCap1Discharge100A_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCap1SetCritHigh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCap1SetCritLow_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCap1DisableCritHigh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCap1DisableCritLow_Click(object sender, EventArgs e)
-        {
-
-        }
+        public bool forceStop = false;
         
 
         /// <summary>
@@ -78,7 +22,7 @@ namespace SupercapController
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void buttonCap1RunCommandsFromDebug_Click(object sender, EventArgs e)
+        private async void buttonCap1SendTestSeq_Click(object sender, EventArgs e)
         {
             int delay;
             // First parse float value
@@ -176,5 +120,60 @@ namespace SupercapController
             else
                 throw new Exception("Cell not found in FormMain.ChangeColorOnDataGrid()");
         }
+
+        private void buttonCap1SelectAll_Click(object sender, EventArgs e)
+        {
+            DataGridHelperClass.SelectAll(dataGridViewCap1);
+        }
+
+        private void buttonCap1DeselectAll_Click(object sender, EventArgs e)
+        {
+            DataGridHelperClass.DeselectAll(dataGridViewCap1);
+        }
+
+        private void buttonCap1ForceStop_Click(object sender, EventArgs e)
+        {
+            forceStop = true;
+        }
+
+
+
+        private void buttonCap1ActivateFanox_Click(object sender, EventArgs e)
+        {
+            MultiCommandSender.SendMulti(dataGridViewCap1, this, Cap1FanoxOnTestSeq);
+        }
+
+        private void buttonCap1DeactivateFanox_Click(object sender, EventArgs e)
+        {
+            MultiCommandSender.SendMulti(dataGridViewCap1, this, Cap1FanoxOffTestSeq);
+        }
+
+        private void buttonCap1Ping_Click(object sender, EventArgs e)
+        {
+            MultiCommandSender.SendMulti(dataGridViewCap1, this, Cap1PingTestSeq);
+        }
+
+        private void Cap1FanoxOnTestSeq(CommandFormerClass co)
+        {
+            // Request return ACK
+            co.ReturnACK();
+            // Fanox on
+            co.AppendFanoxOn();
+        }
+
+        private void Cap1FanoxOffTestSeq(CommandFormerClass co)
+        {
+            // Request return ACK
+            co.ReturnACK();
+            // Fanox off
+            co.AppendFanoxOff();
+        }
+
+        private void Cap1PingTestSeq(CommandFormerClass co)
+        {
+            // Request return ACK
+            co.ReturnACK();
+        }
+
     }
 }

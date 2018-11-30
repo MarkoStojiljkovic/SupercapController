@@ -115,8 +115,9 @@ namespace SupercapController
                             {
                                 FormCustomConsole.WriteWithConsole("Aborting process (checksum doesnt match) at ");
                                 FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
-                                _failCallback();
                                 Busy = false;
+                                _failCallback();
+                                
                             }
                             else
                             {
@@ -129,8 +130,8 @@ namespace SupercapController
                         else
                         {
                             // Checksum not valid
-                            _failCallback();
                             Busy = false;
+                            _failCallback();
                         }
                     }
                     break;
@@ -183,8 +184,8 @@ namespace SupercapController
                             {
                                 FormCustomConsole.WriteWithConsole("Aborting process at ");
                                 FormCustomConsole.WriteLineWithConsole(DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond);
-                                _failCallback();
                                 Busy = false;
+                                _failCallback();
                             }
                             else
                             {
@@ -196,8 +197,8 @@ namespace SupercapController
                         }
                         else
                         {
-                            _failCallback();
                             Busy = false;
+                            _failCallback();
                         }
                         return;
                     }
@@ -218,8 +219,8 @@ namespace SupercapController
                         {
                             // Abort everything
                             System.Windows.Forms.MessageBox.Show("Port is not open!");
-                            _failCallback();
                             Busy = false;
+                            _failCallback();
                             taskState = 0;
                         }
                     }

@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="InputValidatorHelperClass.cs" />
     <Compile Include="MeasurementHeaderClass.cs" />
+    <Compile Include="MultiCommandSender.cs" />
     <Compile Include="MultiDownloader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

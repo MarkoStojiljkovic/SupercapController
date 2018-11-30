@@ -50,8 +50,46 @@ namespace SupercapController
             }
         }
 
+        public static void SelectAll(DataGridView dg)
+        {
+            foreach (DataGridViewRow row in dg.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    //do operations with cell
+                    if (cell is DataGridViewCheckBoxCell)
+                    {
+                        //If cell is not disabled check it
+                        if (cell.Style.BackColor != Color.LightGray)
+                        {
+                            cell.Value = true;
+                        }
 
-        
+                    }
+                }
+            }
+        }
+
+        public static void DeselectAll(DataGridView dg)
+        {
+            foreach (DataGridViewRow row in dg.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    //do operations with cell
+                    if (cell is DataGridViewCheckBoxCell)
+                    {
+                        //If cell is not disabled check it
+                        if (cell.Style.BackColor != Color.LightGray)
+                        {
+                            cell.Value = false;
+                        }
+
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Correct datagrid based on conifiguration file (disable or skip some cells)
         /// </summary>
