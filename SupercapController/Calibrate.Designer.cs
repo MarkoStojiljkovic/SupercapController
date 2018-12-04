@@ -216,26 +216,31 @@
             // 
             // buttonCalib100A
             // 
+            this.buttonCalib100A.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCalib100A.Location = new System.Drawing.Point(16, 362);
             this.buttonCalib100A.Name = "buttonCalib100A";
             this.buttonCalib100A.Size = new System.Drawing.Size(75, 23);
             this.buttonCalib100A.TabIndex = 14;
+            this.buttonCalib100A.TabStop = false;
             this.buttonCalib100A.Text = "Calib 100A";
             this.buttonCalib100A.UseVisualStyleBackColor = true;
             this.buttonCalib100A.Click += new System.EventHandler(this.buttonCalib100A_Click);
             // 
             // buttonCalib10A
             // 
+            this.buttonCalib10A.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCalib10A.Location = new System.Drawing.Point(97, 362);
             this.buttonCalib10A.Name = "buttonCalib10A";
             this.buttonCalib10A.Size = new System.Drawing.Size(75, 23);
             this.buttonCalib10A.TabIndex = 15;
+            this.buttonCalib10A.TabStop = false;
             this.buttonCalib10A.Text = "Calib 10A";
             this.buttonCalib10A.UseVisualStyleBackColor = true;
             this.buttonCalib10A.Click += new System.EventHandler(this.buttonCalib10A_Click);
             // 
             // labelStatus
             // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStatus.AutoSize = true;
             this.labelStatus.Location = new System.Drawing.Point(420, 435);
             this.labelStatus.Name = "labelStatus";

@@ -96,6 +96,12 @@
     <Compile Include="FormMeasurementSingleChannelPresenter.Designer.cs">
       <DependentUpon>FormMeasurementSingleChannelPresenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMultiVoltageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMultiVoltageViewer.Designer.cs">
+      <DependentUpon>FormMultiVoltageViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputValidatorHelperClass.cs" />
     <Compile Include="MeasurementHeaderClass.cs" />
     <Compile Include="MultiCommandSender.cs" />
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMeasurementSingleChannelPresenter.resx">
       <DependentUpon>FormMeasurementSingleChannelPresenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMultiVoltageViewer.resx">
+      <DependentUpon>FormMultiVoltageViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

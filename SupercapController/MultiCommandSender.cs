@@ -18,6 +18,7 @@ namespace SupercapController
         static FormMain form;
         static Action<CommandFormerClass> testSeq;
         static bool busy = false;
+        public static bool forceStop = false;
 
         public static bool SendMulti(DataGridView _dg, FormMain f, Action<CommandFormerClass> _testSeq)
         {
@@ -31,7 +32,7 @@ namespace SupercapController
             form = f;
             testSeq = _testSeq;
             DataGridHelperClass.ClearStatusColorsFromDataGrid(dg);
-            form.forceStop = false;
+            forceStop = false;
             cap1IndexList = DataGridHelperClass.GetSelectedIndexes(dg);
             cap1IndexListCount = 0;
             // Send first to start a sequence, take care that first time sender is main (GUI) thread other times is thread from serial driver module
@@ -55,14 +56,14 @@ namespace SupercapController
             try
             {
                 Thread.Sleep(delayMs);
-                if (form.forceStop)
+                if (forceStop)
                 {
                     FormCustomConsole.WriteLineWithConsole("Multi sending aborted\r\n");
                     busy = false;
                     return;
                 }
                 FormCustomConsole.WriteLineWithConsole("\r\nSending commands to ID:" + devId + "\r\n");
-                if (!SerialDriver.Send(data, Cap1ExecuteSuccessCallbackV2, Cap1ExecuteFailCallbackV2))
+                if (!SerialDriver.Send(data, SuccessCallback, FailCallback))
                 {
                     Console.WriteLine("Serial Driver busy!!");
                     busy = false;
@@ -75,7 +76,7 @@ namespace SupercapController
             }
         }
 
-        private static void Cap1ExecuteSuccessCallbackV2(byte[] b)
+        private static void SuccessCallback(byte[] b)
         {
             // Its ACK no need to use data
             FormCustomConsole.WriteLineWithConsole("COMMANDS SENT SUCCESSFULLY TO DEVICE:" + ConfigClass.deviceAddr + "!!!");
@@ -97,7 +98,7 @@ namespace SupercapController
 
         }
 
-        private static void Cap1ExecuteFailCallbackV2()
+        private static void FailCallback()
         {
             FormCustomConsole.WriteLineWithConsole("COMMANDS NOT RECEIVED BY DEVICE WITH ID:" + ConfigClass.deviceAddr + "!!!");
             form.Invoke((MethodInvoker)delegate

@@ -157,6 +157,7 @@
             this.textBoxDebugInstructionPool = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panelCap1 = new System.Windows.Forms.Panel();
+            this.buttonCap1ForceStop = new System.Windows.Forms.Button();
             this.buttonCap1DeselectAll = new System.Windows.Forms.Button();
             this.buttonCap1SelectAll = new System.Windows.Forms.Button();
             this.buttonCap1Ping = new System.Windows.Forms.Button();
@@ -210,7 +211,7 @@
             this.dataGridViewCheckBoxColumn9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.buttonCap1ForceStop = new System.Windows.Forms.Button();
+            this.buttonCap1GetVoltage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataDownloadMesHeaders)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1562,6 +1563,7 @@
             this.panelCap1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCap1.AutoScroll = true;
+            this.panelCap1.Controls.Add(this.buttonCap1GetVoltage);
             this.panelCap1.Controls.Add(this.buttonCap1ForceStop);
             this.panelCap1.Controls.Add(this.buttonCap1DeselectAll);
             this.panelCap1.Controls.Add(this.buttonCap1SelectAll);
@@ -1576,6 +1578,17 @@
             this.panelCap1.Name = "panelCap1";
             this.panelCap1.Size = new System.Drawing.Size(938, 221);
             this.panelCap1.TabIndex = 2;
+            // 
+            // buttonCap1ForceStop
+            // 
+            this.buttonCap1ForceStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCap1ForceStop.Location = new System.Drawing.Point(845, 74);
+            this.buttonCap1ForceStop.Name = "buttonCap1ForceStop";
+            this.buttonCap1ForceStop.Size = new System.Drawing.Size(75, 23);
+            this.buttonCap1ForceStop.TabIndex = 27;
+            this.buttonCap1ForceStop.Text = "Force Stop";
+            this.buttonCap1ForceStop.UseVisualStyleBackColor = true;
+            this.buttonCap1ForceStop.Click += new System.EventHandler(this.buttonCap1ForceStop_Click);
             // 
             // buttonCap1DeselectAll
             // 
@@ -2054,16 +2067,15 @@
             this.dataGridViewCheckBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn10.Width = 30;
             // 
-            // buttonCap1ForceStop
+            // buttonCap1GetVoltage
             // 
-            this.buttonCap1ForceStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCap1ForceStop.Location = new System.Drawing.Point(845, 74);
-            this.buttonCap1ForceStop.Name = "buttonCap1ForceStop";
-            this.buttonCap1ForceStop.Size = new System.Drawing.Size(75, 23);
-            this.buttonCap1ForceStop.TabIndex = 27;
-            this.buttonCap1ForceStop.Text = "Force Stop";
-            this.buttonCap1ForceStop.UseVisualStyleBackColor = true;
-            this.buttonCap1ForceStop.Click += new System.EventHandler(this.buttonCap1ForceStop_Click);
+            this.buttonCap1GetVoltage.Location = new System.Drawing.Point(16, 94);
+            this.buttonCap1GetVoltage.Name = "buttonCap1GetVoltage";
+            this.buttonCap1GetVoltage.Size = new System.Drawing.Size(75, 23);
+            this.buttonCap1GetVoltage.TabIndex = 28;
+            this.buttonCap1GetVoltage.Text = "Get Voltage";
+            this.buttonCap1GetVoltage.UseVisualStyleBackColor = true;
+            this.buttonCap1GetVoltage.Click += new System.EventHandler(this.buttonCap1GetVoltage_Click);
             // 
             // FormMain
             // 
@@ -2279,6 +2291,7 @@
         private System.Windows.Forms.Button buttonCap1SelectAll;
         private System.Windows.Forms.Button buttonCap1DeselectAll;
         private System.Windows.Forms.Button buttonCap1ForceStop;
+        private System.Windows.Forms.Button buttonCap1GetVoltage;
     }
 }
 

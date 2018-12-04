@@ -14,7 +14,6 @@ namespace SupercapController
     {
 
         List<int> list;
-        public bool forceStop = false;
         
 
         /// <summary>
@@ -133,7 +132,7 @@ namespace SupercapController
 
         private void buttonCap1ForceStop_Click(object sender, EventArgs e)
         {
-            forceStop = true;
+            MultiCommandSender.forceStop = true;
         }
 
 
@@ -153,6 +152,18 @@ namespace SupercapController
             MultiCommandSender.SendMulti(dataGridViewCap1, this, Cap1PingTestSeq);
         }
 
+        private void buttonCap1GetVoltage_Click(object sender, EventArgs e)
+        {
+            var list = DataGridHelperClass.GetSelectedIndexes(dataGridViewCap1);
+            if (list.Count == 0) return; // Ignore if none device is selected
+            FormMultiVoltageViewer f = new FormMultiVoltageViewer(list, this);
+            f.Show();
+        }
+
+
+
+
+        #region TEST SEQUENCES
         private void Cap1FanoxOnTestSeq(CommandFormerClass co)
         {
             // Request return ACK
@@ -174,6 +185,6 @@ namespace SupercapController
             // Request return ACK
             co.ReturnACK();
         }
-
+        #endregion TEST SEQUENCE
     }
 }
