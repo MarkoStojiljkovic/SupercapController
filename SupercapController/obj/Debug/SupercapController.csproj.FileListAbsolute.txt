@@ -1,0 +1,1 @@
+C:\workspace\ChargerController\SupercapController\bin\Debug\SupercapController.exe.config

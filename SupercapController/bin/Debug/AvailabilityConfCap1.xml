@@ -15,7 +15,7 @@
           <devAddr>2</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>3</devAddr>
         </DevUnit>
@@ -70,7 +70,7 @@
           <devAddr>5</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>6</devAddr>
         </DevUnit>
@@ -230,7 +230,7 @@
           <devAddr>13</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>14</devAddr>
         </DevUnit>
@@ -240,17 +240,17 @@
           <devAddr>15</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>16</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>17</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>18</devAddr>
         </DevUnit>
@@ -300,12 +300,12 @@
           <devAddr>22</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>23</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>24</devAddr>
         </DevUnit>
@@ -460,7 +460,7 @@
           <devAddr>42</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>false</enabled>
+          <enabled>true</enabled>
           <skip>false</skip>
           <devAddr>43</devAddr>
         </DevUnit>
@@ -501,52 +501,52 @@
       <container>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>49</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>50</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>51</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>52</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>true</enabled>
-          <skip>true</skip>
+          <enabled>false</enabled>
+          <skip>false</skip>
           <devAddr>53</devAddr>
         </DevUnit>
         <DevUnit>
-          <enabled>true</enabled>
-          <skip>true</skip>
+          <enabled>false</enabled>
+          <skip>false</skip>
           <devAddr>54</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>55</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>56</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>57</devAddr>
         </DevUnit>
         <DevUnit>
           <enabled>true</enabled>
-          <skip>true</skip>
+          <skip>false</skip>
           <devAddr>58</devAddr>
         </DevUnit>
       </container>
