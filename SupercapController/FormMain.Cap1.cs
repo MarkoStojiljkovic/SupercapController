@@ -130,6 +130,12 @@ namespace SupercapController
             DataGridHelperClass.DeselectAll(dataGridViewCap1);
         }
 
+        private void buttonCap1CheckSelected_Click(object sender, EventArgs e)
+        {
+            DataGridHelperClass.ActivateSelectedCheckboxes(dataGridViewCap1);
+        }
+
+
         private void buttonCap1ForceStop_Click(object sender, EventArgs e)
         {
             MultiCommandSender.forceStop = true;

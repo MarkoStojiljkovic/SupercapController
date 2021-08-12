@@ -16,9 +16,10 @@ namespace SupercapController
         public const int NUM_OF_DEVICES = 116;
 
         // Device pool settings
-        public const int NUM_OF_DEVICES_IN_CONTAINER = 10;
+        public const int NUM_OF_DEVICES_IN_CONTAINER = 12;
         public const int NUM_OF_CONTAINERS = 10;
         public static DevicePoolSerializableClass DevPoolCap1; // Init with values from conf file, or use default
+        public static DeviceAvailability DEV_POOL_NEW_1; // TEST, NOT USED
         public static DevicePoolSerializableClass DevPoolCap2; // Init with values from conf file, or use default
         public const string devPoolCap1Filename = "AvailabilityConfCap1.xml";
         public const string devPoolCap2Filename = "AvailabilityConfCap2.xml";

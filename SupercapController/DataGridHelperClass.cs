@@ -34,6 +34,12 @@ namespace SupercapController
             }
         }
 
+        // NOT USED, 
+        public static void PopulateCapDataGridNew(DeviceAvailability devPool, DataGridView datagrid)
+        {
+           
+        }
+
         public static void ClearStatusColorsFromDataGrid(DataGridView dg)
         {
             foreach (DataGridViewRow row in dg.Rows)
@@ -83,6 +89,42 @@ namespace SupercapController
                         if (cell.Style.BackColor != Color.LightGray)
                         {
                             cell.Value = false;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        public static void ActivateSelectedCheckboxes(DataGridView dg)
+        {
+
+            foreach (DataGridViewCell cell in dg.SelectedCells)
+            {
+                //do operations with cell
+                if (cell is DataGridViewCheckBoxCell)
+                {
+                    //If cell is not disabled check it
+                    if (cell.Style.BackColor != Color.LightGray)
+                    {
+                        cell.Value = true;
+                    }
+
+                }
+            }
+            return;
+
+            foreach (DataGridViewRow row in dg.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    //do operations with cell
+                    if (cell is DataGridViewCheckBoxCell)
+                    {
+                        //If cell is not disabled check it
+                        if (cell.Style.BackColor != Color.LightGray)
+                        {
+                            cell.Value = true;
                         }
 
                     }

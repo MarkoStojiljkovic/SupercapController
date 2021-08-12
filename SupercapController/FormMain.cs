@@ -39,6 +39,7 @@ namespace SupercapController
             #endregion
             
             com = new CommandFormerClass(ConfigClass.startSeq, ConfigClass.deviceAddr);
+            //DataGridHelperClass.PopulateCapDataGridNew(ConfigClass.DEV_POOL_NEW_1, dataGridViewCap1);
             DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap1, dataGridViewCap1);
             DataGridHelperClass.PopulateCapDataGrid(ConfigClass.DevPoolCap2, dataGridViewCap2);
 

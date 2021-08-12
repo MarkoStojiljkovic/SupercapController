@@ -62,6 +62,7 @@
     <Compile Include="ConfigGainSerializable.cs" />
     <Compile Include="CustomConvertorClass.cs" />
     <Compile Include="DataGridHelperClass.cs" />
+    <Compile Include="DeviceAvailability.cs" />
     <Compile Include="DevicePoolSerializableClass.cs" />
     <Compile Include="FormCustomConsole.cs">
       <SubType>Form</SubType>

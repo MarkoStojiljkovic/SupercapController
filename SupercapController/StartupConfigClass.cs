@@ -16,9 +16,43 @@ namespace SupercapController
         public static void Init()
         {
             // Initialize gain
+           // DeviceAvailabilityInit2();
             GainConfInit();
             DeviceAvailabilityInit();
         }
+
+        // NOT USED, TESTING CODE
+        private static void DeviceAvailabilityInit2()
+        {
+            // Init configurations for both capacitors 
+            // Capacitor 1 init
+            string fileName = "AvailabiltyConf1.xml";
+            string fullPath = path + fileName;
+            if (File.Exists(fullPath))
+            {
+                try
+                {
+                    using (var stream = new FileStream(fileName, FileMode.Open))
+                    {
+                        XmlSerializer xml = new XmlSerializer(typeof(DeviceAvailability));
+                        // No need to asign result, static reference will be updated in constructor
+                        ConfigClass.DEV_POOL_NEW_1 = (DeviceAvailability)xml.Deserialize(stream);
+                    }
+                }
+                catch (Exception)
+                {
+                    //ConfigClass.DevPoolCap1 = new DevicePoolSerializableClass(ConfigClass.cap1AddrOffset); // Force default values
+                    FormCustomConsole.WriteLine("Problem occurred while initializing availability for Capacitor 1, default values are applied");
+                    Console.WriteLine("Problem occurred while initializing availability for Capacitor 1, default values are applied");
+                    System.Windows.Forms.MessageBox.Show("Problem occurred while initializing availability for Capacitor 1, default values are applied");
+                }
+            }
+            else
+            {
+
+            }
+        }
+
 
         private static bool CreateFile(string filename)
         {
